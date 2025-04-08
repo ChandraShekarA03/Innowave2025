@@ -1,65 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>InnoWave </title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background-color: white;
-    }
-
-    .custom-nav {
-      border-radius: 2rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      padding: 0.5rem 1rem;
-      background-color: white;
-    }
-
-    .nav-link {
-      font-weight: 600;
-      color: #000;
-    }
-
-    .nav-link.active {
-      color: #2d7d77;
-    }
-
-    .logo {
-      font-weight: bold;
-      font-size: 1.5rem;
-      letter-spacing: 1px;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>InnoWave</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet" />
 </head>
 <body>
 
-  <div class="nav-container">
-    <div class="logo"><img src="#" alt=""></div> <!----We need add logo here-->
-    <nav class="custom-nav">
-      <ul class="nav nav-pills">
-        <li class="nav-item">
-          <a class="nav-link active" href="#about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#collaborators">Our Collaborators</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#events">Competitions & Events</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#innofair">Innofair</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#speakers">Speakers</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+  <!-- Header / Navbar -->
+  <header class="main-header">
+    <div class="nav-container d-flex justify-content-between align-items-center px-4 py-3">
+      <div id="logo-placeholder">
+        <span id="logo-target"></span> <!-- Target destination for the animated logo -->
+      </div>
+      <nav class="custom-nav">
+        <ul class="nav nav-pills">
+          <li class="nav-item"><a class="nav-link active" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#collaborators">Our Collaborators</a></li>
+          <li class="nav-item"><a class="nav-link" href="#events">Competitions & Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="#innofair">Innofair</a></li>
+          <li class="nav-item"><a class="nav-link" href="#speakers">Speakers</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
+  <!-- Hero section with logo -->
+  <section class="hero-section">
+    <h1 id="hero-logo">INNOWAVE</h1>
+  </section>
+
+  <!-- Dummy content to scroll -->
+  <section style="height: 2000px; background: #f4f4f4;"></section>
+
+  <script src="script.js"></script>
 </body>
 </html>
