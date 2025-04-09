@@ -92,10 +92,7 @@
         <script>
             const updateLogoPosition = () => {
                 const scrollThreshold = window.innerHeight * 0.92;
-                let progress = window.scrollY / scrollThreshold;
-                if (progress > 1) {
-                    progress = 1;
-                }
+                const progress = (window.scrollY / scrollThreshold) <= 1 ? (window.scrollY / scrollThreshold) : 1;
 
                 const logo = document.querySelector("#hero-logo");
                 const orig = document.querySelector("#orig-logo-loc");
@@ -114,7 +111,7 @@
                 const navHalf = navRect.width * 0.5;
 
                 nav.style.marginRight = `-${navHalf}px`
-                nav.style.right = `${windowWidthHalf - (windowWidthHalf - navHalf) * progress}`;
+                nav.style.right = `${windowWidthHalf - (windowWidthHalf - navHalf) * progress}px`;
             }
             window.addEventListener("scroll", updateLogoPosition);
             updateLogoPosition();
