@@ -12,7 +12,7 @@
                 font-family: Arial, sans-serif;
             }
             body {
-                background: linear-gradient(to right, #2f7c7c, #59b2b2);
+                background: linear-gradient(to right, #215858, #2d7777);
             }
 
             #hero-section {
@@ -51,6 +51,19 @@
                 width: 10vw;
                 opacity: 0;
             }
+
+            .nav-link {
+                color: #ffffff;
+            }
+
+            .nav-link:hover {
+                color: #f5cc81;
+            }
+
+            .nav {
+                position: fixed;
+                right: 50vw;
+            }
         </style>
     </head>
     <body>
@@ -87,13 +100,21 @@
                 const logo = document.querySelector("#hero-logo");
                 const orig = document.querySelector("#orig-logo-loc");
                 const target = document.querySelector("#logo-target");
+                const nav = document.querySelector(".nav");
 
                 const origRect = orig.getBoundingClientRect();
                 const targetRect = target.getBoundingClientRect();
+                const navRect = nav.getBoundingClientRect();
 
                 logo.style.left = `${origRect.x - (origRect.x - targetRect.x) * progress}px`;
                 logo.style.top = `${origRect.y - (origRect.y - targetRect.y) * progress}px`;
                 logo.style.width = `${50 - 40 * progress}vw`;
+
+                const windowWidthHalf = window.innerWidth * 0.5;
+                const navHalf = navRect.width * 0.5;
+
+                nav.style.marginRight = `-${navHalf}px`
+                nav.style.right = `${windowWidthHalf - (windowWidthHalf - navHalf) * progress}`;
             }
             window.addEventListener("scroll", updateLogoPosition);
             updateLogoPosition();
