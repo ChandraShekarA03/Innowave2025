@@ -36,7 +36,7 @@
                 width: 100%;
                 background: #000000;
                 z-index: 998;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             }
 
             .nav-link {
@@ -49,7 +49,6 @@
 
             .nav {
                 position: fixed;
-                right: 50vw;
             }
         </style>
     </head>
@@ -69,7 +68,7 @@
         <section id="logo-section"><!-- Content behind logo --></section>
 
         <script>
-            const updateLogoPosition = () => {
+            const updatePosition = () => {
                 const scrollThreshold = window.innerHeight * 0.92;
                 const progress = (window.scrollY / scrollThreshold) <= 1 ? (window.scrollY / scrollThreshold) : 1;
                 
@@ -83,23 +82,22 @@
                 const navRect = nav.getBoundingClientRect();
                 const navContainerRect = navContainer.getBoundingClientRect();
 
-                const origLogoX = window.innerWidth / 4;
-                const origLogoY = (window.innerHeight / 2) - (logoRect.height / 2);
-                const targetLogoX = window.innerWidth / 80;
-                const targetLogoY = (navContainerRect.height / 2) - (window.innerWidth * 257 / (10 * 1563 * 2)); // 1563 x 257 is the logo resolution
+                const logoOrigX = window.innerWidth / 4;
+                const logoOrigY = (window.innerHeight / 2) - (logoRect.height / 2);
+                const logoTargetX = window.innerWidth / 80;
+                const logoTargetY = (navContainerRect.height / 2) - (window.innerWidth * 257 / (10 * 1563 * 2)); // 1563 x 257 is the logo resolution
 
-                logo.style.left = `${origLogoX - (origLogoX - targetLogoX) * progress}px`;
-                logo.style.top = `${origLogoY - (origLogoY - targetLogoY) * progress}px`;
+                logo.style.left = `${logoOrigX - (logoOrigX - logoTargetX) * progress}px`;
+                logo.style.top = `${logoOrigY - (logoOrigY - logoTargetY) * progress}px`;
 
-                const windowWidthHalf = window.innerWidth / 2;
-                const navHalf = navRect.width / 2;
+                const navOrigRight = (window.innerWidth / 2) - (navRect.width / 2);
 
-                nav.style.marginRight = `-${navHalf}px`
-                nav.style.right = `${windowWidthHalf - (windowWidthHalf - navHalf) * progress}px`;
+                nav.style.right = `${navOrigRight - navOrigRight * progress}px`;
             }
             
-            window.addEventListener("scroll", updateLogoPosition);
-            updateLogoPosition();
+            window.addEventListener("scroll", updatePosition);
+            window.addEventListener("resize", updatePosition);
+            updatePosition();
         </script>
     </body>
 </html>
