@@ -32,7 +32,7 @@
             .nav-container {
                 position: fixed;
                 top: 0;
-                height: 6.9169385908vh;
+                height: 63.5px;
                 width: 100%;
                 background: #000000;
                 z-index: 998;
@@ -70,25 +70,43 @@
         <script>
             const updatePosition = () => {
                 const scrollThreshold = window.innerHeight * 0.930830614092;
-                const progress = (window.scrollY / scrollThreshold) <= 1 ? (window.scrollY / scrollThreshold) : 1;
-                
+                const actualProgress = window.scrollY / scrollThreshold;
+                let progress = actualProgress;
+
+                if (progress > 1) {
+                    progress = 1;
+                }
+
                 const logo = document.querySelector("#logo");
-                const nav = document.querySelector(".nav");
-                const navContainer = document.querySelector(".nav-container");
 
-                logo.style.width = `${50 - 40 * progress}vw`;
+                let logoNewWidth = (0.5 - (0.35 * progress)) * window.innerWidth;
+                const logoMinHeight = 47;
+                if (logoNewWidth * (257 / 1563) < logoMinHeight) {
+                    logoNewWidth = logoMinHeight * (1563 / 257);
+                }
 
-                const logoRect = logo.getBoundingClientRect();
-                const navRect = nav.getBoundingClientRect();
-                const navContainerRect = navContainer.getBoundingClientRect();
+                const logoOrigY = (window.innerHeight / 2) - ((window.innerWidth * 0.5) * (257 / 1563)) * 0.5;
+                const logoTargetY = (63.5 / 2) - (logoNewWidth * (257 / 1563)) * 0.5; // 1563 x 257 is the logo resolution
+
+                // logo.style.top = `${logoOrigY - (logoOrigY - logoTargetY)}px`;
+                logo.style.top = `${logoOrigY - (logoOrigY - logoTargetY) * progress}px`;
 
                 const logoOrigX = window.innerWidth / 4;
-                const logoOrigY = (window.innerHeight / 2) - (logoRect.height / 2);
-                const logoTargetX = window.innerWidth / 80;
-                const logoTargetY = (navContainerRect.height / 2) - (window.innerWidth * 257 / (10 * 1563 * 2)); // 1563 x 257 is the logo resolution
-
+                const logoTargetX = 10;
                 logo.style.left = `${logoOrigX - (logoOrigX - logoTargetX) * progress}px`;
-                logo.style.top = `${logoOrigY - (logoOrigY - logoTargetY) * progress}px`;
+                // logo.style.left = `${25 - 25 * progress}vw`;
+
+                if (actualProgress > 2) {
+                    return;
+                }
+                
+                const nav = document.querySelector(".nav");
+                logo.style.width = `${logoNewWidth}px`;
+
+                const navRect = nav.getBoundingClientRect();
+
+                // const logoOrigY = (window.innerHeight / 2) - (((window.innerWidth * 0.5) * (257 / 1563)) * 0.5);
+                // const logoTargetY = (navContainerRect.height / 2) - (((window.innerWidth * 0.15) * (257 / 1563)) * 0.5); // 1563 x 257 is the logo resolution
 
                 const navOrigRight = (window.innerWidth / 2) - (navRect.width / 2);
 
