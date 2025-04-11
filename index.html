@@ -8,7 +8,6 @@
             body, html {
                 margin: 0;
                 padding: 0;
-                height: 300vh; /* For scroll testing */
                 font-family: Arial, sans-serif;
             }
             body {
@@ -50,6 +49,46 @@
             .nav {
                 position: fixed;
             }
+
+            #scroll-down-message {
+                position: fixed;
+                text-align: center;
+                margin-top: 30px;
+                transition: transform 0.3s;
+            }
+
+            .scroll-arrow {
+                width: 85px;
+                transition: width 0.3s;
+                animation: bounce 2s infinite;
+            }
+
+            #scroll-down-message:hover .scroll-arrow {
+                animation: none;
+                width: 90px;
+            }
+
+            #scroll-down-message p {
+                color: #ffffff;
+                font-size: small;
+                margin-bottom: 0px;
+            }
+
+            #scroll-down-message:hover {
+                transform: translateY(5px);
+            }
+
+            @keyframes bounce {
+                0%, 20%, 50%, 80%, 100% {
+                    transform: translateY(0px); 
+                }
+                40% {
+                    transform: translateY(5px); 
+                }
+                60% {
+                    transform: translateY(3px); 
+                }
+            }
         </style>
     </head>
     <body>
@@ -65,11 +104,29 @@
             </ul>
         </div>
 
-        <section id="logo-section"><!-- Content behind logo --></section>
+        <section id="logo-section">
+            <div id="scroll-down-message">
+                <p>SCROLL DOWN</p>
+                <svg class="scroll-arrow" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 10, 10 L 45, 25 A 10 10, 0 0, 0 55, 25 L 90, 10" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-join="round"/>
+                </svg>
+            </div>
+        </section>
+        <section style="height: 1838px;"></section>
 
         <script>
+            const scrollDownMessage = document.querySelector("#scroll-down-message");
+
+            scrollDownMessage.onclick = () => {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: "smooth"
+                });
+            };
+
+
             const updatePosition = () => {
-                const scrollThreshold = window.innerHeight * 0.930830614092;
+                const scrollThreshold = window.innerHeight - 63.5;
                 const actualProgress = window.scrollY / scrollThreshold;
                 let progress = actualProgress;
 
@@ -85,13 +142,14 @@
                     logoNewWidth = logoMinHeight * (1563 / 257);
                 }
 
-                const logoOrigY = (window.innerHeight / 2) - ((window.innerWidth * 0.5) * (257 / 1563)) * 0.5;
-                const logoTargetY = (63.5 / 2) - (logoNewWidth * (257 / 1563)) * 0.5; // 1563 x 257 is the logo resolution
+                const logoOrigHeight = (window.innerWidth * 0.5) * (257 / 1563)
+                const logoOrigY = (window.innerHeight / 2) - logoOrigHeight / 2;
+                const logoTargetY = (63.5 / 2) - (logoNewWidth * (257 / 1563)) / 2; // 1563 x 257 is the logo resolution
 
                 // logo.style.top = `${logoOrigY - (logoOrigY - logoTargetY)}px`;
                 logo.style.top = `${logoOrigY - (logoOrigY - logoTargetY) * progress}px`;
 
-                const logoOrigX = window.innerWidth / 4;
+                const logoOrigX = (window.innerWidth / 2) - (logoNewWidth / 2);
                 const logoTargetX = 10;
                 logo.style.left = `${logoOrigX - (logoOrigX - logoTargetX) * progress}px`;
                 // logo.style.left = `${25 - 25 * progress}vw`;
@@ -101,6 +159,7 @@
                 }
                 
                 const nav = document.querySelector(".nav");
+
                 logo.style.width = `${logoNewWidth}px`;
 
                 const navRect = nav.getBoundingClientRect();
@@ -111,6 +170,12 @@
                 const navOrigRight = (window.innerWidth / 2) - (navRect.width / 2);
 
                 nav.style.right = `${navOrigRight - navOrigRight * progress}px`;
+                
+
+                const scrollDownMessageOrigY = logoOrigY + (logoNewWidth * (257 / 1563));
+
+                scrollDownMessage.style.top = `${(logoOrigY - (logoOrigY - logoTargetY) * progress) + (logoNewWidth * (257 / 1563))}px`;
+                scrollDownMessage.style.opacity = 1 - progress * 2;
             }
             
             window.addEventListener("scroll", updatePosition);
