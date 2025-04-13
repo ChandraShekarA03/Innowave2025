@@ -1,186 +1,311 @@
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>INNOWAVE</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <style>
-            body, html {
-                margin: 0;
-                padding: 0;
-                font-family: Arial, sans-serif;
-            }
-            body {
-                background: linear-gradient(to right, #215858, #2d7777);
-            }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>INNOWAVE</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-            #logo-section {
-                background-color: #000000;
-                height: 100vh;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                position: relative;
-            }
+  <style>
+    /* GLOBAL STYLES */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
 
-            #logo {
-                position: fixed;
-                z-index: 999;
-            }
+    /* GLOBAL VIDEO BACKGROUND */
+    #background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -10;
+      opacity: 1;
+      pointer-events: none;
+    }
 
-            .nav-container {
-                position: fixed;
-                top: 0;
-                height: 63.5px;
-                width: 100%;
-                background: #000000;
-                z-index: 998;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            }
+    .nav-container {
+      position: fixed;
+      top: 0;
+      height: 63.5px;
+      width: 100%;
+      background: #000;
+      z-index: 998;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
 
-            .nav-link {
-                color: #ffffff;
-            }
+    .nav-link {
+      color: #fff;
+    }
 
-            .nav-link:hover {
-                color: #f5cc81;
-            }
+    .nav-link:hover {
+      color: #f5cc81;
+    }
 
-            .nav {
-                position: fixed;
-            }
+    .nav {
+      position: fixed;
+    }
 
-            #scroll-down-message {
-                position: fixed;
-                text-align: center;
-                margin-top: 30px;
-                transition: transform 0.3s;
-            }
+    #logo {
+      position: fixed;
+      z-index: 999;
+    }
 
-            .scroll-arrow {
-                width: 85px;
-                transition: width 0.3s;
-                animation: bounce 2s infinite;
-            }
+    #logo-section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-            #scroll-down-message:hover .scroll-arrow {
-                animation: none;
-                width: 90px;
-            }
+    .bg-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 1;
+    }
 
-            #scroll-down-message p {
-                color: #ffffff;
-                font-size: small;
-                margin-bottom: 0px;
-            }
+    .logo-texts {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      z-index: 1;
+      padding: 0 20px;
+      width: 100%;
+    }
 
-            #scroll-down-message:hover {
-                transform: translateY(5px);
-            }
+    .logo-texts h5,
+    .logo-texts p {
+      transition: all 0.6s ease;
+      will-change: transform, opacity;
+    }
 
-            @keyframes bounce {
-                0%, 20%, 50%, 80%, 100% {
-                    transform: translateY(0px); 
-                }
-                40% {
-                    transform: translateY(5px); 
-                }
-                60% {
-                    transform: translateY(3px); 
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <img src="./assets/Innowave logo.png" id="logo">
+    .logo-texts h5 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      position: absolute;
+      top: -20%;
+      left: 12%;
+    }
 
-        <div class="nav-container d-flex justify-content-between align-items-center px-4 py-3">
-            <ul class="nav">
-                <li class="nav-item"><a class="nav-link active" href="#">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Our Collaborators</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Competitions & Events</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Innofair</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Speakers</a></li>
-            </ul>
-        </div>
+    .logo-texts p {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: #e0e0e0;
+    }
 
-        <section id="logo-section">
-            <div id="scroll-down-message">
-                <p>SCROLL DOWN</p>
-                <svg class="scroll-arrow" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 10, 10 L 45, 25 A 10 10, 0 0, 0 55, 25 L 90, 10" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-join="round"/>
-                </svg>
+    #scroll-down-message {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      text-align: center;
+      transform: translateX(-50%);
+      transition: transform 0.3s;
+    }
+
+    .scroll-arrow {
+      width: 85px;
+      transition: width 0.3s;
+      animation: bounce 2s infinite;
+    }
+
+    #scroll-down-message:hover .scroll-arrow {
+      animation: none;
+      width: 90px;
+    }
+
+    #scroll-down-message p {
+      color: #ffffff;
+      font-size: small;
+      margin-bottom: 0px;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      text-align: center;
+      transform: translateX(-50%);
+      transition: transform 0.3s;
+      z-index: 1000;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0px);
+      }
+      40% {
+        transform: translateY(5px);
+      }
+      60% {
+        transform: translateY(3px);
+      }
+    }
+
+    /* About Section Style */
+    #about-innowave {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(2px);
+      border-radius: 20px;
+      margin: 80px auto;
+      padding: 60px 30px;
+      width: 90%;
+      font-size: larger;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Global background video -->
+  <video autoplay muted loop playsinline id="background-video">
+    <source src="./assets/white background.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Logo -->
+  <img src="./assets/Innowave logo.png" id="logo" />
+
+  <!-- Navigation -->
+  <div class="nav-container d-flex justify-content-between align-items-center px-4 py-3">
+    <ul class="nav">
+      <li class="nav-item"><a class="nav-link active" href="#">About</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Our Collaborators</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Competitions & Events</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Innofair</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Speakers</a></li>
+    </ul>
+  </div>
+
+  <!-- Logo section with video -->
+  <section id="logo-section">
+    <video autoplay muted loop playsinline class="bg-video">
+      <source src="./assets/background.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="logo-texts">
+      <h5 id="headline">Creativity meets passion</h5>
+      <br><br><br><br><br><br><br><br>
+      <div id="event-info">
+        <p>16 Dec 2024, 10:00 am – 17 Dec 2024, 2:00 pm</p>
+        <p>
+          Bengaluru, <strong>DHARMARAM COLLEGE</strong>, Hosur Main Road,<br>
+          Bhavani Nagar, Post, Bengaluru, Karnataka 560029, India
+        </p>
+      </div>
+    </div>
+
+    <div id="scroll-down-message">
+      <p>SCROLL DOWN</p>
+      <svg class="scroll-arrow" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 10, 10 L 45, 25 A 10 10, 0 0, 0 55, 25 L 90, 10" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <!-- About Section -->
+<section id="about-innowave" class="position-relative text-dark">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="d-flex align-items-center mb-3">
+            <div style="border-left: 8px dotted #2d7777; height: 150px; margin-right: 15px;"></div>
+            <div>
+              <h6 class="text-uppercase mb-1" style="font-weight: 700;">About</h6>
+              <h1 style="color: #2d7777; font-size: 6rem; font-weight: 800; line-height: 1.1;">Innowave<br>2024</h1>
             </div>
-        </section>
-        <section style="height: 1838px;"></section>
+          </div>
+          <p>
+            <span style="color: #2d7777; font-weight: 600;">Innowave 2024</span> is the official Entrepreneurship
+            Summit of CHRIST (Deemed to be University), a two-day long event encompassing startups, incubation,
+            entrepreneurship and everything in between. The summit, spanning the entirety of CHRIST (Deemed to be
+            University)’s 28-acre campus, will host numerous activities and programmes. It will bring to the fore
+            entrepreneurs, innovators, incubators, speakers and investors to celebrate and bolster the
+            entrepreneurial ecosystem.
+          </p>
+        </div>
+        <div class="col-md-6">
+            <br><br><br><br><br><br><br><br><br>
+          <p>
+            The summit, which will delve into the profound depths of entrepreneurship culture, will conduct
+            activities like engrossing panel discussions, informative masterclasses, engaging speaker sessions, job
+            and placement fares, cut-throat competitions, investors’ meet and much more! The summit, open to
+            students and people from various disciplines and fields, will allow them to come together and explore
+            their innovative ideas and put their entrepreneurial skills to test. It will enable them to learn from
+            the very best, attend educational sessions, partake in intense competitions and network with other whiz
+            entrepreneurs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
 
-        <script>
-            const scrollDownMessage = document.querySelector("#scroll-down-message");
+  <!-- JavaScript for scroll and animation -->
+  <script>
+    const scrollDownMessage = document.querySelector("#scroll-down-message");
 
-            scrollDownMessage.onclick = () => {
-                window.scrollTo({
-                    top: window.innerHeight,
-                    behavior: "smooth"
-                });
-            };
+    scrollDownMessage.onclick = () => {
+      const aboutSection = document.querySelector("#about-innowave");
+      aboutSection.scrollIntoView({
+        behavior: "smooth"
+      });
+    };
 
+    const updatePosition = () => {
+      const scrollThreshold = window.innerHeight - 63.5;
+      const actualProgress = window.scrollY / scrollThreshold;
+      let progress = actualProgress > 1 ? 1 : actualProgress;
 
-            const updatePosition = () => {
-                const scrollThreshold = window.innerHeight - 63.5;
-                const actualProgress = window.scrollY / scrollThreshold;
-                let progress = actualProgress;
+      const logo = document.querySelector("#logo");
+      let logoNewWidth = (0.5 - (0.35 * progress)) * window.innerWidth;
+      const logoMinHeight = 47;
+      if (logoNewWidth * (257 / 1563) < logoMinHeight) {
+        logoNewWidth = logoMinHeight * (1563 / 257);
+      }
 
-                if (progress > 1) {
-                    progress = 1;
-                }
+      const logoOrigHeight = (window.innerWidth * 0.5) * (257 / 1563)
+      const logoOrigY = (window.innerHeight / 2) - logoOrigHeight / 2;
+      const logoTargetY = (63.5 / 2) - (logoNewWidth * (257 / 1563)) / 2;
+      logo.style.top = `${logoOrigY - (logoOrigY - logoTargetY) * progress}px`;
 
-                const logo = document.querySelector("#logo");
+      const logoOrigX = (window.innerWidth / 2) - (logoNewWidth / 2);
+      const logoTargetX = 10;
+      logo.style.left = `${logoOrigX - (logoOrigX - logoTargetX) * progress}px`;
+      logo.style.width = `${logoNewWidth}px`;
 
-                let logoNewWidth = (0.5 - (0.35 * progress)) * window.innerWidth;
-                const logoMinHeight = 47;
-                if (logoNewWidth * (257 / 1563) < logoMinHeight) {
-                    logoNewWidth = logoMinHeight * (1563 / 257);
-                }
+      const nav = document.querySelector(".nav");
+      const navRect = nav.getBoundingClientRect();
+      const navOrigRight = (window.innerWidth / 2) - (navRect.width / 2);
+      nav.style.right = `${navOrigRight - navOrigRight * progress}px`;
 
-                const logoOrigHeight = (window.innerWidth * 0.5) * (257 / 1563)
-                const logoOrigY = (window.innerHeight / 2) - logoOrigHeight / 2;
-                const logoTargetY = (63.5 / 2) - (logoNewWidth * (257 / 1563)) / 2; // 1563 x 257 is the logo resolution
+      scrollDownMessage.style.opacity = 1 - progress * 2;
 
-                // logo.style.top = `${logoOrigY - (logoOrigY - logoTargetY)}px`;
-                logo.style.top = `${logoOrigY - (logoOrigY - logoTargetY) * progress}px`;
+      const headline = document.querySelector("#headline");
+      const eventInfo = document.querySelector("#event-info");
 
-                const logoOrigX = (window.innerWidth / 2) - (logoNewWidth / 2);
-                const logoTargetX = 10;
-                logo.style.left = `${logoOrigX - (logoOrigX - logoTargetX) * progress}px`;
-                // logo.style.left = `${25 - 25 * progress}vw`;
+      headline.style.transform = `translate(${ -progress * 400 }px, ${ -progress * 200 }px)`;
+      headline.style.opacity = 1 - progress * 2;
 
-                if (actualProgress > 2) {
-                    return;
-                }
-                
-                const nav = document.querySelector(".nav");
+      eventInfo.style.transform = `translateX(${ progress * 200 }px)`;
+      eventInfo.style.opacity = 1 - progress * 2;
+    };
 
-                logo.style.width = `${logoNewWidth}px`;
-
-                const navRect = nav.getBoundingClientRect();
-
-                // const logoOrigY = (window.innerHeight / 2) - (((window.innerWidth * 0.5) * (257 / 1563)) * 0.5);
-                // const logoTargetY = (navContainerRect.height / 2) - (((window.innerWidth * 0.15) * (257 / 1563)) * 0.5); // 1563 x 257 is the logo resolution
-
-                const navOrigRight = (window.innerWidth / 2) - (navRect.width / 2);
-
-                nav.style.right = `${navOrigRight - navOrigRight * progress}px`;
-                
-
-                const scrollDownMessageOrigY = logoOrigY + (logoNewWidth * (257 / 1563));
-
-                scrollDownMessage.style.top = `${(logoOrigY - (logoOrigY - logoTargetY) * progress) + (logoNewWidth * (257 / 1563))}px`;
-                scrollDownMessage.style.opacity = 1 - progress * 2;
-            }
-            
-            window.addEventListener("scroll", updatePosition);
-            window.addEventListener("resize", updatePosition);
-            updatePosition();
-        </script>
-    </body>
+    window.addEventListener("scroll", updatePosition);
+    window.addEventListener("resize", updatePosition);
+    updatePosition();
+  </script>
+</body>
 </html>
