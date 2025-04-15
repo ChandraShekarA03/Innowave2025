@@ -45,9 +45,19 @@
       color: #fff;
     }
 
+<<<<<<< Updated upstream
     .nav-link:hover {
       color: #f5cc81;
     }
+=======
+            #scroll-down-message {
+                position: fixed;
+                text-align: center;
+                margin-top: 30px;
+                transition: transform 0.3s;
+                cursor: pointer;
+            }
+>>>>>>> Stashed changes
 
     .nav {
       position: fixed;
@@ -265,8 +275,16 @@
   </section>
   
 
+<<<<<<< Updated upstream
 <section id="past-speakers" class="position-relative py-5 text-white" style="background: url('assets/pointer-point-trekking-route-marks-260nw-2306481053.jpg') no-repeat center center / cover;">
   <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
+=======
+        <script>
+            const navHeight = 63.5;
+            const logoWidthByHeight = 1563 / 257; // 1563 x 257 is the logo resolution
+
+            const scrollDownMessage = document.querySelector("#scroll-down-message");
+>>>>>>> Stashed changes
 
   <div class="container position-relative" style="z-index: 2;">
 
@@ -360,7 +378,14 @@
   </div>
 </section>
 
+<<<<<<< Updated upstream
 
+=======
+            const updatePosition = () => {
+                const scrollThreshold = window.innerHeight - navHeight;
+                const actualProgress = window.scrollY / scrollThreshold;
+                let progress = actualProgress;
+>>>>>>> Stashed changes
 
   <!-- JavaScript for scroll and animation -->
   <script>
@@ -373,6 +398,7 @@
       });
     };
 
+<<<<<<< Updated upstream
     const updatePosition = () => {
       const scrollThreshold = window.innerHeight - 63.5;
       const actualProgress = window.scrollY / scrollThreshold;
@@ -394,6 +420,23 @@
       const logoTargetX = 10;
       logo.style.left = `${logoOrigX - (logoOrigX - logoTargetX) * progress}px`;
       logo.style.width = `${logoNewWidth}px`;
+=======
+                let logoNewWidth = (0.5 - (0.35 * progress)) * window.innerWidth;
+                const logoMinHeight = 47;
+                if (logoNewWidth / logoWidthByHeight < logoMinHeight) {
+                    logoNewWidth = logoMinHeight * logoWidthByHeight;
+                }
+
+                const logoOrigHeight = (window.innerWidth * 0.5) / logoWidthByHeight;
+                const logoOrigY = (window.innerHeight / 2) - logoOrigHeight / 2;
+                const logoTargetY = (navHeight / 2) - (logoNewWidth / logoWidthByHeight) / 2;
+
+                logo.style.top = `${logoOrigY - (logoOrigY - logoTargetY) * progress}px`;
+
+                const logoOrigX = (window.innerWidth / 2) - (logoNewWidth / 2);
+                const logoTargetX = 10;
+                logo.style.left = `${logoOrigX - (logoOrigX - logoTargetX) * progress}px`;
+>>>>>>> Stashed changes
 
       const nav = document.querySelector(".nav");
       const navRect = nav.getBoundingClientRect();
@@ -405,6 +448,7 @@
       const headline = document.querySelector("#headline");
       const eventInfo = document.querySelector("#event-info");
 
+<<<<<<< Updated upstream
       headline.style.transform = `translate(${ -progress * 400 }px, ${ -progress * 200 }px)`;
       headline.style.opacity = 1 - progress * 2;
 
@@ -417,4 +461,21 @@
     updatePosition();
   </script>
 </body>
+=======
+                const navOrigRight = (window.innerWidth / 2) - (navRect.width / 2);
+
+                nav.style.right = `${navOrigRight - navOrigRight * progress}px`;
+                
+                const scrollDownMessageOrigY = logoOrigY + (logoNewWidth / logoWidthByHeight);
+
+                scrollDownMessage.style.top = `${(logoOrigY - (logoOrigY - logoTargetY) * progress) + (logoNewWidth / logoWidthByHeight)}px`;
+                scrollDownMessage.style.opacity = 1 - progress * 2;
+            }
+            
+            window.addEventListener("scroll", updatePosition);
+            window.addEventListener("resize", updatePosition);
+            updatePosition();
+        </script>
+    </body>
+>>>>>>> Stashed changes
 </html>
