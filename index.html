@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+
   <style>
     body, html {
       margin: 0;
@@ -87,6 +90,12 @@
       width: 100%;
     }
 
+    .logo-texts h5,
+    .logo-texts p {
+      transition: all 0.6s ease;
+      will-change: transform, opacity;
+    }
+
     .logo-texts h5 {
       font-size: 1.5rem;
       font-weight: 700;
@@ -109,8 +118,6 @@
       text-align: center;
       transform: translateX(-50%);
       transition: transform 0.3s;
-      cursor: pointer;
-      z-index: 1000;
     }
 
     .scroll-arrow {
@@ -128,23 +135,42 @@
       color: #ffffff;
       font-size: small;
       margin-bottom: 0px;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      text-align: center;
+      transform: translateX(-50%);
+      transition: transform 0.3s;
+      z-index: 1000;
     }
 
     @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0px); }
-      40% { transform: translateY(5px); }
-      60% { transform: translateY(3px); }
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0px);
+      }
+      40% {
+        transform: translateY(5px);
+      }
+      60% {
+        transform: translateY(3px);
+      }
     }
 
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-    .fade-in-up {
-      animation: fadeInUp 0.8s ease forwards;
-      opacity: 0;
-    }
+.fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+}
 
     #about-innowave {
       background: rgba(255, 255, 255, 0.25);
@@ -187,7 +213,10 @@
       <br><br><br><br><br><br><br><br>
       <div id="event-info">
         <p>16 Dec 2024, 10:00 am – 17 Dec 2024, 2:00 pm</p>
-        <p>Bengaluru, <strong>DHARMARAM COLLEGE</strong>, Hosur Main Road,<br> Bhavani Nagar, Post, Bengaluru, Karnataka 560029, India</p>
+        <p>
+          Bengaluru, <strong>DHARMARAM COLLEGE</strong>, Hosur Main Road,<br>
+          Bhavani Nagar, Post, Bengaluru, Karnataka 560029, India
+        </p>
       </div>
     </div>
 
@@ -199,7 +228,7 @@
     </div>
   </section>
 
-  <section id="about-innowave" class="position-relative text-dark">
+<section id="about-innowave" class="position-relative text-dark">
     <div class="container py-5">
       <div class="row">
         <div class="col-md-6">
@@ -210,79 +239,182 @@
               <h1 style="color: #2d7777; font-size: 6rem; font-weight: 800; line-height: 1.1;">Innowave<br>2024</h1>
             </div>
           </div>
-          <p><span style="color: #2d7777; font-weight: 600;">Innowave 2024</span> is the official Entrepreneurship Summit of CHRIST (Deemed to be University)...</p>
+          <p>
+            <span style="color: #2d7777; font-weight: 600;">Innowave 2024</span> is the official Entrepreneurship
+            Summit of CHRIST (Deemed to be University), a two-day long event encompassing startups, incubation,
+            entrepreneurship and everything in between. The summit, spanning the entirety of CHRIST (Deemed to be
+            University)’s 28-acre campus, will host numerous activities and programmes. It will bring to the fore
+            entrepreneurs, innovators, incubators, speakers and investors to celebrate and bolster the
+            entrepreneurial ecosystem.
+          </p>
         </div>
         <div class="col-md-6">
-          <br><br><br><br><br><br><br><br><br>
-          <p>The summit will conduct activities like panel discussions, speaker sessions, job fairs, competitions, investors’ meet and more...</p>
+            <br><br><br><br><br><br><br><br><br>
+          <p>
+            The summit, which will delve into the profound depths of entrepreneurship culture, will conduct
+            activities like engrossing panel discussions, informative masterclasses, engaging speaker sessions, job
+            and placement fares, cut-throat competitions, investors’ meet and much more! The summit, open to
+            students and people from various disciplines and fields, will allow them to come together and explore
+            their innovative ideas and put their entrepreneurial skills to test. It will enable them to learn from
+            the very best, attend educational sessions, partake in intense competitions and network with other whiz
+            entrepreneurs.
+          </p>
         </div>
       </div>
     </div>
   </section>
+  
 
-  <section id="past-speakers" class="position-relative py-5 text-white" style="background: url('assets/pointer-point-trekking-route-marks-260nw-2306481053.jpg') no-repeat center center / cover;">
-    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
-    <div class="container position-relative" style="z-index: 2;">
-      <div class="mb-5 d-flex align-items-center">
-        <div style="border-left: 10px dotted #ffffff; height: 120px; margin-right: 20px;"></div>
-        <h1 style="color: #ffffff; font-size: 5rem; font-weight: 600; line-height: 1.1;">Past <br>Speakers</h1>
+<section id="past-speakers" class="position-relative py-5 text-white" style="background: url('assets/pointer-point-trekking-route-marks-260nw-2306481053.jpg') no-repeat center center / cover;">
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
+
+  <div class="container position-relative" style="z-index: 2;">
+
+    <div class="mb-5 d-flex align-items-center">
+      <div style="border-left: 10px dotted #000000; height: 120px; margin-right: 20px;"></div>
+      <h1 style="color: #000000; font-size: 5rem; font-weight: 600; line-height: 1.1;">Past <br>Speakers</h1>
+    </div>
+
+    <div class="row justify-content-center gx-4 gy-4">
+      
+      <div class="col-md-4 fade-in-up" style="animation-delay: 0.2s;">
+        <div class="p-4 text-center" style="background-color: #0000003d; border-radius: 20px;">
+          <img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="SS Rajamouli">
+          <h4 class="fw-bold">SS Rajamouli</h4>
+          <p class="text-uppercase small">Director</p>
+          <p>
+            <a href="#"><i class="fab fa-instagram me-2" style="color: black; font-size: 24px;"></i></a>
+            <a href="#"><i class="fab fa-linkedin" style="color: black; font-size: 24px;"></i></a>
+          </p>
+          <p class="small">I'm a paragraph. Click here to add your own text and edit me.</p>
+        </div>
       </div>
 
-      <div class="row justify-content-center gx-4 gy-4">
-        <!-- Repeat for each speaker -->
-        <!-- Sample Speaker Card -->
-        <div class="col-md-4 fade-in-up" style="animation-delay: 0.2s;">
-          <div class="p-4 text-center" style="background-color: #0000003d; border-radius: 20px;">
-            <img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="Speaker Name">
-            <h4 class="fw-bold">Speaker Name</h4>
-            <p class="text-uppercase small">Speaker Title</p>
-            <p>
-              <a href="#"><i class="fab fa-instagram me-2" style="color: black; font-size: 24px;"></i></a>
-              <a href="#"><i class="fab fa-linkedin" style="color: black; font-size: 24px;"></i></a>
-            </p>
-            <p class="small">Brief bio or description of the speaker goes here.</p>
-          </div>
+      <div class="col-md-4 fade-in-up" style="animation-delay: 0.4s;">
+        <div class="p-4 text-center" style="background-color: #0000003d; border-radius: 20px;">
+          <img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="Belson Coutinho">
+          <h4 class="fw-bold">Belson Coutinho</h4>
+          <p class="text-uppercase small">CO-FOUNDER, CMO & CXO, AKASA AIR</p>
+          <p>
+            <a href="#"><i class="fab fa-instagram me-2" style="color: black; font-size: 24px;"></i></a>
+            <a href="#"><i class="fab fa-linkedin" style="color: black; font-size: 24px;"></i></a>
+          </p>
+          <p class="small">I'm a paragraph. Click here to add your own text and edit me.</p>
         </div>
-        <!-- Add more speaker cards as needed -->
+      </div>
+
+      <div class="col-md-4 fade-in-up" style="animation-delay: 0.6s;">
+        <div class="p-4 text-center" style="background-color: #0000003d; border-radius: 20px;">
+          <img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="Vikas Nahar">
+          <h4 class="fw-bold">Vikas Nahar</h4>
+          <p class="text-uppercase small">FOUNDER, HAPPILO</p>
+          <p>
+            <a href="#"><i class="fab fa-instagram me-2" style="color: black; font-size: 24px;"></i></a>
+            <a href="#"><i class="fab fa-linkedin" style="color: black; font-size: 24px;"></i></a>
+          </p>
+          <p class="small">I'm a paragraph. Click here to add your own text and edit me.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 fade-in-up" style="animation-delay: 0.8s;">
+        <div class="p-4 text-center" style="background-color: #0000003d; border-radius: 20px;">
+          <img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="Ritesh Agarwal">
+          <h4 class="fw-bold">Ritesh Agarwal</h4>
+          <p class="text-uppercase small">FOUNDER & CEO, OYO</p>
+          <p>
+            <a href="#"><i class="fab fa-instagram me-2" style="color: black; font-size: 24px;"></i></a>
+            <a href="#"><i class="fab fa-linkedin" style="color: black; font-size: 24px;"></i></a>
+          </p>
+          <p class="small">I'm a paragraph. Click here to add your own text and edit me.</p>
+        </div>
+      </div>
+      
+
+      <div class="col-md-4 fade-in-up" style="animation-delay: 1s;">
+        <div class="p-4 text-center" style="background-color: #0000003d; border-radius: 20px;">
+          <img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="Raj Shamani">
+          <h4 class="fw-bold">Raj Shamani</h4>
+          <p class="text-uppercase small">CONTENT CREATOR & ENTREPRENEUR</p>
+          <p>
+            <a href="#"><i class="fab fa-instagram me-2" style="color: black; font-size: 24px;"></i></a>
+            <a href="#"><i class="fab fa-linkedin" style="color: black; font-size: 24px;"></i></a>
+          </p>
+          <p class="small">I'm a paragraph. Click here to add your own text and edit me.</p>
+        </div>
+      </div>
+      
+
+      <div class="col-md-4 fade-in-up" style="animation-delay: 1.2s;">
+        <div class="p-4 text-center" style="background-color: #0000003d; border-radius: 20px;">
+          <img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="Ankur Warikoo">
+          <h4 class="fw-bold">Ankur Warikoo</h4>
+          <p class="text-uppercase small">AUTHOR, EDUCATOR & ENTREPRENEUR</p>
+          <p>
+            <a href="#"><i class="fab fa-instagram me-2" style="color: black; font-size: 24px;"></i></a>
+            <a href="#"><i class="fab fa-linkedin" style="color: black; font-size: 24px;"></i></a>
+          </p>
+          <p class="small">I'm a paragraph. Click here to add your own text and edit me.</p>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
+
+
+  <!-- JavaScript for scroll and animation -->
   <script>
     const scrollDownMessage = document.querySelector("#scroll-down-message");
 
     scrollDownMessage.onclick = () => {
       const aboutSection = document.querySelector("#about-innowave");
-      aboutSection.scrollIntoView({ behavior: "smooth" });
+      aboutSection.scrollIntoView({
+        behavior: "smooth"
+      });
     };
 
-    const updateLogoPosition = () => {
-      const navHeight = 63.5;
-      const logo = document.querySelector("#logo");
-      const scrollThreshold = window.innerHeight - navHeight;
-      const progress = Math.min(window.scrollY / scrollThreshold, 1);
-      let logoWidth = (0.5 - (0.35 * progress)) * window.innerWidth;
-      const logoAspectRatio = 1563 / 257;
-      const minHeight = 47;
+    const updatePosition = () => {
+      const scrollThreshold = window.innerHeight - 63.5;
+      const actualProgress = window.scrollY / scrollThreshold;
+      let progress = actualProgress > 1 ? 1 : actualProgress;
 
-      if (logoWidth / logoAspectRatio < minHeight) {
-        logoWidth = minHeight * logoAspectRatio;
+      const logo = document.querySelector("#logo");
+      let logoNewWidth = (0.5 - (0.35 * progress)) * window.innerWidth;
+      const logoMinHeight = 47;
+      if (logoNewWidth * (257 / 1563) < logoMinHeight) {
+        logoNewWidth = logoMinHeight * (1563 / 257);
       }
 
-      const logoHeight = logoWidth / logoAspectRatio;
-      const targetTop = (navHeight - logoHeight) / 2;
-      const originalTop = (window.innerHeight - logoHeight) / 2;
-      const targetLeft = 10;
-      const originalLeft = (window.innerWidth - logoWidth) / 2;
+      const logoOrigHeight = (window.innerWidth * 0.5) * (257 / 1563)
+      const logoOrigY = (window.innerHeight / 2) - logoOrigHeight / 2;
+      const logoTargetY = (63.5 / 2) - (logoNewWidth * (257 / 1563)) / 2;
+      logo.style.top = `${logoOrigY - (logoOrigY - logoTargetY) * progress}px`;
 
-      logo.style.width = `${logoWidth}px`;
-      logo.style.top = `${originalTop - (originalTop - targetTop) * progress}px`;
-      logo.style.left = `${originalLeft - (originalLeft - targetLeft) * progress}px`;
+      const logoOrigX = (window.innerWidth / 2) - (logoNewWidth / 2);
+      const logoTargetX = 10;
+      logo.style.left = `${logoOrigX - (logoOrigX - logoTargetX) * progress}px`;
+      logo.style.width = `${logoNewWidth}px`;
+
+      const nav = document.querySelector(".nav");
+      const navRect = nav.getBoundingClientRect();
+      const navOrigRight = (window.innerWidth / 2) - (navRect.width / 2);
+      nav.style.right = `${navOrigRight - navOrigRight * progress}px`;
+
+      scrollDownMessage.style.opacity = 1 - progress * 2;
+
+      const headline = document.querySelector("#headline");
+      const eventInfo = document.querySelector("#event-info");
+
+      headline.style.transform = `translate(${ -progress * 400 }px, ${ -progress * 200 }px)`;
+      headline.style.opacity = 1 - progress * 2;
+
+      eventInfo.style.transform = `translateX(${ progress * 200 }px)`;
+      eventInfo.style.opacity = 1 - progress * 2;
     };
 
-    window.addEventListener("scroll", updateLogoPosition);
-    window.addEventListener("resize", updateLogoPosition);
-    window.addEventListener("DOMContentLoaded", updateLogoPosition);
+    window.addEventListener("scroll", updatePosition);
+    window.addEventListener("resize", updatePosition);
+    updatePosition();
   </script>
 </body>
 </html>
