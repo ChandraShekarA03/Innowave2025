@@ -97,7 +97,7 @@
 			}
 
 			#navLinks li {
-				padding: 0px 15px;
+				padding: 0px 10px;
 			}
 
 			#navLinks a {
@@ -118,7 +118,7 @@
 				z-index: 999;
 			}
 
-			@media screen and (max-width: 975px) {
+			@media screen and (max-width: 920px) {
 				#navLinks {
 					display: unset;
 					background-color: #000000;
@@ -253,8 +253,8 @@
 			<div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.4);"></div>
 			<div class="container position-relative">
 				<div class="mb-5 d-flex align-items-center">
-					<div style="border-left: 10px dotted #000000; height: 120px; margin-right: 20px;"></div>
-					<h1 style="color: #000000; font-size: 5rem; font-weight: 600; line-height: 1.1;">Past <br>Speakers</h1>
+					<div style="border-left: 10px dotted #ffffff; height: 120px; margin-right: 20px;"></div>
+					<h1 style="color: #ffffff; font-size: 5rem; font-weight: 600; line-height: 1.1;">Past <br>Speakers</h1>
 				</div>
 
 				<div class="row justify-content-center gx-4 gy-4">
@@ -348,7 +348,7 @@
 
 			const navbarHeight = navbar.getBoundingClientRect().height;
 			const logoWidthByHeight = 1648 / 271;
-			const navLinksWidth = navLinks.getBoundingClientRect().width;
+			const navLinksWidth = 613.6500244140625;
 
 			scrollDownMessage.onclick = () => {
 				const aboutSection = document.querySelector("#about-innowave");
@@ -375,7 +375,7 @@
 					return;
 				}
 				let logoOrigWidth = window.innerWidth / 2;
-				if (window.innerWidth <= 975) {
+				if (window.innerWidth <= 920) {
 					logoOrigWidth = window.innerWidth - 20;
 				}
 				const logoOrigHeight = logoOrigWidth / logoWidthByHeight;
