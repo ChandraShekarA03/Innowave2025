@@ -21,7 +21,6 @@
 				width: 100vw;
 				height: 100vh;
 				object-fit: cover;
-				z-index: -10;
 				opacity: 1;
 				pointer-events: none;
 			}
@@ -33,35 +32,23 @@
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
-				z-index: -1;
 				opacity: 1;
 			}
 
-			.nav-container,
+			/*.nav-container,
 			.navbar {
 				position: fixed;
 				top: 20px;
 				left: 50%;
 				transform: translateX(-50%);
 				transition: left 0.6s ease, transform 0.6s ease;
-				z-index: 1000;
 				background-color: #00000017;
 			}
 
 			.navbar.scrolled {
 				left: 20px;
 				transform: translateX(0);
-			}
-
-			.nav-link,
-			.nav-links li a {
-				color: #fff;
-			}
-
-			.nav-link:hover,
-			.nav-links li a:hover {
-				color: #f5cc81;
-			}
+			} */
 
 			.menu-toggle {
 				display: none;
@@ -99,7 +86,6 @@
 					background-color: rgba(0, 0, 0, 0.95);
 					padding: 20px 0;
 					text-align: center;
-					z-index: 1001;
 				}
 
 				.nav-links.active {
@@ -107,18 +93,15 @@
 				}
 			}
 
-			#logo {
-				position: fixed;
-				z-index: 1002;
-			}
-
 			#logo-section {
 				height: 100vh;
-				display: flex;
-				justify-content: center;
-				align-items: center;
 				position: relative;
-				overflow: hidden;
+				/* stuff under this makes the background stay in place */
+				background-image: url("./assets/background.gif");
+				background-attachment: fixed;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
 			}
 
 			.logo-texts {
@@ -128,7 +111,6 @@
 				transform: translate(-50%, -50%);
 				text-align: center;
 				color: white;
-				z-index: 1;
 				padding: 0 20px;
 				width: 100%;
 			}
@@ -152,39 +134,6 @@
 				font-size: 1rem;
 				margin-bottom: 0.5rem;
 				color: #e0e0e0;
-			}
-
-			#scroll-down-message {
-				position: absolute;
-				bottom: 20px;
-				left: 50%;
-				text-align: center;
-				transform: translateX(-50%);
-				transition: transform 0.3s;
-			}
-
-			.scroll-arrow {
-				width: 85px;
-				transition: width 0.3s;
-				animation: bounce 2s infinite;
-			}
-
-			#scroll-down-message:hover .scroll-arrow {
-				animation: none;
-				width: 90px;
-			}
-
-			#scroll-down-message p {
-				color: #ffffff;
-				font-size: small;
-				margin-bottom: 0px;
-				position: absolute;
-				bottom: 20px;
-				left: 50%;
-				text-align: center;
-				transform: translateX(-50%);
-				transition: transform 0.3s;
-				z-index: 1000;
 			}
 
 			@keyframes bounce {
@@ -224,6 +173,119 @@
 				width: 90%;
 				font-size: larger;
 			}
+
+			#navbar {
+				position: fixed;
+				top: 0px;
+				height: 63.5px;
+				width: 100vw;
+				background-color: #000000;
+				opacity: 0;
+				z-index: 996;
+				transition: opacity 0.3s;
+			}
+
+			#logo {
+				position: fixed;
+				z-index: 997;
+				transform: translateX(-50%);
+				width: 50vw;
+				left: 50vw;
+			}
+
+			#navLinks {
+				position: fixed;
+				transform: translateX(50%);
+				right: 50vw;
+				width: fit-content;
+				margin-top: 19.75px;
+				margin-bottom: unset;
+				padding-left: unset;
+				z-index: 998;
+				display: flex;
+				flex-wrap: nowrap;
+				list-style-type: none;
+			}
+
+			#navLinks li {
+				padding: 0px 15px;
+			}
+
+			#navLinks a {
+				color: #ffffff;
+				text-decoration: none;
+				text-wrap: nowrap;
+			}
+
+			#navLinks a:hover {
+				color: #f5cc81;
+			}
+
+			#navExpandButton {
+				display: none;
+				position: fixed;
+				top: 0px;
+				right: 0px;
+				z-index: 999;
+			}
+
+			@media screen and (max-width: 975px) {
+				#navLinks {
+					display: unset;
+					background-color: #000000;
+					width: 100vw;
+					top: 0px;
+					right: 0 !important;
+					margin-top: 0px;
+					padding-top: 63.5px;
+					text-align: center;
+					transform: translateY(-100%);
+					opacity: 0.75;
+					font-size: x-large;
+					transition: transform 0.3s;
+				}
+				#navLinks.visible {
+					transform: none;
+				}
+				#navlinks li {
+					margin: 30px 0px;
+				}
+				#navExpandButton {
+					display: unset;
+					stroke: #ffffff;
+				}
+				#navExpandButton.clicked {
+					opacity: 0.75;
+				}
+			}
+
+			#logo-section-texts {
+				position: fixed;
+				width: fit-content;
+				text-align: center;
+				color: #ffffff;
+				left: 50vw;
+				transform: translateX(-50%);
+			}
+
+			#scroll-down-message {
+				position: absolute;
+				text-align: center;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 100px;
+                cursor: pointer;
+			}
+
+			#scroll-down-message p {
+				margin-bottom: 0px;
+			}
+
+			#scroll-arrow {
+                width: 85px;
+                transition: width 0.3s;
+                animation: bounce 2s infinite;
+            }
 		</style>
 	</head>
 	<body>
@@ -232,9 +294,22 @@
 			Your browser does not support the video tag.
 		</video>
 
-		<img src="./assets/Innowave logo.png" id="logo" />
+		<img src="./assets/Innowave logo.png" id="logo">
 
-		<div id="navbar" class="nav-container d-flex align-items-center justify-content-between px-4 py-3">
+		<svg id="navExpandButton" style="width: 63.5px; height: 63.5px;" viewBox="0 0 63.5 63.5" xmlns="http://www.w3.org/2000/svg">
+			<path d="M 10.75, 15 L 52.75, 15 M 10.75, 31.75 L 52.75, 31.75 M 10.75, 48.5 L 52.75, 48.5" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+
+		<ul id="navLinks">
+			<li><a href="#">Home</a></li>
+			<li><a href="#about-innowave">About</a></li>
+			<li><a href="#">Our Collaborators</a></li>
+			<li><a href="#">Competitions & Events</a></li>
+			<li><a href="#">Innofair</a></li>
+			<li><a href="#">Speakers</a></li>
+		</ul>
+
+		<!-- <div id="navbar" class="nav-container d-flex align-items-center justify-content-between px-4 py-3">
 			<button class="menu-toggle" id="menuToggle">&#9776;</button>
 			<ul class="nav-links" id="navLinks">
 				<li><a href="#">Home</a></li>
@@ -244,32 +319,32 @@
 				<li><a href="#">Innofair</a></li>
 				<li><a href="#">Speakers</a></li>
 			</ul>
-		</div>
+		</div> -->
+
+		<nav id="navbar"></nav>
 
 		<section id="logo-section">
-			<video autoplay muted loop playsinline class="bg-video">
+			<!-- <video autoplay muted loop playsinline class="bg-video">
 				<source src="./assets/background.mp4" type="video/mp4">
 				Your browser does not support the video tag.
-			</video>
+			</video> -->
 
-			<div class="logo-texts">
-				<h5 id="headline">Creativity meets passion</h5>
-				<br><br><br><br><br><br><br><br>
-				<div id="event-info">
-					<p>16 Dec 2024, 10:00 am – 17 Dec 2024, 2:00 pm</p>
-					<p>
-						Bengaluru, <strong>DHARMARAM COLLEGE</strong>, Hosur Main Road,<br>
-						Bhavani Nagar, Post, Bengaluru, Karnataka 560029, India
-					</p>
+			<div id="logo-section-texts">
+				<p id="event-info">
+					16 Dec 2024, 10:00 am - 17 Dec 2024, 2:00 pm<br><br>
+					Bengaluru, <strong>DHARMARAM COLLEGE</strong>, Hosur Main Road,<br>
+					Bhavani Nagar, Post, Bengaluru, Karnataka 560029, India
+				</p>
+				<br>
+				<div id="scroll-down-message">
+					<p>SCROLL DOWN</p>
+					<svg id="scroll-arrow" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
+						<path d="M 10, 10 L 45, 25 A 10 10, 0 0, 0 55, 25 L 90, 10" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
 				</div>
 			</div>
 
-			<div id="scroll-down-message">
-				<p>SCROLL DOWN</p>
-				<svg class="scroll-arrow" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
-					<path d="M 10, 10 L 45, 25 A 10 10, 0 0, 0 55, 25 L 90, 10" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-				</svg>
-			</div>
+			
 		</section>
 
 		<section id="about-innowave" class="position-relative text-dark">
@@ -311,8 +386,8 @@
 
 
 		<section id="past-speakers" class="position-relative py-5 text-white" style="background: url('assets/pointer-point-trekking-route-marks-260nw-2306481053.jpg') no-repeat center center / cover;">
-			<div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
-			<div class="container position-relative" style="z-index: 2;">
+			<div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.4);"></div>
+			<div class="container position-relative">
 				<div class="mb-5 d-flex align-items-center">
 					<div style="border-left: 10px dotted #000000; height: 120px; margin-right: 20px;"></div>
 					<h1 style="color: #000000; font-size: 5rem; font-weight: 600; line-height: 1.1;">Past <br>Speakers</h1>
@@ -405,15 +480,7 @@
 
 
 		<!-- JavaScript for scroll and animation -->
-		<script>
-			const scrollDownMessage = document.querySelector("#scroll-down-message");
-
-			scrollDownMessage.onclick = () => {
-				const aboutSection = document.querySelector("#about-innowave");
-				aboutSection.scrollIntoView({
-					behavior: "smooth"
-				});
-			};
+		<!-- <script>
 
 			const updatePosition = () => {
 				const scrollThreshold = window.innerHeight - 63.5;
@@ -437,16 +504,12 @@
 				logo.style.left = `${logoOrigX - (logoOrigX - logoTargetX) * progress}px`;
 				logo.style.width = `${logoNewWidth}px`;
 
-				// Updated code for navbar to move to the right and stay there
-				const navbar = document.querySelector('.nav-container');
-				const navOrigLeft = (window.innerWidth / 2) - (navbar.offsetWidth / 2);  // Centered position
-				const navTargetLeft = window.innerWidth - navbar.offsetWidth - 20;  // Move to the right edge with some space
-				navbar.style.left = `${navOrigLeft + (navTargetLeft - navOrigLeft) * progress}px`;  // Move right
+				//const navbar = document.querySelector('.nav-container');
+				const navOrigLeft = (window.innerWidth / 2) - (navbar.offsetWidth / 2); 
+				const navTargetLeft = window.innerWidth - navbar.offsetWidth - 20;
+				navbar.style.left = `${navOrigLeft + (navTargetLeft - navOrigLeft) * progress}px`;
 
-				// Navbar should stay visible (no fade-out effect)
-				navbar.style.opacity = 1; // Keep the navbar fully opaque
-
-				// Other elements
+				navbar.style.opacity = 1;
 				scrollDownMessage.style.opacity = 1 - progress * 2;
 
 				const headline = document.querySelector("#headline");
@@ -462,6 +525,79 @@
 			window.addEventListener("scroll", updatePosition);
 			window.addEventListener("resize", updatePosition);
 			window.addEventListener("load", updatePosition);
+		</script> -->
+		<script>
+			const logo = document.querySelector("#logo");
+			const navbar = document.querySelector("#navbar")
+			const navLinks = document.querySelector("#navLinks");
+			const navExpandButton = document.querySelector("#navExpandButton");
+			const logoSectionTexts = document.querySelector("#logo-section-texts");
+			const scrollDownMessage = document.querySelector("#scroll-down-message");
+
+			const navbarHeight = navbar.getBoundingClientRect().height;
+			const logoWidthByHeight = 1648 / 271;
+			const navLinksWidth = navLinks.getBoundingClientRect().width;
+
+			scrollDownMessage.onclick = () => {
+				const aboutSection = document.querySelector("#about-innowave");
+				aboutSection.scrollIntoView({
+					behavior: "smooth"
+				});
+			};
+
+			const scrollAction = () => {
+				const scrollThreshold = window.innerHeight - navbarHeight;
+				const actualProgress = window.scrollY / scrollThreshold;
+				let progress = actualProgress;
+				if (progress >= 1) {
+					progress = 1;
+					navbar.style.opacity = 0.75;
+					logo.style.zIndex = 998;
+					navLinks.style.zIndex = 997;
+				} else {
+					navbar.style.opacity = 0;
+					logo.style.zIndex = 997;
+					navLinks.style.zIndex = 998;
+				}
+				if (actualProgress > 2) {
+					return;
+				}
+				let logoOrigWidth = window.innerWidth / 2;
+				if (window.innerWidth <= 975) {
+					logoOrigWidth = window.innerWidth - 20;
+				}
+				const logoOrigHeight = logoOrigWidth / logoWidthByHeight;
+				const logoOrigX = window.innerWidth / 2;
+				const logoOrigY = (window.innerHeight / 2) - logoOrigHeight;
+				const logoTargetWidth = 47 * logoWidthByHeight;
+				const logoTargetX = 10 + (logoTargetWidth / 2);
+				const logoTargetY = 8.25;
+
+				logo.style.left = `${logoOrigX - ((logoOrigX - logoTargetX) * progress)}px`;
+				logo.style.top = `${logoOrigY - ((logoOrigY - logoTargetY) * progress)}px`;
+				logo.style.width = `${logoOrigWidth - ((logoOrigWidth - logoTargetWidth) * progress)}px`;
+
+				const navbarOrigRight = window.innerWidth / 2;
+				const navbarTargetRight = navLinksWidth / 2;
+
+				navLinks.style.right = `${navbarOrigRight - ((navbarOrigRight - navbarTargetRight) * progress)}px`;
+
+				const logoSectionTextsOrigY = (window.innerHeight / 2) + 40;
+				const logoSectionTextsTargetY = (8.25 + 47) + 40;
+
+				logoSectionTexts.style.top = `${logoSectionTextsOrigY - ((logoSectionTextsOrigY - logoSectionTextsTargetY) * progress)}px`;
+				logoSectionTexts.style.opacity = `${1 - (progress * 4)}`;
+			}
+
+			navExpandButton.onclick = () => {
+				navLinks.classList.toggle("visible");
+				navExpandButton.classList.toggle("clicked");
+			};
+
+			window.addEventListener("scroll", scrollAction);
+			window.addEventListener("resize", scrollAction);
+
+			scrollAction();
 		</script>
 	</body>
 </html>
