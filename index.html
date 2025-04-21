@@ -55,8 +55,8 @@
 
 			#about-innowave {
 				font-size: larger;
-				min-height: 100vh;
 				height: fit-content;
+				min-height: 100vh;
 				background-image: url("./assets/white\ background.gif");
 				background-attachment: fixed;
 				background-position: center;
@@ -190,6 +190,15 @@
                 animation: none;
                 width: 90px;
             }
+
+			#event-info {
+				max-width: 402px;
+			}
+
+			#event-info span {
+				font-size: min(19px, 4vw);
+				text-wrap: nowrap;
+			}
 		</style>
 	</head>
 	<body>
@@ -213,9 +222,11 @@
 		<section id="logo-section">
 			<div id="logo-section-texts">
 				<p id="event-info">
-					16 Dec 2024, 10:00 am - 17 Dec 2024, 2:00 pm<br><br>
-					Bengaluru, <strong>DHARMARAM COLLEGE</strong>, Hosur Main Road,<br>
-					Bhavani Nagar, Post, Bengaluru, Karnataka 560029, India
+					
+					<span>16 Dec 2024, 10:00 am - 17 Dec 2024, 2:00 pm</span><br>
+					<span>Christ University Central Campus, </span>
+					<span>Bhavani Nagar, S.G. Palya, </span>
+					<span>Bengaluru, Karnataka 560029</span>
 				</p>
 				<br>
 				<div id="scroll-down-message">
@@ -230,15 +241,15 @@
 		<section id="about-innowave" class="position-relative text-dark">
 			<div class="container py-5">
 				<div class="row">
-					<div class="col-md-6">
-						<div class="d-flex align-items-center mb-3">
-							<div style="border-left: 8px dotted #2d7777; height: 150px; margin-right: 15px;">
-							</div>
-							<div>
-								<h6 class="text-uppercase mb-1" style="font-weight: 700;">About</h6>
-								<h1 style="color: #2d7777; font-size: 6rem; font-weight: 800; line-height: 1.1;">Innowave<br>2024</h1>
-							</div>
+					<div class="d-flex align-items-center mb-3">
+						<div style="border-left: 8px dotted #2d7777; height: 150px; margin-right: 15px;">
 						</div>
+						<div>
+							<h6 class="text-uppercase mb-1" style="font-weight: 700;">About</h6>
+							<h1 style="color: #2d7777; font-size: min(15vw, 6rem); font-weight: 800; line-height: 1.1;">Innowave<br>2024</h1>
+						</div>
+					</div>
+					<div class="col-md-6">
 						<p>
 							<span style="color: #2d7777; font-weight: 600;">Innowave 2024</span> is the official Entrepreneurship
 							Summit of CHRIST (Deemed to be University), a two-day long event encompassing startups, incubation,
@@ -249,7 +260,6 @@
 						</p>
 					</div>
 					<div class="col-md-6">
-						<br><br><br><br><br><br><br><br><br>
 						<p>
 							The summit, which will delve into the profound depths of entrepreneurship culture, will conduct
 							activities like engrossing panel discussions, informative masterclasses, engaging speaker sessions, job
@@ -269,7 +279,7 @@
 			<div class="container position-relative">
 				<div class="mb-5 d-flex align-items-center">
 					<div style="border-left: 10px dotted #ffffff; height: 120px; margin-right: 20px;"></div>
-					<h1 style="color: #ffffff; font-size: 5rem; font-weight: 600; line-height: 1.1;">Past <br>Speakers</h1>
+					<h1 style="color: #ffffff; font-size: min(15vw, 5rem); font-weight: 600; line-height: 1.1;">Past <br>Speakers</h1>
 				</div>
 
 				<div class="row justify-content-center gx-4 gy-4">
@@ -364,6 +374,14 @@
 			const navbarHeight = navbar.getBoundingClientRect().height;
 			const logoWidthByHeight = 2471 / 383;
 			const navLinksWidth = 613.6500244140625;
+			
+			const logoTargetWidth = 47 * logoWidthByHeight;
+			const logoTargetX = 10 + (logoTargetWidth / 2);
+			const logoTargetY = 8.25;
+			
+			const navbarTargetRight = navLinksWidth / 2;
+			
+			const logoSectionTextsTargetY = (8.25 + 47) + 40;
 
 			scrollDownMessage.onclick = () => {
 				const aboutSection = document.querySelector("#about-innowave");
@@ -389,28 +407,20 @@
 				if (actualProgress > 2) {
 					return;
 				}
-				let logoOrigWidth = window.innerWidth / 2;
-				if (window.innerWidth <= 920) {
-					logoOrigWidth = window.innerWidth - 20;
-				}
+				const logoOrigWidth = Math.min(960, window.innerWidth - 20);
 				const logoOrigHeight = logoOrigWidth / logoWidthByHeight;
 				const logoOrigX = window.innerWidth / 2;
 				const logoOrigY = (window.innerHeight / 2) - logoOrigHeight;
-				const logoTargetWidth = 47 * logoWidthByHeight;
-				const logoTargetX = 10 + (logoTargetWidth / 2);
-				const logoTargetY = 8.25;
 
 				logo.style.left = `${logoOrigX - ((logoOrigX - logoTargetX) * progress)}px`;
 				logo.style.top = `${logoOrigY - ((logoOrigY - logoTargetY) * progress)}px`;
 				logo.style.width = `${logoOrigWidth - ((logoOrigWidth - logoTargetWidth) * progress)}px`;
 
 				const navbarOrigRight = window.innerWidth / 2;
-				const navbarTargetRight = navLinksWidth / 2;
 
 				navLinks.style.right = `${navbarOrigRight - ((navbarOrigRight - navbarTargetRight) * progress)}px`;
 
 				const logoSectionTextsOrigY = (window.innerHeight / 2) + 40;
-				const logoSectionTextsTargetY = (8.25 + 47) + 40;
 
 				logoSectionTexts.style.top = `${logoSectionTextsOrigY - ((logoSectionTextsOrigY - logoSectionTextsTargetY) * progress)}px`;
 				logoSectionTexts.style.opacity = `${1 - (progress * 4)}`;
