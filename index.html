@@ -168,6 +168,7 @@
 				transform: translateX(-50%);
 				width: 100px;
                 cursor: pointer;
+                transition: transform 0.3s;
 			}
 
 			#scroll-down-message p {
@@ -178,6 +179,15 @@
                 width: 85px;
                 transition: width 0.3s;
                 animation: bounce 2s infinite;
+            }
+
+			#scroll-down-message:hover {
+                transform: translate(-50%, 5px);
+            }
+
+			#scroll-down-message:hover #scroll-arrow {
+                animation: none;
+                width: 90px;
             }
 		</style>
 	</head>
