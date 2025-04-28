@@ -37,22 +37,6 @@
 				}
 			}
 
-			@keyframes fadeInUp {
-				from {
-					opacity: 0;
-					transform: translateY(30px);
-				}
-				to {
-					opacity: 1;
-					transform: translateY(0);
-				}
-			}
-
-			.fade-in-up {
-				animation: fadeInUp 0.8s ease forwards;
-				opacity: 0;
-			}
-
 			#about-innowave {
 				font-size: larger;
 				height: fit-content;
@@ -199,6 +183,17 @@
 				font-size: min(19px, 4vw);
 				text-wrap: nowrap;
 			}
+
+			#pastSpeakersCardsDiv .pastSpeakersCard {
+					opacity: 0;
+					transform: translateY(30px);
+			}
+
+			#pastSpeakersCardsDiv.fadeIn .pastSpeakersCard {
+					opacity: 1;
+					transform: translateY(0);
+					transition: opacity 0.8s, transform 0.8s;
+			}
 		</style>
 	</head>
 	<body>
@@ -282,82 +277,82 @@
 					<h1 style="color: #ffffff; font-size: min(15vw, 5rem); font-weight: 600; line-height: 1.1;">Past <br>Speakers</h1>
 				</div>
 
-				<div class="row justify-content-center gx-4 gy-4">
-					<div class="col-md-4 fade-in-up" style="animation-delay: 0.2s;">
+				<div id="pastSpeakersCardsDiv" class="row justify-content-center gx-4 gy-4">
+					<div class="col-md-4 pastSpeakersCard" style="transition-delay: 0.2s;">
 						<div class="p-4 text-center" style="background-color: #0000003d; border-radius: 20px;">
 							<img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="SS Rajamouli">
-							<h4 class="fw-bold">SS Rajamouli</h4>
-							<p class="text-uppercase small">Director</p>
+							<h4 class="fw-bold">S. S. Rajamouli</h4>
+							<p class="text-uppercase small">Filmmaker</p>
 							<p>
-								<a href="#"><i class="fab fa-instagram me-2" style="color: black; font-size: 24px;"></i></a>
-								<a href="#"><i class="fab fa-linkedin" style="color: black; font-size: 24px;"></i></a>
+								<a href="#"><i class="fab fa-instagram me-2" style="color: #ffffff; font-size: 24px;"></i></a>
+								<a href="#"><i class="fab fa-linkedin" style="color: #ffffff; font-size: 24px;"></i></a>
 							</p>
-							<p class="small">I'm a paragraph. Click here to add your own text and edit me.</p>
+							<p class="small">descriptive paragraph</p>
 						</div>
 					</div>
 
-					<div class="col-md-4 fade-in-up" style="animation-delay: 0.4s;">
+					<div class="col-md-4 pastSpeakersCard" style="transition-delay: 0.4s;">
 						<div class="p-4 text-center" style="background-color: #0000003d; border-radius: 20px;">
 							<img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="Belson Coutinho">
 							<h4 class="fw-bold">Belson Coutinho</h4>
 							<p class="text-uppercase small">CO-FOUNDER, CMO & CXO, AKASA AIR</p>
 							<p>
-								<a href="#"><i class="fab fa-instagram me-2" style="color: black; font-size: 24px;"></i></a>
-								<a href="#"><i class="fab fa-linkedin" style="color: black; font-size: 24px;"></i></a>
+								<a href="#"><i class="fab fa-instagram me-2" style="color: #ffffff; font-size: 24px;"></i></a>
+								<a href="#"><i class="fab fa-linkedin" style="color: #ffffff; font-size: 24px;"></i></a>
 							</p>
-							<p class="small">I'm a paragraph. Click here to add your own text and edit me.</p>
+							<p class="small">descriptive paragraph</p>
 						</div>
 					</div>
 
-					<div class="col-md-4 fade-in-up" style="animation-delay: 0.6s;">
+					<div class="col-md-4 pastSpeakersCard" style="transition-delay: 0.6s;">
 						<div class="p-4 text-center" style="background-color: #0000003d; border-radius: 20px;">
 							<img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="Vikas Nahar">
 							<h4 class="fw-bold">Vikas Nahar</h4>
 							<p class="text-uppercase small">FOUNDER, HAPPILO</p>
 							<p>
-								<a href="#"><i class="fab fa-instagram me-2" style="color: black; font-size: 24px;"></i></a>
-								<a href="#"><i class="fab fa-linkedin" style="color: black; font-size: 24px;"></i></a>
+								<a href="#"><i class="fab fa-instagram me-2" style="color: #ffffff; font-size: 24px;"></i></a>
+								<a href="#"><i class="fab fa-linkedin" style="color: #ffffff; font-size: 24px;"></i></a>
 							</p>
-							<p class="small">I'm a paragraph. Click here to add your own text and edit me.</p>
+							<p class="small">descriptive paragraph</p>
 						</div>
 					</div>
 
-					<div class="col-md-4 fade-in-up" style="animation-delay: 0.8s;">
+					<div class="col-md-4 pastSpeakersCard" style="transition-delay: 0.8s;">
 						<div class="p-4 text-center" style="background-color: #0000003d; border-radius: 20px;">
 							<img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="Ritesh Agarwal">
 							<h4 class="fw-bold">Ritesh Agarwal</h4>
 							<p class="text-uppercase small">FOUNDER & CEO, OYO</p>
 							<p>
-								<a href="#"><i class="fab fa-instagram me-2" style="color: black; font-size: 24px;"></i></a>
-								<a href="#"><i class="fab fa-linkedin" style="color: black; font-size: 24px;"></i></a>
+								<a href="#"><i class="fab fa-instagram me-2" style="color: #ffffff; font-size: 24px;"></i></a>
+								<a href="#"><i class="fab fa-linkedin" style="color: #ffffff; font-size: 24px;"></i></a>
 							</p>
-							<p class="small">I'm a paragraph. Click here to add your own text and edit me.</p>
+							<p class="small">descriptive paragraph</p>
 						</div>
 					</div>
 
-					<div class="col-md-4 fade-in-up" style="animation-delay: 1s;">
+					<div class="col-md-4 pastSpeakersCard" style="transition-delay: 1s;">
 						<div class="p-4 text-center" style="background-color: #0000003d; border-radius: 20px;">
 							<img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="Raj Shamani">
 							<h4 class="fw-bold">Raj Shamani</h4>
 							<p class="text-uppercase small">CONTENT CREATOR & ENTREPRENEUR</p>
 							<p>
-								<a href="#"><i class="fab fa-instagram me-2" style="color: black; font-size: 24px;"></i></a>
-								<a href="#"><i class="fab fa-linkedin" style="color: black; font-size: 24px;"></i></a>
+								<a href="#"><i class="fab fa-instagram me-2" style="color: #ffffff; font-size: 24px;"></i></a>
+								<a href="#"><i class="fab fa-linkedin" style="color: #ffffff; font-size: 24px;"></i></a>
 							</p>
-							<p class="small">I'm a paragraph. Click here to add your own text and edit me.</p>
+							<p class="small">descriptive paragraph</p>
 						</div>
 					</div>
 
-					<div class="col-md-4 fade-in-up" style="animation-delay: 1.2s;">
+					<div class="col-md-4 pastSpeakersCard" style="transition-delay: 1.2s;">
 						<div class="p-4 text-center" style="background-color: #0000003d; border-radius: 20px;">
 							<img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="Ankur Warikoo">
 							<h4 class="fw-bold">Ankur Warikoo</h4>
 							<p class="text-uppercase small">AUTHOR, EDUCATOR & ENTREPRENEUR</p>
 							<p>
-							<a href="#"><i class="fab fa-instagram me-2" style="color: black; font-size: 24px;"></i></a>
-							<a href="#"><i class="fab fa-linkedin" style="color: black; font-size: 24px;"></i></a>
+								<a href="#"><i class="fab fa-instagram me-2" style="color: #ffffff; font-size: 24px;"></i></a>
+								<a href="#"><i class="fab fa-linkedin" style="color: #ffffff; font-size: 24px;"></i></a>
 							</p>
-							<p class="small">I'm a paragraph. Click here to add your own text and edit me.</p>
+							<p class="small">descriptive paragraph</p>
 						</div>
 					</div>
 				</div>
@@ -370,6 +365,7 @@
 			const navExpandButton = document.querySelector("#navExpandButton");
 			const logoSectionTexts = document.querySelector("#logo-section-texts");
 			const scrollDownMessage = document.querySelector("#scroll-down-message");
+			const pastSpeakersCardsDiv = document.querySelector("#pastSpeakersCardsDiv");
 
 			const navbarHeight = navbar.getBoundingClientRect().height;
 			const logoWidthByHeight = 2471 / 383;
@@ -430,6 +426,14 @@
 				navLinks.classList.toggle("visible");
 				navExpandButton.classList.toggle("clicked");
 			};
+
+			function cardsFadeIn() {
+				if (document.querySelector("#pastSpeakersCardsDiv .pastSpeakersCard p").getBoundingClientRect().top <= window.innerHeight) {
+					pastSpeakersCardsDiv.classList.add("fadeIn");
+					window.removeEventListener("scroll", cardsFadeIn);
+				}
+			}
+			window.addEventListener("scroll", cardsFadeIn);
 
 			window.addEventListener("scroll", scrollAction);
 			window.addEventListener("resize", scrollAction);
