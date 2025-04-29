@@ -184,26 +184,32 @@
 				text-wrap: nowrap;
 			}
 
-			#button_detail a {
-				display: inline-block;
-				padding: 0px 25px;
-				text-decoration: none;
-				color: rgb(255, 255, 255); /* Make text black for clarity */ /* "black"? where? */
-				/* font-weight: 1000;
-				font-size: 30px; */
-				font-size: min(19px, 4vw);
-				border: none;
-				border-radius: 12px;
-				background-color: #00ffff0c;
-				transition: transform 0.3s ease, opacity 0.3s ease;
-				position: relative;
-				overflow: hidden;
-			}
+			#button_detail {
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif;
+    }
+	#button_detail a {
+        display: inline-block;
+        padding: 0px 25px;
+        text-decoration: none;
+        color: rgb(255, 255, 255); /* Make text black for clarity */
+        font-weight: 1000;
+        font-size: 30px;
+        border: none;
+        border-radius: 12px;
+        background-color: #00ffff0c;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        position: relative;
+        overflow: hidden;
+       
 
-			#button_detail a:hover {
-				transform: scale(1.05);
-				opacity: 0.9;
-			}
+    }
+
+    #button_detail a:hover {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+
 
 			#pastSpeakersCardsDiv .pastSpeakersCard {
 					opacity: 0;
@@ -215,6 +221,55 @@
 					transform: translateY(0);
 					transition: opacity 0.8s, transform 0.8s;
 			}
+			.sponsor-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+    }
+    
+    .sponsor-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .sponsor-logo {
+        max-height: 80px;
+        width: auto;
+        object-fit: contain;
+        padding: 0.5rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .sponsor-title {
+        font-weight: bold;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0;
+        text-align: center;
+        transition: color 0.3s ease;
+    }
+    
+    .sponsor-card:hover {
+        transform: translateY(-5px) !important;
+    }
+    
+    .sponsor-card:hover .sponsor-logo {
+        transform: scale(1.05);
+    }
+    
+    .sponsor-card:hover .sponsor-title {
+        color: #ffffff;
+    }
+    
+    @media (max-width: 768px) {
+        .sponsor-logo {
+            max-height: 60px;
+        }
+    }
 		</style>
 	</head>
 	<body>
@@ -238,16 +293,17 @@
 		<section id="logo-section">
 			<div id="logo-section-texts">
 				<p id="event-info">
-					<span>16 Dec 2024, 10:00 am - 17 Dec 2024, 2:00 pm</span>
+					
+					<span>16 Dec 2024, 10:00 am - 17 Dec 2024, 2:00 pm</span><br>
 					<span>Christ University Central Campus, </span>
 					<span>Bhavani Nagar, S.G. Palya, </span>
 					<span>Bengaluru, Karnataka 560029</span>
 				</p>
 				<br>
 				<div id="button_detail">
-					<a href="task.pdf" target="_blank">MORE DETAILS</a>
+					<a href="task.pdf" target="_blank">Details</a>
 				</div>
-				<br>
+				<br><br><br>
 				<div id="scroll-down-message">
 					<p>SCROLL DOWN</p>
 					<svg id="scroll-arrow" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
@@ -382,7 +438,81 @@
 				</div>
 			</div>
 		</section>
+
+		<section id="past-sponsors" class="position-relative py-5 text-white" style="background: url(assets/pointer-point-trekking-route-marks-260nw-2306481053.jpg) no-repeat center center / cover;">
+			<div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.4);"></div>
+			<div class="container position-relative">
+				<div class="mb-5 d-flex align-items-center">
+					<div style="border-left: 10px dotted #ffffff; height: 120px; margin-right: 20px;"></div>
+					<h1 style="color: #ffffff; font-size: min(15vw, 5rem); font-weight: 600; line-height: 1.1;">Past <br>Sponsors</h1>
+				</div>
+		
+				<div class="row justify-content-center g-4">
+					<!-- Official Sponsor -->
+					<div class="col-lg-4 col-md-6 col-12">
+						<div class="sponsor-card">
+							<img src="./assets/Sponsors Logo/Kreo.png" class="sponsor-logo" alt="KREO">
+							<h4 class="sponsor-title">Official Sponsor</h4>
+						</div>
+					</div>
+					
+					<!-- Food Partner -->
+					<div class="col-lg-4 col-md-6 col-12">
+						<div class="sponsor-card" data-delay="0.2">
+							<img src="./assets/Sponsors Logo/falhari.png" class="sponsor-logo" alt="Food Partner">
+							<h4 class="sponsor-title">Food Partner</h4>
+						</div>
+					</div>
+					
+					<!-- Ticketing Partner -->
+					<div class="col-lg-4 col-md-6 col-12">
+						<div class="sponsor-card" data-delay="0.4">
+							<img src="./assets/Sponsors Logo/bookmyshow.png" class="sponsor-logo" alt="Ticketing Partner">
+							<h4 class="sponsor-title">Ticketing Partner</h4>
+						</div>
+					</div>
+					
+					<!-- Gifting Partner -->
+					<div class="col-lg-4 col-md-6 col-12">
+						<div class="sponsor-card" data-delay="0.6">
+							<img src="./assets/Sponsors Logo/TRIo.avif" class="sponsor-logo" alt="Gifting Partner">
+							<h4 class="sponsor-title">Gifting Partner</h4>
+						</div>
+					</div>
+					
+					<!-- Printing Partner -->
+					<div class="col-lg-4 col-md-6 col-12">
+						<div class="sponsor-card" data-delay="0.8">
+							<img src="./assets/Sponsors Logo/E.avif" class="sponsor-logo" alt="Printing Partner">
+							<h4 class="sponsor-title">Printing Partner</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 		<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			const section = document.querySelector('#past-sponsors');
+			const cards = document.querySelectorAll('.sponsor-card');
+			
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						const cards = entry.target.querySelectorAll('.sponsor-card');
+						cards.forEach((card, index) => {
+							const delay = card.dataset.delay || 0;
+							setTimeout(() => {
+								card.classList.add('visible');
+							}, delay * 1000);
+						});
+						observer.unobserve(entry.target);
+					}
+				});
+			}, { threshold: 0.3 }); // 30% of section must be visible
+			
+			observer.observe(section);
+		});
+		
 			const logo = document.querySelector("#logo");
 			const navbar = document.querySelector("#navbar")
 			const navLinks = document.querySelector("#navLinks");
