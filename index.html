@@ -6,6 +6,7 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
 		<style>
 			body, html {
 				margin: 0;
@@ -458,6 +459,60 @@
 				font-size: 12px;
 				color: #555;
 			  }
+			  .section-title {
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: bold;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+
+    .innofair-img {
+      width: 180px;
+      margin: 20px 0;
+    }
+
+    .lead {
+      font-weight: 500;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      font-size: 1.2rem;
+	  text-align: center;
+    }
+
+    .objective-box {
+      background-color: white;
+      color: black;
+      padding: 20px;
+      margin-bottom: 20px;
+      position: relative;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .objective-box::after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 30px solid transparent;
+      border-right: 30px solid transparent;
+      border-top: 20px solid white;
+    }
+
+    .stall-card {
+      background-color: #e0f0f0;
+      color: #000;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 4px 4px 6px rgba(0,0,0,0.3);
+      margin-bottom: 20px;
+    }
+
+    .stall-icon {
+      width: 60px;
+      margin-bottom: 15px;
+    }	
 		</style>
 	</head>
 	<body>
@@ -470,8 +525,8 @@
 		<ul id="navLinks">
 			<li><a href="#">Home</a></li>
 			<li><a href="#about-innowave">About</a></li>
-			<li><a href="#">Our Collaborators</a></li>
-			<li><a href="#">Competitions & Events</a></li>
+			<li><a href="#speakers">Our Collaborators</a></li>
+			<li><a href="#Competitions-and-Events">Competitions & Events</a></li>
 			<li><a href="#">Innofair</a></li>
 			<li><a href="#">Speakers</a></li>
 		</ul>
@@ -662,7 +717,7 @@
 			</div>
 		</section>
 	</section>
-		<section>
+		<section id="Competitions-and-Events"><br><br>
 			<div class="container">
 				<div class="top-section">
 				  <img src="assets/Sponsors Logo/propel.png" alt="Propel Logo" class="logo" />
@@ -718,6 +773,57 @@
 		</section>
 
 
+		<section id="Innofair" style="background: url('assets/pointer-point-trekking-route-marks-260nw-2306481053.jpg') no-repeat center center / cover;">
+			
+  <div class="container py-5" >
+    <h1 class="section-title">INNOFAIR</h1>
+    <img src="./assets/InnoFair_edited.png" alt="INNOFAIR Carnival" class="innofair-img" />
+    <p class="lead">
+      INNOFAIR 2024 stands as a distinguished platform celebrating the ingenuity and entrepreneurial spirit of students.
+    </p>
+
+    <h2 class="section-title mt-5">THE OBJECTIVES</h2>
+    <div class="row justify-content-center mt-4">
+      <div class="col-md-4">
+        <div class="objective-box">
+          INNOFAIR aims to bridge the gap between student entrepreneurs and key stakeholders in the business ecosystem.
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="objective-box">
+          INNOFAIR 2024 aspires to celebrate the entrepreneurial journey of students while fostering an ecosystem of innovation and growth.
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="objective-box">
+          It invites professionals, investors, and enthusiasts to witness the pioneering efforts of the next generation of leaders.
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title mt-5">THE STALL</h2>
+    <div class="row justify-content-center mt-4">
+      <div class="col-md-4">
+        <div class="stall-card">
+          <img src="./assets/InnoFair (2)_edited.png" alt="Stall Icon" class="stall-icon" />
+          <p><strong>Stall Dimensions:</strong><br>10 ft x 10 ft, allocated to student entrepreneurs.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stall-card">
+          <img src="./assets/InnoFair (3)_edited.png" alt="Target Icon" class="stall-icon" />
+          <p><strong>Focus:</strong><br>Showcasing innovative products, services, and business concepts.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="stall-card">
+          <img src="./assets/InnoFair (5)_edited.png" alt="Bulb Icon" class="stall-icon" />
+          <p><strong>Highlights:</strong><br>Creativity, problem-solving, and addressing contemporary challenges.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+		</section>
 		<script>
 			   function handleScrollAnimation() {
       const section = document.getElementById("prize-bars");
@@ -834,6 +940,17 @@
 			window.addEventListener("resize", scrollAction);
 
 			scrollAction();
+	
+	
+			if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  if (window.location.hash) {
+    window.location.href = window.location.origin + window.location.pathname;
+  }
+
+
 		</script>
 	</body>
 </html>
