@@ -513,6 +513,52 @@
       width: 60px;
       margin-bottom: 15px;
     }	
+	.about-host-section {
+  color: white;
+  text-align: center;
+  padding: 80px 30px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.host-logo {
+  width: 500px;
+}
+
+.host-description {
+  max-width: 900px;
+  margin: 0 auto 30px;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.register-button {
+  background-color: white;
+  color: #104f4c;
+  padding: 14px 32px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  border-radius: 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  letter-spacing: 2px;
+}
+
+.register-button:hover {
+  background-color: #000000;
+  color: white;
+  transform: translateY(-2px);
+}
+
 		</style>
 	</head>
 	<body>
@@ -823,7 +869,24 @@
       </div>
     </div>
   </div>
+		
+		
+		<section id="aboutHostSection" class="about-host-section">
+			<h2 class="section-title">ABOUT THE HOST</h2><BR></BR>
+			<img src="assets/Untitled design (3).png" alt="CIC Logo" class="host-logo" />
+			<p class="host-description">
+			  CHRIST Incubation Centre, also known as the CHRIST Incubation and Entrepreneurship Support Cell, is the official
+			  incubation centre of CHRIST (Deemed to be University). The centre encourages, nurtures and supports young and
+			  aspiring entrepreneurs to activate their innovative minds, chalk up creative ideas and turn them into successful
+			  businesses. The incubation centre firmly believes that entrepreneurship leads to economic growth and progress,
+			  and works to provide budding entrepreneurs with all the resources they need. The centre imparts access to
+			  resources, mentorship, guidance, learning, networking and other amazing opportunities.
+			</p>
+			<a href="https://docs.google.com/forms/d/e/1FAIpQLSdV3bBZC3dz1qiWwudL8PGWPOwy8tFyXIJwsv_bO_lSLuj00w/closedform" class="register-button">Click Here to Register</a>
+		  </section>
 		</section>
+		
+		
 		<script>
 			   function handleScrollAnimation() {
       const section = document.getElementById("prize-bars");
