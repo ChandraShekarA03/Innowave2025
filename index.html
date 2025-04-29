@@ -184,32 +184,26 @@
 				text-wrap: nowrap;
 			}
 
-			#button_detail {
-        text-align: center;
-        font-family: 'Times New Roman', Times, serif;
-    }
-	#button_detail a {
-        display: inline-block;
-        padding: 0px 25px;
-        text-decoration: none;
-        color: rgb(255, 255, 255); /* Make text black for clarity */
-        font-weight: 1000;
-        font-size: 30px;
-        border: none;
-        border-radius: 12px;
-        background-color: #00ffff0c;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-        position: relative;
-        overflow: hidden;
-       
+			#button_detail a {
+				display: inline-block;
+				padding: 0px 25px;
+				text-decoration: none;
+				color: rgb(255, 255, 255); /* Make text black for clarity */ /* "black"? where? */
+				/* font-weight: 1000;
+				font-size: 30px; */
+				font-size: min(19px, 4vw);
+				border: none;
+				border-radius: 12px;
+				background-color: #00ffff0c;
+				transition: transform 0.3s ease, opacity 0.3s ease;
+				position: relative;
+				overflow: hidden;
+			}
 
-    }
-
-    #button_detail a:hover {
-        transform: scale(1.05);
-        opacity: 0.9;
-    }
-
+			#button_detail a:hover {
+				transform: scale(1.05);
+				opacity: 0.9;
+			}
 
 			#pastSpeakersCardsDiv .pastSpeakersCard {
 					opacity: 0;
@@ -244,17 +238,16 @@
 		<section id="logo-section">
 			<div id="logo-section-texts">
 				<p id="event-info">
-					
-					<span>16 Dec 2024, 10:00 am - 17 Dec 2024, 2:00 pm</span><br>
+					<span>16 Dec 2024, 10:00 am - 17 Dec 2024, 2:00 pm</span>
 					<span>Christ University Central Campus, </span>
 					<span>Bhavani Nagar, S.G. Palya, </span>
 					<span>Bengaluru, Karnataka 560029</span>
 				</p>
 				<br>
 				<div id="button_detail">
-					<a href="task.pdf" target="_blank">Details</a>
+					<a href="task.pdf" target="_blank">MORE DETAILS</a>
 				</div>
-				<br><br><br>
+				<br>
 				<div id="scroll-down-message">
 					<p>SCROLL DOWN</p>
 					<svg id="scroll-arrow" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
