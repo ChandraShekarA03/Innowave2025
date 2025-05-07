@@ -734,6 +734,7 @@
 			<li><a href="#speakers">Our Collaborators</a></li>
 			<li><a href="#Competitions-and-Events">Competitions & Events</a></li>
 			<li><a href="#Innofair">Innofair</a></li>
+			<li><a href="#masterclasses">Master Classes</a></li>
 			<li class="dropdown">
 				<a href="#">Events</a>
 				<ul class="dropdown-menu">
@@ -770,9 +771,9 @@
 			<div class="container py-5">
 				<div class="row">
 					<div class="d-flex align-items-center mb-3">
-						<div style="border-left: 8px dotted #2d7777; height: 200px; margin-right: 15px; margin-top: 5%;">
-						</div>
-						<div><br><br>	
+						<div style="border-left: 8px dotted #2d7777; height: 200px; margin-right: 15px; margin-top: 5%;"></div>
+						<div>
+							<br><br>	
 							<h6 class="text-uppercase mb-1" style="font-weight: 700;">About</h6>
 							<h1 style="color: #2d7777; font-size: min(15vw, 6rem); font-weight: 800; line-height: 1.1;">Innowave<br>2024</h1>
 						</div>
@@ -1129,26 +1130,25 @@
 		  </div>		
 		</section>
 		<script>
-    document.addEventListener("DOMContentLoaded", () => {
-    const section = document.getElementById("masterclasses");
-    const entries = section.querySelectorAll(".timeline-entry");
+			document.addEventListener("DOMContentLoaded", () => {
+				const section = document.getElementById("masterclasses");
+				const entries = section.querySelectorAll(".timeline-entry");
 
-    const observer = new IntersectionObserver((entriesList, observer) => {
-      entriesList.forEach(entry => {
-        if (entry.isIntersecting) {
-          const timelineItems = section.querySelectorAll(".timeline-entry");
-          timelineItems.forEach((el, i) => {
-            setTimeout(() => {
-              el.classList.add("visible");
-            }, i * 600);
-          });
-          observer.unobserve(section);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    observer.observe(section);
-  });
+				const observer = new IntersectionObserver((entriesList, observer) => {
+					entriesList.forEach(entry => {
+						if (entry.isIntersecting) {
+							const timelineItems = section.querySelectorAll(".timeline-entry");
+							timelineItems.forEach((el, i) => {
+								setTimeout(() => {
+									el.classList.add("visible");
+								}, i * 600);
+							});
+							observer.unobserve(section);
+						}
+					});
+				}, { threshold: 0.2 });
+				observer.observe(section);
+			});
   
   // Fade-in on scroll
     		const observer = new IntersectionObserver(entries => {
@@ -1209,7 +1209,7 @@
 
 			const navbarHeight = navbar.getBoundingClientRect().height;
 			const logoWidthByHeight = 2471 / 383;
-			const navLinksWidth = 613.6500244140625;
+			const navLinksWidth = 725.2333374023438;
 			
 			const logoTargetWidth = 47 * logoWidthByHeight;
 			const logoTargetX = 10 + (logoTargetWidth / 2);
