@@ -249,11 +249,12 @@
 
 
             .timeline {
-      position: relative;
+      position:relative;
       padding-left:78px;
 	  font-weight: 200;
-      align-items: center; /* This centers child elements horizontally */
-  border-left: none; 
+      width: fit-content;
+      align-items: center; /* This centers child elements horizontally */ 
+  border-left: 7px dotted #1c695f; height: 600px; margin-right: 20px
     }
 
     .timeline-entry {
@@ -265,6 +266,7 @@
   flex-direction: column;
       transition: all 0.8s ease-out;
       align-items: center;
+      
     }
 
     .timeline-entry.visible {
@@ -274,7 +276,7 @@
 
     .dot-connector {
       position: absolute;
-      left: 300px;
+      left: -80px;
       top: 30px;
       width: 80px;
       height: 2px;
@@ -283,7 +285,7 @@
 
     .dot {
       position: absolute;
-      left: 300px;
+      left: -87px;
       top: 25px;
       width: 12px;
       height: 12px;
@@ -409,7 +411,7 @@
 			</div>
 		</section>
 
-
+<center>
         <section>
             <div id="masterclasses" class="container py-5">
                 <div class="text-center mb-5">
@@ -473,7 +475,7 @@
               
                 </div>
               </div>		
-            </section>
+            </section></center>
 
             <script>
 
