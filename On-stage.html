@@ -1,0 +1,370 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>INNOWAVE</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+        <style>
+            body, html {
+				margin: 0;
+				padding: 0;
+				font-family: Arial, sans-serif;
+				overflow-x: hidden;
+				background-image: url("./assets/white\ background.gif");
+				background-attachment: fixed;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+
+			#logo-section {
+				height: 100vh;
+				position: relative;
+				/* stuff under this makes the background stay in place */
+				background-image: url("./assets/background.gif");
+				background-attachment: fixed;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+
+			@keyframes bounce {
+				0%, 20%, 50%, 80%, 100% {
+					transform: translateY(0px);
+				}
+				40% {
+					transform: translateY(5px);
+				}
+				60% {
+					transform: translateY(3px);
+				}
+			}
+
+			#about-innowave {
+				font-size: larger;
+				height: fit-content;
+				min-height: 100vh;
+				background-image: url("./assets/white\ background.gif");
+				background-attachment: fixed;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+
+			#navbar {
+				position: fixed;
+				top: 0px;
+				height: 63.5px;
+				width: 100vw;
+				background-color: #000000;
+				opacity: 0;
+				z-index: 996;
+				transition: opacity 0.3s;
+			}
+
+			#logo {
+				position: fixed;
+				z-index: 997;
+				transform: translateX(-50%);
+				width: 50vw;
+				left: 50vw;
+			}
+
+			#navLinks {
+				position: fixed;
+				transform: translateX(50%);
+				right: 50vw;
+				width: fit-content;
+				margin-top: 19.75px;
+				margin-bottom: unset;
+				padding-left: unset;
+				z-index: 998;
+				display: flex;
+				flex-wrap: nowrap;
+				list-style-type: none;
+			}
+
+			ul {
+ 			   list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			#navLinks li {
+				padding: 0px 10px;
+				position: relative;
+				display: inline-block;
+			}
+			
+			.dropdown-menu {
+				display: none;
+				position: absolute;
+				background-color: rgba(0, 0, 0, 0);
+				box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+				min-width: 160px;
+				z-index: 1;
+			}
+
+			/* Dropdown items */
+			.dropdown-menu li {
+				display: block;
+			}
+
+			/* Show dropdown on hover */
+			.dropdown:hover .dropdown-menu {
+				display: block;
+			}
+
+			#navLinks a {
+				color: #ffffff;
+				text-decoration: none;
+				text-wrap: nowrap;
+			}
+
+			#navLinks a:hover {
+				color: #f5cc81;
+			}
+
+			#navExpandButton {
+				display: none;
+				position: fixed;
+				top: 0px;
+				right: 0px;
+				z-index: 999;
+			}
+
+			@media screen and (max-width: 920px) {
+				#navLinks {
+					display: unset;
+					background-color: #000000bf;
+					width: 100vw;
+					top: 0px;
+					right: 0 !important;
+					margin-top: 0px;
+					padding-top: 63.5px;
+					text-align: center;
+					transform: translateY(-100%);
+					font-size: x-large;
+				}
+				#navLinks.visible {
+					transform: none;
+					transition: transform 0.3s;
+				}
+				#navlinks li {
+					margin: 30px 0px;
+				}
+				#navExpandButton {
+					display: unset;
+					stroke: #ffffff;
+				}
+				#navExpandButton.clicked {
+					opacity: 0.75;
+				}
+				@media screen and (max-height: 489.5px) {
+					#navlinks li {
+						margin: 10px 0px;
+					}
+				}
+			}
+
+			#logo-section-texts {
+				position: fixed;
+				width: fit-content;
+				text-align: center;
+				color: #ffffff;
+				left: 50vw;
+				transform: translateX(-50%);
+			}
+
+			#scroll-down-message {
+				position: absolute;
+				text-align: center;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 100px;
+                cursor: pointer;
+                transition: transform 0.3s;
+			}
+
+			#scroll-down-message p {
+				margin-bottom: 0px;
+			}
+
+			#scroll-arrow {
+                width: 85px;
+                transition: width 0.3s;
+                animation: bounce 2s infinite;
+            }
+
+			#scroll-down-message:hover {
+                transform: translate(-50%, 5px);
+            }
+
+			#scroll-down-message:hover #scroll-arrow {
+                animation: none;
+                width: 90px;
+            }
+
+			#event-info {
+				max-width: 402px;
+			}
+
+			#event-info span {
+				font-size: min(19px, 4vw);
+				text-wrap: nowrap;
+			}
+
+			#button_detail {
+				text-align: center;
+				font-family: 'Times New Roman', Times, serif;
+			}
+
+            #button_detail {
+				text-align: center;
+				font-family: 'Times New Roman', Times, serif;
+			}
+
+			#button_detail a {
+				display: inline-block;
+				padding: 0px 25px;
+				text-decoration: none;
+				color: rgb(255, 255, 255); /* Make text black for clarity */
+				font-weight: 1000;
+				font-size: 30px;
+				border: none;
+				border-radius: 12px;
+				background-color: #00ffff0c;
+				transition: transform 0.3s ease, opacity 0.3s ease;
+				position: relative;
+				overflow: hidden;
+			}
+
+			#button_detail a:hover {
+				transform: scale(1.05);
+				opacity: 0.9;
+			}
+        </style>
+    </head>
+    <body>
+        <img src="./assets/Innowave logo.png" id="logo">
+
+		<svg id="navExpandButton" style="width: 63.5px; height: 63.5px;" viewBox="0 0 63.5 63.5" xmlns="http://www.w3.org/2000/svg">
+			<path d="M 10.75, 15 L 52.75, 15 M 10.75, 31.75 L 52.75, 31.75 M 10.75, 48.5 L 52.75, 48.5" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+
+		<ul id="navLinks">
+			<li><a href="#">Home</a></li>
+			<li><a href="#about-innowave">About</a></li>
+			<li><a href="#speakers">Our Collaborators</a></li>
+			<li><a href="#Competitions-and-Events">Competitions & Events</a></li>
+			<li><a href="#Innofair">Innofair</a></li>
+			<li class="dropdown">
+				<a href="#">Events</a>
+				<ul class="dropdown-menu">
+					<li><a href="On-stage.html">On Stage Events</a></li>
+					<li><a href="Off-stage.html">Off Stage Events</a></li>
+				</ul>
+			</li>		</ul>
+
+		<nav id="navbar"></nav>
+
+		<section id="logo-section">
+			<div id="logo-section-texts">
+				<p id="event-info">
+					<span>16 Dec 2024, 10:00 am - 17 Dec 2024, 2:00 pm</span><br>
+					<span>Christ University Central Campus, </span>
+					<span>Bhavani Nagar, S.G. Palya, </span>
+					<span>Bengaluru, Karnataka 560029</span>
+				</p>
+				<br>
+				<div id="button_detail">
+					<a href="task.pdf" target="_blank">Details</a>
+				</div>
+				<br><br><br>
+				<div id="scroll-down-message">
+					<p>SCROLL DOWN</p>
+					<svg id="scroll-arrow" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
+						<path d="M 10, 10 L 45, 25 A 10 10, 0 0, 0 55, 25 L 90, 10" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</div>
+			</div>
+		</section>
+        <section id="about-innowave"></section>
+        <script>
+            const logo = document.querySelector("#logo");
+			const navbar = document.querySelector("#navbar")
+			const navLinks = document.querySelector("#navLinks");
+			const navExpandButton = document.querySelector("#navExpandButton");
+			const logoSectionTexts = document.querySelector("#logo-section-texts");
+			const scrollDownMessage = document.querySelector("#scroll-down-message");
+			const pastSpeakersCardsDiv = document.querySelector("#pastSpeakersCardsDiv");
+
+			const navbarHeight = navbar.getBoundingClientRect().height;
+			const logoWidthByHeight = 2471 / 383;
+			const navLinksWidth = 594.9666748046875;
+			
+			const logoTargetWidth = 47 * logoWidthByHeight;
+			const logoTargetX = 10 + (logoTargetWidth / 2);
+			const logoTargetY = 8.25;
+			
+			const navbarTargetRight = navLinksWidth / 2;
+			
+			const logoSectionTextsTargetY = (8.25 + 47) + 40;
+
+			scrollDownMessage.onclick = () => {
+				const aboutSection = document.querySelector("#about-innowave");
+				aboutSection.scrollIntoView({
+					behavior: "smooth"
+				});
+			};
+
+			const scrollAction = () => {
+				const scrollThreshold = window.innerHeight - navbarHeight;
+				const actualProgress = window.scrollY / scrollThreshold;
+				let progress = actualProgress;
+				if (progress >= 1) {
+					progress = 1;
+					navbar.style.opacity = 0.75;
+					logo.style.zIndex = 998;
+					navLinks.style.zIndex = 997;
+				} else {
+					navbar.style.opacity = 0;
+					logo.style.zIndex = 997;
+					navLinks.style.zIndex = 998;
+				}
+				if (actualProgress > 2) {
+					return;
+				}
+				const logoOrigWidth = Math.min(960, window.innerWidth - 20);
+				const logoOrigHeight = logoOrigWidth / logoWidthByHeight;
+				const logoOrigX = window.innerWidth / 2;
+				const logoOrigY = (window.innerHeight / 2) - logoOrigHeight;
+
+				logo.style.left = `${logoOrigX - ((logoOrigX - logoTargetX) * progress)}px`;
+				logo.style.top = `${logoOrigY - ((logoOrigY - logoTargetY) * progress)}px`;
+				logo.style.width = `${logoOrigWidth - ((logoOrigWidth - logoTargetWidth) * progress)}px`;
+
+				const navbarOrigRight = window.innerWidth / 2;
+
+				navLinks.style.right = `${navbarOrigRight - ((navbarOrigRight - navbarTargetRight) * progress)}px`;
+
+				const logoSectionTextsOrigY = (window.innerHeight / 2) + 40;
+
+				logoSectionTexts.style.top = `${logoSectionTextsOrigY - ((logoSectionTextsOrigY - logoSectionTextsTargetY) * progress)}px`;
+				logoSectionTexts.style.opacity = `${1 - (progress * 4)}`;
+			}
+
+			navExpandButton.onclick = () => {
+				navLinks.classList.toggle("visible");
+				navExpandButton.classList.toggle("clicked");
+			};
+
+            window.addEventListener("scroll", scrollAction);
+			window.addEventListener("resize", scrollAction);
+
+			scrollAction();
+        </script>
+    </body>
+</html>
