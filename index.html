@@ -241,17 +241,25 @@
 				opacity: 0.9;
 			}
 
-			#pastSpeakersCardsDiv .pastSpeakersCard {
-				opacity: 0;
-				transform: translateY(30px);
-				text-align: center;
-			}
+#pastSpeakersCardsDiv .pastSpeakersCard {
+    opacity: 0;
+    transform: translateY(30px);
+    text-align: center;
+    transition: opacity 0.8s ease, transform 0.8s ease; 
+}
 
-			#pastSpeakersCardsDiv.fadeIn .pastSpeakersCard {
-				opacity: 1;
-				transform: translateY(0);
-				transition: opacity 0.8s, transform 0.8s;
-			}
+#pastSpeakersCardsDiv.fadeIn .pastSpeakersCard {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s, transform 0.8s; 
+}
+
+#pastSpeakersCardsDiv .pastSpeakersCard:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+    cursor: pointer; 
+    transition: transform 0.2s ease, box-shadow 0.2s ease; 
+}
 
 			.sponsor-card {
 				display: flex;
@@ -848,7 +856,7 @@
 					</div>
 					<div class="col-md-6">
 						<p>
-							<span style="color: #2d7777; font-weight: 600;">Innowave 2024</span> is the official Entrepreneurship
+							<span style=" font-weight: 600;"><a href="#logo-section" style="text-decoration: none;color: #2d7777;">Innowave 2024</a></span> is the official Entrepreneurship
 							Summit of CHRIST (Deemed to be University), a two-day long event encompassing startups, incubation,
 							entrepreneurship and everything in between. The summit, spanning the entirety of CHRIST (Deemed to be
 							University)'s 28-acre campus, will host numerous activities and programmes. It will bring to the fore
