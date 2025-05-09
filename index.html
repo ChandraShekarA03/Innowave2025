@@ -567,36 +567,53 @@
 				text-align: center;
 			}
 
-			.objective-box {
-				background-color: white;
-				color: black;
-				padding: 20px;
-				margin-bottom: 20px;
-				position: relative;
-				box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
-			}
+.objective-box {
+  background-color: white;
+  color: black;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-			.objective-box::after {
-				content: "";
-				position: absolute;
-				bottom: -20px;
-				left: 50%;
-				transform: translateX(-50%);
-				width: 0;
-				height: 0;
-				border-left: 30px solid transparent;
-				border-right: 30px solid transparent;
-				border-top: 20px solid white;
-			}
+.objective-box::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-top: 20px solid white;
+}
+
+/* Hover Effect */
+.objective-box:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
 
 			.stall-card {
-				background-color: #e0f0f0;
-				color: #000;
-				border-radius: 12px;
-				padding: 20px;
-				box-shadow: 4px 4px 6px rgba(0,0,0,0.3);
-				margin-bottom: 20px;
-			}
+    background-color: #e0f0f0;
+    color: #000;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+}
+
+.stall-card:hover {
+    background-color: #d0e0e0; /* Change background on hover */
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4); /* More intense shadow */
+    transform: scale(1.05); /* Slightly enlarge the card */
+}
+
 
 			.stall-icon {
 				width: 60px;
@@ -937,7 +954,7 @@
 				<div class="container position-relative">
 					<div class="mb-5 d-flex align-items-center">
 						<div style="border-left: 10px dotted #ffffff; height: 120px; margin-right: 20px;"></div>
-						<h1 style="color: #ffffff; font-size: min(15vw, 5rem); font-weight: 600; line-height: 1.1;">Past <br>Sponsors</h1>
+						<h1 style="color: #ffffff; font-size: min(15vw, 5rem); font-weight: 600; line-height: 1.1;" >Past <br>Sponsors</h1>
 					</div>
 			
 					<div class="row justify-content-center g-4">
@@ -990,7 +1007,7 @@
 							<p>Propel is a beacon of innovation, transcending the traditional boundaries of competition. More than just an event, it represents a transformative platform meticulously crafted to nurture the entrepreneurial spirit of India's most brilliant young minds. Hosted by Innoweave'24, this premier business plan pitching competition is a crucible where raw creativity meets strategic thinking, where visionary ideas are forged into potential market-disrupting solutions.</p>
 						</div>
 						<div class="vision-section">
-					  		h2>THE VISION</h2>
+					  		<h2>THE VISION</h2>
 					  		<p>Propel cultivates a culture of innovation, bridging the gap between academic knowledge and real-world challenges. By empowering aspiring entrepreneurs, Propel provides a launchpad for transformative ideas, connecting innovators with industry leaders to shape a brighter future. This platform fosters a vibrant community of problem-solvers, driving positive change.</p>
 						</div>
 				  	</div>
@@ -1101,7 +1118,12 @@
 			<section id="aboutHostSection" class="about-host-section">
 				<h2 class="section-title">ABOUT THE HOST</h2>
 				<br>
-				<img src="./assets/CIC.png" alt="CIC Logo" class="host-logo" style="width: 200px;">
+				<style>
+    .host-logo:hover {
+        transform: scale(1.1); /* Slightly enlarge the image on hover */
+    }
+</style>
+<img src="./assets/CIC.png" alt="CIC Logo" class="host-logo" style="width: 300px; transition: transform 0.3s ease;">
 				<br><br>
 				<p class="host-description">
 					CHRIST Incubation Centre, also known as the CHRIST Incubation and Entrepreneurship Support Cell, is the official
