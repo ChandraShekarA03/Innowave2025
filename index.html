@@ -1200,40 +1200,27 @@
 				</div>
 			</div>		
 		</section>
-		<script>  
-  			// Fade-in on scroll
-    		const observer = new IntersectionObserver(entries => {
-      			entries.forEach(entry => {
-        			if (entry.isIntersecting) {
-          				entry.target.classList.add('show');
-        			}
-      			});
-    		}, {threshold: 0.2});
+		<script>
+			const scrollDownMessage = document.querySelector("#scroll-down-message");
 
-    		document.querySelectorAll('.event').forEach(el => {
-      			observer.observe(el);
-    		});
-			
-			function handleScrollAnimation() {
-				const section = document.getElementById("prize-bars");
-				const rect = section.getBoundingClientRect();
-				const windowHeight = window.innerHeight;
+			scrollDownMessage.onclick = () => {
+				const aboutSection = document.querySelector("#about-innowave");
+				aboutSection.scrollIntoView({
+					behavior: "smooth"
+				});
+			};
 
-				if (rect.top < windowHeight - 100) {
-					section.classList.add("show");
-					window.removeEventListener("scroll", handleScrollAnimation);
-				}
-			}
+			const navExpandButton = document.querySelector("#navExpandButton");
+			const navLinks = document.querySelector("#navLinks");
 
-			window.addEventListener("scroll", handleScrollAnimation);
-    		document.addEventListener("DOMContentLoaded", handleScrollAnimation);
-		
+			navExpandButton.onclick = () => {
+				navLinks.classList.toggle("visible");
+				navExpandButton.classList.toggle("clicked");
+			};
+
 			const logo = document.querySelector("#logo");
 			const navbar = document.querySelector("#navbar")
-			const navLinks = document.querySelector("#navLinks");
-			const navExpandButton = document.querySelector("#navExpandButton");
 			const logoSectionTexts = document.querySelector("#logo-section-texts");
-			const scrollDownMessage = document.querySelector("#scroll-down-message");
 			const pastSpeakersCardsDiv = document.querySelector("#pastSpeakersCardsDiv");
 
 			const navbarHeight = navbar.getBoundingClientRect().height;
@@ -1247,13 +1234,6 @@
 			const navbarTargetRight = navLinksWidth / 2;
 			
 			const logoSectionTextsTargetY = (8.25 + 47) + 40;
-
-			scrollDownMessage.onclick = () => {
-				const aboutSection = document.querySelector("#about-innowave");
-				aboutSection.scrollIntoView({
-					behavior: "smooth"
-				});
-			};
 
 			const scrollAction = () => {
 				const scrollThreshold = window.innerHeight - navbarHeight;
@@ -1294,11 +1274,6 @@
 			window.addEventListener("resize", scrollAction);
 			scrollAction();
 
-			navExpandButton.onclick = () => {
-				navLinks.classList.toggle("visible");
-				navExpandButton.classList.toggle("clicked");
-			};
-
 			const cardsFadeIn = new IntersectionObserver(entries => {
 				const cardsDiv = entries[0];
 				if (!cardsDiv.isIntersecting) {
@@ -1315,6 +1290,17 @@
 			cardsFadeIn.observe(document.querySelector("#pastSpeakersCardsDiv"));
 			cardsFadeIn.observe(document.querySelector("#sponsorCardsDiv"));
 			cardsFadeIn.observe(document.querySelector(".timeline"));
+
+			const prizeBarsRise = new IntersectionObserver(entries => {
+				const prizeBarsSection = entries[0];
+				if (!prizeBarsSection.isIntersecting) {
+					return;
+				}
+				prizeBarsSection.target.classList.add("show");
+				prizeBarsRise.unobserve(prizeBarsSection.target)
+			}, { threshold: 0.1 });
+
+			prizeBarsRise.observe(document.querySelector("#prize-bars"));
 	
 			if ('scrollRestoration' in history) {
 				history.scrollRestoration = 'manual';
