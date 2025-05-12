@@ -241,25 +241,25 @@
 				opacity: 0.9;
 			}
 
-#pastSpeakersCardsDiv .pastSpeakersCard {
-    opacity: 0;
-    transform: translateY(30px);
-    text-align: center;
-    transition: opacity 0.8s ease, transform 0.8s ease; 
-}
+			#pastSpeakersCardsDiv .pastSpeakersCard {
+				opacity: 0;
+				transform: translateY(30px);
+				text-align: center;
+				transition: opacity 0.8s ease, transform 0.8s ease; 
+			}
 
-#pastSpeakersCardsDiv.fadeIn .pastSpeakersCard {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.8s, transform 0.8s; 
-}
+			#pastSpeakersCardsDiv .pastSpeakersCard.fadeIn {
+				opacity: 1;
+				transform: translateY(0);
+				transition: opacity 0.8s, transform 0.8s; 
+			}
 
-#pastSpeakersCardsDiv .pastSpeakersCard:hover {
-    transform: translateY(-10px); 
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
-    cursor: pointer; 
-    transition: transform 0.2s ease, box-shadow 0.2s ease; 
-}
+			#pastSpeakersCardsDiv .pastSpeakersCard:hover {
+				transform: translateY(-10px); 
+				box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+				cursor: pointer; 
+				transition: transform 0.2s ease, box-shadow 0.2s ease; 
+			}
 
 			.sponsor-card {
 				display: flex;
@@ -271,7 +271,7 @@
 				transition: all 0.8s ease-out;
 			}
 			
-			.sponsor-card.visible {
+			.sponsor-card.fadeIn {
 				opacity: 1;
 				transform: translateY(0);
 			}
@@ -707,7 +707,7 @@
       transition: all 0.8s ease-out;
     }
 
-    .timeline-entry.visible {
+    .timeline-entry.fadeIn {
       opacity: 1;
       transform: translateY(0);
     }
@@ -731,7 +731,7 @@
       border-radius: 50%;
     }
 
-    .card {
+    .timeline .card {
       border: none;
       background-color: white;
       border-radius: 10px;
@@ -897,7 +897,7 @@
 					</div>
 
 					<div id="pastSpeakersCardsDiv" class="row justify-content-center gx-4 gy-4">
-						<div class="col-md-4 pastSpeakersCard" style="transition-delay: 0.2s;">
+						<div class="col-md-4 pastSpeakersCard cardToFadeIn">
 							<img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="SS Rajamouli">
 							<h4 class="fw-bold">S. S. Rajamouli</h4>
 							<p class="text-uppercase small">Filmmaker</p>
@@ -908,7 +908,7 @@
 							<p class="small">descriptive paragraph</p>
 						</div>
 
-						<div class="col-md-4 pastSpeakersCard" style="transition-delay: 0.4s;">
+						<div class="col-md-4 pastSpeakersCard cardToFadeIn">
 							<img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="Belson Coutinho">
 							<h4 class="fw-bold">Belson Coutinho</h4>
 							<p class="text-uppercase small">CO-FOUNDER, CMO & CXO, AKASA AIR</p>
@@ -919,7 +919,7 @@
 							<p class="small">descriptive paragraph</p>
 						</div>
 
-						<div class="col-md-4 pastSpeakersCard" style="transition-delay: 0.6s;">
+						<div class="col-md-4 pastSpeakersCard cardToFadeIn">
 							<img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="Vikas Nahar">
 							<h4 class="fw-bold">Vikas Nahar</h4>
 							<p class="text-uppercase small">FOUNDER, HAPPILO</p>
@@ -930,7 +930,7 @@
 							<p class="small">descriptive paragraph</p>
 						</div>
 
-						<div class="col-md-4 pastSpeakersCard" style="transition-delay: 0.8s;">
+						<div class="col-md-4 pastSpeakersCard cardToFadeIn">
 							<img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="Ritesh Agarwal">
 							<h4 class="fw-bold">Ritesh Agarwal</h4>
 							<p class="text-uppercase small">FOUNDER & CEO, OYO</p>
@@ -941,7 +941,7 @@
 							<p class="small">descriptive paragraph</p>
 						</div>
 
-						<div class="col-md-4 pastSpeakersCard" style="transition-delay: 1s;">
+						<div class="col-md-4 pastSpeakersCard cardToFadeIn">
 							<img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="Raj Shamani">
 							<h4 class="fw-bold">Raj Shamani</h4>
 							<p class="text-uppercase small">CONTENT CREATOR & ENTREPRENEUR</p>
@@ -952,7 +952,7 @@
 							<p class="small">descriptive paragraph</p>
 						</div>
 
-						<div class="col-md-4 pastSpeakersCard" style="transition-delay: 1.2s;">
+						<div class="col-md-4 pastSpeakersCard cardToFadeIn">
 							<img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="Ankur Warikoo">
 							<h4 class="fw-bold">Ankur Warikoo</h4>
 							<p class="text-uppercase small">AUTHOR, EDUCATOR & ENTREPRENEUR</p>
@@ -974,37 +974,37 @@
 						<h1 style="color: #ffffff; font-size: min(15vw, 5rem); font-weight: 600; line-height: 1.1;">Past <br>Sponsors</h1>
 					</div>
 			
-					<div class="row justify-content-center g-4">
+					<div id="sponsorCardsDiv" class="row justify-content-center g-4">
 						<div class="col-lg-4 col-md-6 col-12">
-							<div class="sponsor-card">
+							<div class="sponsor-card cardToFadeIn">
 								<img src="./assets/Sponsors Logo/Kreo.png" class="sponsor-logo" alt="KREO">
 								<h4 class="sponsor-title">Official Sponsor</h4>
 							</div>
 						</div>
 						
 						<div class="col-lg-4 col-md-6 col-12">
-							<div class="sponsor-card" data-delay="0.2">
+							<div class="sponsor-card cardToFadeIn" data-delay="0.2">
 								<img src="./assets/Sponsors Logo/falhari.png" class="sponsor-logo" alt="Food Partner">
 								<h4 class="sponsor-title">Food Partner</h4>
 							</div>
 						</div>
 						
 						<div class="col-lg-4 col-md-6 col-12">
-							<div class="sponsor-card" data-delay="0.4">
+							<div class="sponsor-card cardToFadeIn" data-delay="0.4">
 								<img src="./assets/Sponsors Logo/bookmyshow.png" class="sponsor-logo" alt="Ticketing Partner">
 								<h4 class="sponsor-title">Ticketing Partner</h4>
 							</div>
 						</div>
 						
 						<div class="col-lg-4 col-md-6 col-12">
-							<div class="sponsor-card" data-delay="0.6">
+							<div class="sponsor-card cardToFadeIn" data-delay="0.6">
 								<img src="./assets/Sponsors Logo/TRIo.avif" class="sponsor-logo" alt="Gifting Partner">
 								<h4 class="sponsor-title">Gifting Partner</h4>
 							</div>
 						</div>
 						
 						<div class="col-lg-4 col-md-6 col-12">
-							<div class="sponsor-card" data-delay="0.8">
+							<div class="sponsor-card cardToFadeIn" data-delay="0.8">
 								<img src="./assets/Sponsors Logo/E.avif" class="sponsor-logo" alt="Printing Partner">
 								<h4 class="sponsor-title">Printing Partner</h4>
 							</div>
@@ -1153,7 +1153,7 @@
 				</div>
 				
 				<div class="timeline">
-					<div class="timeline-entry">
+					<div class="timeline-entry cardToFadeIn">
 						<div class="dot"></div>
 						<div class="dot-connector"></div>
 						<div class="card p-3">
@@ -1168,7 +1168,7 @@
 						</div>
 					</div>
 
-					<div class="timeline-entry">
+					<div class="timeline-entry cardToFadeIn">
 						<div class="dot"></div>
 						<div class="dot-connector"></div>
 						<div class="card">
@@ -1183,7 +1183,7 @@
 						</div>
 					</div>
 					
-					<div class="timeline-entry">
+					<div class="timeline-entry cardToFadeIn">
 						<div class="dot"></div>
 						<div class="dot-connector"></div>
 						<div class="card p-3">
@@ -1200,27 +1200,7 @@
 				</div>
 			</div>		
 		</section>
-		<script>
-			document.addEventListener("DOMContentLoaded", () => {
-				const section = document.getElementById("masterclasses");
-				const entries = section.querySelectorAll(".timeline-entry");
-
-				const observer = new IntersectionObserver((entriesList, observer) => {
-					entriesList.forEach(entry => {
-						if (entry.isIntersecting) {
-							const timelineItems = section.querySelectorAll(".timeline-entry");
-							timelineItems.forEach((el, i) => {
-								setTimeout(() => {
-									el.classList.add("visible");
-								}, i * 600);
-							});
-							observer.unobserve(section);
-						}
-					});
-				}, { threshold: 0.2 });
-				observer.observe(section);
-			});
-  
+		<script>  
   			// Fade-in on scroll
     		const observer = new IntersectionObserver(entries => {
       			entries.forEach(entry => {
@@ -1247,28 +1227,6 @@
 
 			window.addEventListener("scroll", handleScrollAnimation);
     		document.addEventListener("DOMContentLoaded", handleScrollAnimation);
-			
-			document.addEventListener('DOMContentLoaded', function() {
-				const section = document.querySelector('#past-sponsors');
-				const cards = document.querySelectorAll('.sponsor-card');
-				
-				const observer = new IntersectionObserver(entries => {
-					entries.forEach(entry => {
-						if (entry.isIntersecting) {
-							const cards = entry.target.querySelectorAll('.sponsor-card');
-							cards.forEach((card, index) => {
-								const delay = card.dataset.delay || 0;
-								setTimeout(() => {
-									card.classList.add('visible');
-								}, delay * 1000);
-							});
-							observer.unobserve(entry.target);
-						}
-					});
-				}, { threshold: 0.3 });
-			
-				observer.observe(section);
-			});
 		
 			const logo = document.querySelector("#logo");
 			const navbar = document.querySelector("#navbar")
@@ -1341,13 +1299,22 @@
 				navExpandButton.classList.toggle("clicked");
 			};
 
-			function cardsFadeIn() {
-				if (document.querySelector("#pastSpeakersCardsDiv .pastSpeakersCard p").getBoundingClientRect().top <= window.innerHeight) {
-					pastSpeakersCardsDiv.classList.add("fadeIn");
-					window.removeEventListener("scroll", cardsFadeIn);
+			const cardsFadeIn = new IntersectionObserver(entries => {
+				const cardsDiv = entries[0];
+				if (!cardsDiv.isIntersecting) {
+					return;
 				}
-			}
-			window.addEventListener("scroll", cardsFadeIn);
+				cardsDiv.target.querySelectorAll(".cardToFadeIn").forEach((card, i) => {
+					setTimeout(() => {
+						card.classList.add("fadeIn");
+					}, 200 * i);
+				});
+				cardsFadeIn.unobserve(cardsDiv.target);
+			}, { threshold: 0.1 });
+
+			cardsFadeIn.observe(document.querySelector("#pastSpeakersCardsDiv"));
+			cardsFadeIn.observe(document.querySelector("#sponsorCardsDiv"));
+			cardsFadeIn.observe(document.querySelector(".timeline"));
 	
 			if ('scrollRestoration' in history) {
 				history.scrollRestoration = 'manual';
