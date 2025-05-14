@@ -13,7 +13,7 @@
 				padding: 0;
 				font-family: Arial, sans-serif;
 				overflow-x: hidden;
-				background-image: url("./assets/Untitled\ design.gif");
+				background-image: url("./assets/white\ background.gif");
 				background-attachment: fixed;
 				background-position: center;
 				background-repeat: no-repeat;
@@ -225,7 +225,7 @@
 	  font-weight: 200;
       width: fit-content;
       align-items: center; /* This centers child elements horizontally */ 
-  border-left: 7px dotted #1c695f; height: 600px; margin-right: 20px
+  border-left: 8px dotted #1c695f; height: 600px; margin-right: 20px
     }
 
     .timeline-entry {
@@ -248,7 +248,7 @@
     .dot-connector {
       position: absolute;
       left: -80px;
-      top: 30px;
+      top: 66px;
       width: 80px;
       height: 2px;
       background-color: #2f7f74;
@@ -256,10 +256,10 @@
 
     .dot {
       position: absolute;
-      left: -87px;
-      top: 25px;
-      width: 12px;
-      height: 12px;
+      left: -89px;
+      top: 60px;
+      width: 15px;
+      height: 15px;
       background-color: #2f7f74;
       border-radius: 50%;
     }
@@ -397,14 +397,14 @@
 					</svg>
 				</div>
 			</div>
-		</section>
+		</section><br><br>
 
 <center>
         <section>
             <div id="masterclasses" class="container py-5">
-                <div class="text-center mb-5">
-                  <h2 style="color: #ffffff; font-size: 450%; font-weight: 500;" >Master Classes</h2>
-                  <div>Schedule</div>
+                <div class="text-center mb-5"><br>
+                  <h2 style="color: #2c8c89; font-size: 450%; font-weight: 500;" >Master Classes</h2>
+                  <div><h3>Schedule</h3></div>
                 </div>
               
                 <div class="timeline">
@@ -510,7 +510,7 @@
 			const logoSectionTextsTargetY = (8.25 + 47) + 40;
 
 			scrollDownMessage.onclick = () => {
-				const aboutSection = document.querySelector("#about-innowave");
+				const aboutSection = document.querySelector("#masterclasses");
 				aboutSection.scrollIntoView({
 					behavior: "smooth"
 				});

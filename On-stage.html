@@ -7,6 +7,10 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+ 
         <style>
             body, html {
 				margin: 0;
@@ -245,7 +249,47 @@
 				transform: scale(1.05);
 				opacity: 0.9;
 			}
-        </style>
+  .agenda-box {
+    background: linear-gradient(90deg, #f1f5f9, #ffffff);
+    border: 3px solid #090c59;
+    border-radius: 1500px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    position: relative;
+width: fit-content; 
+height: auto;
+ }
+
+  .agenda-box:hover {
+    transform: scale(1.02);
+  }
+
+  .agenda-heading {
+    color: #0f5f75;
+    font-weight: 700;
+  }
+
+  .agenda-title {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #ffffff;
+	text-align: center;
+  }
+
+  .agenda-title span {
+    font-size: 3rem;
+    font-weight: 800;
+	text-align: center;
+  }
+
+  .pin-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    transform: rotate(-20deg);
+  }        </style>
     </head>
     <body>
         <img src="./assets/Innowave logo.png" id="logo">
@@ -255,7 +299,7 @@
 		</svg>
 
 		<ul id="navLinks">
-			<li><a href="#">Home</a></li>
+			<li><a href="index.html">Home</a></li>
 			<li><a href="#about-innowave">About</a></li>
 			<li><a href="#speakers">Our Collaborators</a></li>
 			<li><a href="#Competitions-and-Events">Competitions & Events</a></li>
@@ -291,8 +335,63 @@
 				</div>
 			</div>
 		</section>
-        <section id="about-innowave"></section>
+<section class="py-5" style="background: radial-gradient(circle at right, #001f1f, #3b8d8d); font-family: 'Inter', sans-serif;">
+  <div class="container position-relative"><div class="text-center">
+  <h1 class="display-1 fw-bold text-white mb-0 mx-auto" 
+      style="border-left: 6px dotted white; padding-left: 10px; width: fit-content; line-height: 1.1; text-align: left;">
+    Panel<br>Discussion
+    
+    </h1></div>
+    <h4 class="text-white mt-3" style="text-align: center;">Venture Capitalists</h4>
+ 
+
+  <!-- Capsule Container -->
+  <div class="container mt-4">
+    <div class="agenda-box p-4 mx-auto">
+		 <div class="pin-icon">
+    <svg width="80" height="80" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <g transform="rotate(-20 32 32)">
+        <circle cx="32" cy="12" r="10" fill="#fcd34d" stroke="#000" stroke-width="2"/>
+        <rect x="30" y="12" width="4" height="30" fill="#facc15" stroke="#000" stroke-width="1"/>
+        <line x1="32" y1="42" x2="32" y2="64" stroke="#000" stroke-width="2"/>
+      </g>
+    </svg>
+  </div>
+
+      <div class="agenda-content mt-4" style="text-align: center;">
+        <h3 class="agenda-heading">Agenda</h3>
+        <p><strong>Unlocking the Secrets of Venture Capital:</strong> How to Attract, Build, and Sustain Investor Relationships for Your Startup’s Growth.</p>
+
+        <h3 class="agenda-heading">Sub-Agenda</h3>
+        <ul>
+          <li><strong>Understanding the VC Landscape:</strong> What Investors Look for in Indian Startups.</li>
+          <li><strong>Decoding the VC Selection Process:</strong> Crafting a Pitch that Stands Out.</li>
+          <li>Key Metrics Every Investor Wants to See in Your Startup.</li>
+          <li><strong>The Role of Networking in Securing Investment:</strong> Building Your VC Network.</li>
+          <li><strong>Navigating the Challenges:</strong> Common Pitfalls and How to Avoid Them.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+	
         <script>
+
+
+  document.querySelectorAll('.shadow-lg').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      el.style.transform = 'scale(1.02)';
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = 'scale(1)';
+    });
+  });
+
+
+
+
+
+
             const logo = document.querySelector("#logo");
 			const navbar = document.querySelector("#navbar")
 			const navLinks = document.querySelector("#navLinks");
