@@ -289,7 +289,77 @@ height: auto;
     left: 10px;
     z-index: 10;
     transform: rotate(-20deg);
-  }        </style>
+  }        
+  
+ 
+ 
+ 
+.team-section {
+  background: transparent;
+}
+
+.member-card {
+  background: white;
+  color: black;
+  position: relative;
+  padding: 60px 20px 20px;
+  margin-top: 50px;
+  clip-path: polygon(0 0, 100% 0, 75% 50%, 100% 100%, 0 100%, 25% 50%);
+  transition: transform 0.3s ease;
+  height: 300px;
+  z-index: 1;
+  overflow: visible; 
+}
+
+.member-card:hover {
+  transform: translateY(-5px);
+}
+
+.member-name {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.card-content {
+  position: relative;
+  z-index: 5;
+  background: #ffffff;
+  padding: 20px;
+  border: 5px solid #3a3a3a;
+  font-size: 0.95rem;
+  text-align: center;
+  width: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  transform: translateX(-30px);
+  overflow: visible; /* use transform instead of left */
+}
+
+.col-md-4 {
+  overflow: visible; /* ✅ important */
+  position: relative; /* needed if you're using z-index stacking */
+}
+
+.card-content::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -15px; /* distance from the box */
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #3a3a3a; /* same as border color */
+}
+.member-img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-height: 160px;
+  object-fit: contain;
+} </style>
     </head>
     <body>
         <img src="./assets/Innowave logo.png" id="logo">
@@ -374,7 +444,52 @@ height: auto;
     </div>
   </div>
 </section>
-	
+
+<section class="team-section py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+
+      <!-- Member Card -->
+      <div class="col-md-4 text-center">
+        <div class="member-card">
+          <h4 class="member-name">Deepika Agarwal</h4>
+          <div class="card-content">
+            <p><strong>Community & Partnerships</strong></p>
+            <p>Blume</p>
+          </div>
+          <img src="path-to-your-image/deepika.png" alt="Deepika" class="member-img">
+        </div>
+      </div>
+
+      <!-- Member Card -->
+      <div class="col-md-4 text-center">
+        <div class="member-card">
+          <h4 class="member-name">Kiran Vuppala</h4>
+          <div class="card-content">
+            <p><strong>Head of Operations</strong></p>
+            <p>Mazumdar Shah Foundation</p>
+          </div>
+          <img src="path-to-your-image/kiran.png" alt="Kiran" class="member-img">
+        </div>
+      </div>
+
+      <!-- Member Card -->
+      <div class="col-md-4 text-center">
+        <div class="member-card">
+          <h4 class="member-name">Rohan Bafna</h4>
+          <div class="card-content">
+            <p><strong>Founder and CEO</strong></p>
+            <p>888vc</p>
+          </div>
+          <img src="path-to-your-image/rohan.png" alt="Rohan" class="member-img">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
         <script>
 
 
