@@ -28,7 +28,7 @@
 				height: 100vh;
 				position: relative;
 				/* stuff under this makes the background stay in place */
-				background-image: url("./assets/background.gif");
+				background-image: url("./assets/on-stage.gif");
 				background-attachment: fixed;
 				background-position: center;
 				background-repeat: no-repeat;
@@ -47,16 +47,6 @@
 				}
 			}
 
-			#about-innowave {
-				font-size: larger;
-				height: fit-content;
-				min-height: 100vh;
-				background-image: url("./assets/white\ background.gif");
-				background-attachment: fixed;
-				background-position: center;
-				background-repeat: no-repeat;
-				background-size: cover;
-			}
 
 			#navbar {
 				position: fixed;
@@ -382,7 +372,7 @@ height: auto;
 </style>
     </head>
     <body>
-        <img src="./assets/Innowave logo.png" id="logo">
+        <img src="./assets/WELCOME.png" id="logo">
 
 		<svg id="navExpandButton" style="width: 63.5px; height: 63.5px;" viewBox="0 0 63.5 63.5" xmlns="http://www.w3.org/2000/svg">
 			<path d="M 10.75, 15 L 52.75, 15 M 10.75, 31.75 L 52.75, 31.75 M 10.75, 48.5 L 52.75, 48.5" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -407,15 +397,10 @@ height: auto;
 		<section id="logo-section">
 			<div id="logo-section-texts">
 				<p id="event-info">
-					<span>16 Dec 2024, 10:00 am - 17 Dec 2024, 2:00 pm</span><br>
-					<span>Christ University Central Campus, </span>
-					<span>Bhavani Nagar, S.G. Palya, </span>
-					<span>Bengaluru, Karnataka 560029</span>
+					<img src="assets/WELCOME (1).png" height="50px" alt="">
 				</p>
 				<br>
-				<div id="button_detail">
-					<a href="task.pdf" target="_blank">Details</a>
-				</div>
+				<br><br>
 				<br><br><br>
 				<div id="scroll-down-message">
 					<p>SCROLL DOWN</p>
@@ -425,10 +410,10 @@ height: auto;
 				</div>
 			</div>
 		</section>
-<section class="py-5" style="background: radial-gradient(circle at right, #001f1f, #3b8d8d); font-family: 'Inter', sans-serif;">
+<section id="panel" class="py-5" style="background: radial-gradient(circle at right, #001f1f, #3b8d8d); font-family: 'Inter', sans-serif;">
   <div class="container position-relative"><div class="text-center">
   <h1 class="display-1 fw-bold text-white mb-0 mx-auto" 
-      style="border-left: 6px dotted white; padding-left: 10px; width: fit-content; line-height: 1.1; text-align: left;">
+      style="border-left: 8px dotted white; padding-left: 10px; width: fit-content; line-height: 1.1; text-align: left;">
     Panel<br>Discussion
     
     </h1></div>
@@ -543,7 +528,7 @@ height: auto;
 			const logoSectionTextsTargetY = (8.25 + 47) + 40;
 
 			scrollDownMessage.onclick = () => {
-				const aboutSection = document.querySelector("#about-innowave");
+				const aboutSection = document.querySelector("#panel");
 				aboutSection.scrollIntoView({
 					behavior: "smooth"
 				});
