@@ -328,16 +328,16 @@
 				gap: 40px;
 				margin-bottom: 40px;
     		}
+.logo {
+    max-width: 250px;
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
 
-			.logo {
-				max-width: 250px;
-				transition: transform 0.3s ease; /* Smooth transition for scaling */
-			}
+.logo:hover {
+    transform: scale(1.1); /* Slightly enlarge the logo on hover */
+    cursor: pointer; /* Change the cursor to a pointer to indicate interactivity */
+}
 
-			.logo:hover {
-				transform: scale(1.1); /* Slightly enlarge the logo on hover */
-				cursor: pointer; /* Change the cursor to a pointer to indicate interactivity */
-			}
 
 			.intro-section {
 				max-width: 700px;
@@ -582,52 +582,52 @@
 				text-align: center;
 			}
 
-			.objective-box {
-				background-color: white;
-				color: black;
-				padding: 20px;
-				margin-bottom: 20px;
-				position: relative;
-				box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
-				text-align: center;
-				transition: transform 0.3s ease, box-shadow 0.3s ease;
-			}
+.objective-box {
+  background-color: white;
+  color: black;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-			.objective-box::after {
-				content: "";
-				position: absolute;
-				bottom: -20px;
-				left: 50%;
-				transform: translateX(-50%);
-				width: 0;
-				height: 0;
-				border-left: 30px solid transparent;
-				border-right: 30px solid transparent;
-				border-top: 20px solid white;
-			}
+.objective-box::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-top: 20px solid white;
+}
 
-			/* Hover Effect */
-			.objective-box:hover {
-				transform: scale(1.05);
-				box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.5);
-				cursor: pointer;
-			}
+/* Hover Effect */
+.objective-box:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
 
 			.stall-card {
-				background-color: #e0f0f0;
-				color: #000;
-				border-radius: 12px;
-				padding: 20px;
-				box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
-				margin-bottom: 20px;
-				transition: all 0.3s ease; /* Smooth transition for all properties */
-			}
+    background-color: #e0f0f0;
+    color: #000;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+}
 
-			.stall-card:hover {
-				background-color: #d0e0e0; /* Change background on hover */
-				box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4); /* More intense shadow */
-				transform: scale(1.05); /* Slightly enlarge the card */
-			}
+.stall-card:hover {
+    background-color: #d0e0e0; /* Change background on hover */
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4); /* More intense shadow */
+    transform: scale(1.05); /* Slightly enlarge the card */
+}
 
 
 			.stall-icon {
@@ -693,130 +693,115 @@
 			#past-sponsors {
 				color: #ffffff;
 			}
-
 			.timeline {
-				position: relative;
-				padding-left:78px;
-				border-left: 4px dotted #2f7f74;
-				font-weight: 200;
-    		}
+      position: relative;
+      padding-left:78px;
+      border-left: 4px dotted #2f7f74;
+	  font-weight: 200;
+    }
 
-			.timeline-entry {
-				position: relative;
-				margin-bottom: 60px;
-				opacity: 0;
-				transform: translateY(20px);
-				transition: all 0.8s ease-out;
-			}
+    .timeline-entry {
+      position: relative;
+      margin-bottom: 60px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
 
-			.timeline-entry.fadeIn {
-				opacity: 1;
-				transform: translateY(0);
-			}
+    .timeline-entry.fadeIn {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-			.dot-connector {
-				position: absolute;
-				left: -80px;
-				top: 30px;
-				width: 80px;
-				height: 2px;
-				background-color: #2f7f74;
-			}
+    .dot-connector {
+      position: absolute;
+      left: -80px;
+      top: 30px;
+      width: 80px;
+      height: 2px;
+      background-color: #2f7f74;
+    }
 
-			.dot {
-				position: absolute;
-				left: -86px;
-				top: 25px;
-				width: 12px;
-				height: 12px;
-				background-color: #2f7f74;
-				border-radius: 50%;
-			}
+    .dot {
+      position: absolute;
+      left: -86px;
+      top: 25px;
+      width: 12px;
+      height: 12px;
+      background-color: #2f7f74;
+      border-radius: 50%;
+    }
 
-			.timeline .card {
-				border: none;
-				background-color: white;
-				border-radius: 10px;
-				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-				padding: 20px;
-			}
+    .timeline .card {
+      border: none;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      padding: 20px;
+    }
 
-			.time-badge {
-				background-color: #2f7f74;
-				color: white;
-				font-size: 13px;
-				padding: 6px 14px;
-				border-radius: 20px;
-				display: inline-block;
-				margin-top: 10px;
-			}
+    .time-badge {
+      background-color: #2f7f74;
+      color: white;
+      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-top: 10px;
+    }
 
-			.card-img {
-				width: 100px;
-				height: 100px;
-				object-fit: cover;
-				border-radius: 10px;
-			}
+    .card-img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
 
-			.timeline-title {
-				font-weight: bold;
-			}
+    .timeline-title {
+      font-weight: bold;
+    }
 
-			.section-title {
-				color: #2f7f74;
-			}
+    .section-title {
+      color: #2f7f74;
+    }
 
-			.schedule-subtitle {
-				font-size: 14px;
-				color: #6c757d;
-			}
+    .schedule-subtitle {
+      font-size: 14px;
+      color: #6c757d;
+    }
+	.date-ribbon {
+  display: inline-block;
+  position: relative;
+  background-color: #2c8c89;
+  color: white;
+  padding: 10px 40px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+  clip-path: polygon(15px 0%, 100% 0%, calc(100% - 15px) 100%, 0% 100%);
+}
 
-			.date-ribbon {
-				display: inline-block;
-				position: relative;
-				background-color: #2c8c89;
-				color: white;
-				padding: 10px 40px;
-				font-weight: 600;
-				font-size: 14px;
-				text-align: center;
-				margin-top: 10px;
-				clip-path: polygon(15px 0%, 100% 0%, calc(100% - 15px) 100%, 0% 100%);
-			}
+.date-ribbon::before,
+.date-ribbon::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-top: 24px solid transparent;
+  border-bottom: 24px solid transparent;
+}
 
-			.date-ribbon::before,
-			.date-ribbon::after {
-				content: '';
-				position: absolute;
-				top: 0;
-				width: 0;
-				height: 0;
-				border-top: 24px solid transparent;
-				border-bottom: 24px solid transparent;
-			}
+.date-ribbon::before {
+  left: -15px;
+  border-right: 15px solid #2c8c89;
+}
 
-			.date-ribbon::before {
-				left: -15px;
-				border-right: 15px solid #2c8c89;
-			}
-
-			.date-ribbon::after {
-				right: -15px;
-				border-left: 15px solid #2c8c89;
-			}
-			.host-logo:hover {
-				transform: scale(1.1); /* Slightly enlarge the image on hover */
-			}
-
-			#developers>div {
-				width: 95vw;
-				height: 100px;
-			}
-
-			#developers>div img {
-				height: 200px;
-				width: 100px;
-			}
+.date-ribbon::after {
+  right: -15px;
+  border-left: 15px solid #2c8c89;
+}
 		</style>
 	</head>
 	<body>
@@ -1141,6 +1126,11 @@
 			<section id="aboutHostSection" class="about-host-section">
 				<h2 class="section-title">ABOUT THE HOST</h2>
 				<br>
+				<style>
+					.host-logo:hover {
+						transform: scale(1.1); /* Slightly enlarge the image on hover */
+					}
+				</style>
 				<img src="./assets/CIC.png" alt="CIC Logo" class="host-logo" style="width: 300px; transition: transform 0.3s ease;">
 				<br><br>
 				<p class="host-description">
@@ -1156,24 +1146,32 @@
 		</section>
 
 		
-		<section id="developers">
-			<div id="dev1">
-				<img>
-				<div>
-					<h1>Chandra Shekar A</h1>
-				</div>
-			</div>
-			<div id="dev2">
-				<div>
-					<h1>Thejus Dylan Thomas</h1>
-				</div>
-				<img>
-			</div>	
+		<section>
+		<div>
+			<h1>Dev Section </h1>
+			<p>svsdvsvssddsvsd</p>
+			<p>advavsadvsdvdavadva</p>
+			<p>acaacacascassac</p>
+		</div>
 		</section>
 		<script>
 			const scrollDownMessage = document.querySelector("#scroll-down-message");
+
+			scrollDownMessage.onclick = () => {
+				const aboutSection = document.querySelector("#about-innowave");
+				aboutSection.scrollIntoView({
+					behavior: "smooth"
+				});
+			};
+
 			const navExpandButton = document.querySelector("#navExpandButton");
 			const navLinks = document.querySelector("#navLinks");
+
+			navExpandButton.onclick = () => {
+				navLinks.classList.toggle("visible");
+				navExpandButton.classList.toggle("clicked");
+			};
+
 			const logo = document.querySelector("#logo");
 			const navbar = document.querySelector("#navbar")
 			const logoSectionTexts = document.querySelector("#logo-section-texts");
@@ -1190,18 +1188,6 @@
 			const navbarTargetRight = navLinksWidth / 2;
 			
 			const logoSectionTextsTargetY = (8.25 + 47) + 40;
-
-			scrollDownMessage.onclick = () => {
-				const aboutSection = document.querySelector("#about-innowave");
-				aboutSection.scrollIntoView({
-					behavior: "smooth"
-				});
-			};
-
-			navExpandButton.onclick = () => {
-				navLinks.classList.toggle("visible");
-				navExpandButton.classList.toggle("clicked");
-			};
 
 			const scrollAction = () => {
 				const scrollThreshold = window.innerHeight - navbarHeight;
@@ -1257,6 +1243,7 @@
 
 			cardsFadeIn.observe(document.querySelector("#pastSpeakersCardsDiv"));
 			cardsFadeIn.observe(document.querySelector("#sponsorCardsDiv"));
+			cardsFadeIn.observe(document.querySelector(".timeline"));
 
 			const prizeBarsRise = new IntersectionObserver(entries => {
 				const prizeBarsSection = entries[0];
