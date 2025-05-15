@@ -1249,12 +1249,14 @@
 
 <!-- Chatbot Script -->
 <script>
-	const cors = require("cors");
-app.use(cors());
   function toggleChat() {
     const chatWindow = document.getElementById('chat-window');
-    chatWindow.style.display = (chatWindow.style.display === 'flex') ? 'none' : 'flex';
-    chatWindow.style.flexDirection = 'column';
+    if (chatWindow.style.display === 'flex') {
+      chatWindow.style.display = 'none';
+    } else {
+      chatWindow.style.display = 'flex';
+      chatWindow.style.flexDirection = 'column';
+    }
   }
 
   async function sendMessage() {
@@ -1265,19 +1267,30 @@ app.use(cors());
     appendMessage("You", message);
     input.value = "";
 
-    const response = await fetch("http://localhost:3000/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message })
-    });
+    try {
+      const response = await fetch("http://localhost:5000/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message }),
+      });
 
-    const data = await response.json();
-    appendMessage("Bot", data.reply);
+      if (!response.ok) {
+        appendMessage("Bot", "Error: Could not get a response");
+        return;
+      }
+
+      const data = await response.json();
+      appendMessage("Bot", data.reply);
+    } catch (error) {
+      appendMessage("Bot", "Error: Network issue or server down");
+    }
   }
 
   function appendMessage(sender, message) {
     const container = document.getElementById("chat-messages");
-    container.innerHTML += `<p><strong>${sender}:</strong> ${message}</p>`;
+    const newMessage = document.createElement("p");
+    newMessage.innerHTML = `<strong>${sender}:</strong> ${message}`;
+    container.appendChild(newMessage);
     container.scrollTop = container.scrollHeight;
   }
 </script>
@@ -1386,11 +1399,10 @@ app.use(cors());
 	
 			if ('scrollRestoration' in history) {
 				history.scrollRestoration = 'manual';
-			}
-
+			}	
+		</script>
 			// if (window.location.hash) {
 			// 	window.location.href = window.location.origin + window.location.pathname;
 			// }
-		</script>
 	</body>
 </html>
