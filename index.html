@@ -1448,6 +1448,8 @@ background-color: #000000c9;
 			}, { threshold: 0.1 });
 
 			prizeBarsRise.observe(document.querySelector("#prize-bars"));
+			document.querySelector("#prize-bars").classList.add("show");
+			console.log(document.querySelector("#prize-bars"));
 	// Always scroll to top on refresh
 if ('scrollRestoration' in history) {
 	history.scrollRestoration = 'manual';
