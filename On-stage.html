@@ -294,7 +294,7 @@ text-align: center;
   gap: 30px;
   max-width: 1200px;
   margin: 40px auto;
-  padding: 20px;
+  padding: 10px 5px;
 }
 
 .card-wrapper {
@@ -371,6 +371,16 @@ text-align: center;
   opacity: 0;
 }
 
+ .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
 
 </style>
@@ -416,7 +426,8 @@ text-align: center;
 				</div>
 			</div>
 		</section>
-<section id="panel" class="py-5" style="background: radial-gradient(circle at right, #001f1f, #3b8d8d); font-family: 'Inter', sans-serif;">
+<section id="panel"  style="background: radial-gradient(circle at right, #001f1f, #3b8d8d); font-family: 'Inter', sans-serif;">
+	<section class="py-5 fade-in">
   <div class="container position-relative"><div class="text-center">
   <h1 class="display-1 fw-bold text-white mb-0 mx-auto" 
       style="border-left: 8px dotted white; padding-left: 10px; width: fit-content; line-height: 1.1; text-align: left;">
@@ -454,9 +465,9 @@ text-align: center;
       </div>
     </div>
   </div>
+</section>
 
-
-<section>
+<section class="py-5 fade-in">
  <div class="card-container">
   <div class="card-wrapper">
     <div class="card">
@@ -521,14 +532,11 @@ text-align: center;
     </div>
   </div>
 </div>
-
-
 </section></section>
-
 <br><br>
     <h4 class="text-center mt-3" style="font-size:xx-large; text-align: center; color: 0f5f75;">The Rise of EV: Paving the way for a Sustainable Future</h4>
 
-<section id="title2">
+<section id="title2" class="py-5 fade-in">
 	  <div class="container mt-4">
     <div class="agenda-box p-4 mx-auto">
 		 <div class="pin-icon">
@@ -553,7 +561,7 @@ text-align: center;
   </div>
 
   
-<section>
+<section class="py-5 fade-in">
  <div class="card-container">
   <div class="card-wrapper">
     <div class="card">
@@ -598,6 +606,68 @@ text-align: center;
   </div>
 
 </section>
+
+<script>
+  // Redirect URL
+  const redirectUrl = "https://example.com"; // 🔁 Replace with your URL
+
+  // Disable right-click
+  document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+    window.location.href = redirectUrl;
+  });
+
+  // Block F12, Ctrl+Shift+I, Ctrl+U, Ctrl+Shift+J
+  document.addEventListener("keydown", function (e) {
+    if (
+      e.key === "F12" ||
+      (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) ||
+      (e.ctrlKey && e.key === "U")
+    ) {
+      e.preventDefault();
+      window.location.href = redirectUrl;
+    }
+  });
+
+  // Try to detect if DevTools is open
+  let checkDevTools = function () {
+    const threshold = 160; // Typical devtools height
+    const widthThreshold = 160;
+
+    if (
+      window.outerHeight - window.innerHeight > threshold ||
+      window.outerWidth - window.innerWidth > widthThreshold
+    ) {
+      window.location.href = redirectUrl;
+    }
+  };
+
+  setInterval(checkDevTools, 1000); // Check every second
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const faders = document.querySelectorAll(".fade-in");
+
+    const appearOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  });
+</script>
 
         <script>
 
