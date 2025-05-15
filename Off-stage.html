@@ -564,6 +564,43 @@
 			window.addEventListener("resize", scrollAction);
 
 			scrollAction();
-        </script>
+        </script><script>
+  // Redirect URL
+  const redirectUrl = "https://example.com"; // 🔁 Replace with your URL
+
+  // Disable right-click
+  document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+    window.location.href = redirectUrl;
+  });
+
+  // Block F12, Ctrl+Shift+I, Ctrl+U, Ctrl+Shift+J
+  document.addEventListener("keydown", function (e) {
+    if (
+      e.key === "F12" ||
+      (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) ||
+      (e.ctrlKey && e.key === "U")
+    ) {
+      e.preventDefault();
+      window.location.href = redirectUrl;
+    }
+  });
+
+  // Try to detect if DevTools is open
+  let checkDevTools = function () {
+    const threshold = 160; // Typical devtools height
+    const widthThreshold = 160;
+
+    if (
+      window.outerHeight - window.innerHeight > threshold ||
+      window.outerWidth - window.innerWidth > widthThreshold
+    ) {
+      window.location.href = redirectUrl;
+    }
+  };
+
+  setInterval(checkDevTools, 1000); // Check every second
+</script>
+
     </body>
 </html>
