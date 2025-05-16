@@ -8,8 +8,9 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-		<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> <!-- Animate.css -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<!-- Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 		<style>
 			body, html {
 				margin: 0;
@@ -224,7 +225,7 @@
 
 			#button_detail {
 				text-align: center;
-				/* font-family: 'Times New Roman', Times, serif; */
+				font-family: 'Times New Roman', Times, serif;
 			}
 
 			#button_detail a {
@@ -232,8 +233,8 @@
 				padding: 0px 25px;
 				text-decoration: none;
 				color: rgb(255, 255, 255); /* Make text black for clarity */
-				/* font-weight: 1000;
-				font-size: 30px; */
+				font-weight: 1000;
+				font-size: 30px;
 				border: none;
 				border-radius: 12px;
 				background-color: #00ffff0c;
@@ -262,8 +263,8 @@
 
 			#pastSpeakersCardsDiv .pastSpeakersCard:hover {
 				transform: translateY(-10px); 
-				/* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-				cursor: pointer;  */
+				box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+				cursor: pointer; 
 				transition: transform 0.2s ease, box-shadow 0.2s ease; 
 				color: white;
 			}
@@ -334,16 +335,16 @@
 				gap: 40px;
 				margin-bottom: 40px;
     		}
+.logo {
+    max-width: 250px;
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
 
-			.logo {
-				max-width: 250px;
-				transition: transform 0.3s ease; /* Smooth transition for scaling */
-			}
+.logo:hover {
+    transform: scale(1.1); /* Slightly enlarge the logo on hover */
+    cursor: pointer; /* Change the cursor to a pointer to indicate interactivity */
+}
 
-			.logo:hover {
-				transform: scale(1.1); /* Slightly enlarge the logo on hover */
-				cursor: pointer; /* Change the cursor to a pointer to indicate interactivity */
-			}
 
 			.intro-section {
 				max-width: 700px;
@@ -458,6 +459,8 @@
 			}
 		  
 			.bar1 {
+				/* background: url('assets/Silver.jpg');
+				background-size: cover; */
 				background: 
 					radial-gradient(
 						ellipse farthest-corner at right bottom,
@@ -478,6 +481,8 @@
 				height: 60%;
 			}
 			.bar2 {
+				/* background: url('assets/gold.jpg');
+				background-size: cover; */
 				background: 
   					radial-gradient(
 						ellipse farthest-corner at right bottom,
@@ -498,6 +503,8 @@
 				height: 100%;
 			}
 			.bar3 {
+				/* background: url('assets/bronze.jpg');
+				background-size: cover; */
 				background: 
 					radial-gradient(
 						ellipse farthest-corner at right bottom,
@@ -582,54 +589,56 @@
 				text-align: center;
 			}
 
-			.objective-box {
-				background-color: white;
-				color: black;
-				padding: 20px;
-				margin-bottom: 20px;
-				position: relative;
-				box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
-				text-align: center;
-				transition: transform 0.3s ease, box-shadow 0.3s ease;
-			}
+.objective-box {
+  background-color: white;
+  color: black;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-			.objective-box::after {
-				content: "";
-				position: absolute;
-				bottom: -20px;
-				left: 50%;
-				transform: translateX(-50%);
-				width: 0;
-				height: 0;
-				border-left: 30px solid transparent;
-				border-right: 30px solid transparent;
-				border-top: 20px solid white;
-			}
+.objective-box::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-top: 20px solid white;
+}
 
-			/* Hover Effect */
-			.objective-box:hover {
-				transform: scale(1.05);
-				box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.815);
-				cursor:default;
-				color: white;
-				background-color: #000000c9;
-			}
+/* Hover Effect */
+.objective-box:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.815);
+  cursor:default;
+  color: white;
+background-color: #000000c9;
+}
+
 
 			.stall-card {
-				background-color: #e0f0f0;
-				color: #000;
-				border-radius: 12px;
-				padding: 20px;
-				box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
-				margin-bottom: 20px;
-				transition: all 0.3s ease; /* Smooth transition for all properties */
-			}
+    background-color: #e0f0f0;
+    color: #000;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+}
 
-			.stall-card:hover {
-				background-color: #d0e0e0; /* Change background on hover */
-				box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4); /* More intense shadow */
-				transform: scale(1.05); /* Slightly enlarge the card */
-			}
+.stall-card:hover {
+    background-color: #d0e0e0; /* Change background on hover */
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4); /* More intense shadow */
+    transform: scale(1.05); /* Slightly enlarge the card */
+}
+
 
 			.stall-icon {
 				width: 60px;
@@ -682,17 +691,23 @@
 				transform: translateY(-2px);
 			}
 
+
 			h1 {
 				text-align: center;
 				color: #146c63;
 				margin-top: 40px;
 			}
 
+
+
 			#past-sponsors {
 				color: #ffffff;
 			}
 
-			.footer-container {
+
+
+
+			 .footer-container {
 				max-width: 1200px;
 				margin: 0 auto;
 				padding: 0 15px;
@@ -753,7 +768,6 @@
 			.text-info{
 				color: #000;
 			}
-
 			.my-4 {
 				margin-top: 1.5rem;
 				margin-bottom: 1.5rem;
@@ -771,77 +785,77 @@
 				border-top: 1px solid #ccc;
 			}
 
+
+
 			.fade-in-custom {
-				opacity: 0;
-				animation: fadeInCustom 1s ease forwards;
-			}
+  opacity: 0;
+  animation: fadeInCustom 1s ease forwards;
+}
 
-			@keyframes fadeInCustom {
-				0% {
-					opacity: 0;
-					transform: translateY(20px);
-				}
-				100% {
-					opacity: 1;
-					transform: translateY(0);
-				}
-			}
-			.sponsor-logo {
-				transition: transform 0.3s ease, box-shadow 0.3s ease;
-			}
+@keyframes fadeInCustom {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.sponsor-logo {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-			.sponsor-logo:hover {
-				transform: scale(1.1);
-			}
+.sponsor-logo:hover {
+  transform: scale(1.1);
+}
 
-			.logo5-hover {
-				transition: transform 0.3s ease, filter 0.3s ease;
-			}
+.logo5-hover {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
 
-			.logo5-hover:hover {
-				transform: scale(1.2);
-				filter: drop-shadow(0 0 10px rgba(0, 123, 255, 0.4));
-			}
+.logo5-hover:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 10px rgba(0, 123, 255, 0.4));
+}
 
-			.slideshow-container.inside {
-				position: absolute;
-				width: 320px;
-				height: 240px;
-				overflow: hidden;
-				border-radius: 12px;
-				box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-			}
 
-			.slideshow-container.top-right {
-				top: 20px;
-				right: 20px;
-			}
+  .slideshow-container.inside {
+      position: absolute;
+      width: 320px;
+      height: 240px;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
 
-			.slideshow-container.bottom-left {
-				bottom: 20px;
-				left: 20px;
-			}
+    .slideshow-container.top-right {
+      top: 100px;
+      right: 20px;
+    }
 
-			.slideshow-container img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				position: absolute;
-				top: 0;
-				left: 0;
-				opacity: 0;
-				transition: opacity 1s ease-in-out;
-			}
+    .slideshow-container.bottom-left {
+      bottom: 20px;
+      left: 20px;
+    }
 
-			.slideshow-container img.active {
-				opacity: 1;
-				z-index: 1;
-			}
+    .slideshow-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
 
-			.host-logo:hover {
-				transform: scale(1.1); /* Slightly enlarge the image on hover */
-			}
-		</style>
+.slideshow-container img.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+</style>
 	</head>
 	<body>
 		<img src="./assets/Innowave logo.png" id="logo">
@@ -877,7 +891,7 @@
 				</p>
 				<br>
 				<div id="button_detail">
-					<a href="task.pdf" target="_blank">MORE<br>DETAILS</a>
+					<a href="task.pdf" target="_blank">Details</a>
 				</div>
 				<br><br><br>
 				<div id="scroll-down-message">
@@ -890,17 +904,30 @@
 		</section>
 
 		<section id="about-innowave" class="position-relative text-dark">
-			<div class="container py-5">
-				<div class="slideshow-container inside top-right" id="slideshow1">
-					<img src="assets/1631195129090.avif" class="active">
-					<img src="assets/InnoFair (5)_edited.png">
-					<img src="assets/kiran.png">
-				</div>
-				<div class="slideshow-container inside bottom-left" id="slideshow2">
-					<img src="slide4.jpg" class="active">
-					<img src="slide5.jpg">
-					<img src="slide6.jpg">
-				</div>
+			<div class="container py-5"><div class="slideshow-container inside top-right" id="slideshow1">
+      <img src="assets/1631195129090.avif" class="active" />
+      <img src="assets/InnoFair (5)_edited.png" />
+      <img src="assets/kiran.png" />
+    </div>
+	    <div class="slideshow-container inside bottom-left" id="slideshow2">
+      <img src="slide4.jpg" class="active" />
+      <img src="slide5.jpg" />
+      <img src="slide6.jpg" />
+    </div>
+	<script>
+    function startSlideshow(containerId) {
+      const slides = document.querySelectorAll(`#${containerId} img`);
+      let index = 0;
+      setInterval(() => {
+        slides[index].classList.remove("active");
+        index = (index + 1) % slides.length;
+        slides[index].classList.add("active");
+      }, 3000);
+    }
+
+    startSlideshow("slideshow1");
+    startSlideshow("slideshow2");
+  </script>
 				<div class="row">
 					<div class="d-flex align-items-center mb-3">
 						<div style="border-left: 8px dotted #2d7777; height: 200px; margin-right: 15px; margin-top: 5%;"></div>
@@ -1175,6 +1202,11 @@
 			<section id="aboutHostSection" class="about-host-section">
 				<h2 class="section-title">ABOUT THE HOST</h2>
 				<br>
+				<style>
+					.host-logo:hover {
+						transform: scale(1.1); /* Slightly enlarge the image on hover */
+					}
+				</style>
 				<img src="./assets/CIC.png" alt="CIC Logo" class="host-logo" style="width: 300px; transition: transform 0.3s ease;">
 				<br><br>
 				<p class="host-description">
@@ -1189,123 +1221,132 @@
 		  	</section>
 		</section>
 
+		
 		<section>
-			<div>
-				<h1>Dev Section </h1>
-				<p>svsdvsvssddsvsd</p>
-				<p>advavsadvsdvdavadva</p>
-				<p>acaacacascassac</p>
-			</div>
+		<div>
+			<h1>Dev Section </h1>
+			<p>svsdvsvssddsvsd</p>
+			<p>advavsadvsdvdavadva</p>
+			<p>acaacacascassac</p>
+		</div>
 		</section>
 
 
-		<footer style="color: #000; background: url(assets/pointer-point-trekking-route-marks-260nw-2306481053.jpg); background-repeat: no-repeat; background-size: cover;" class="pt-5 pb-4">
-			<div class="footer-container">
-				<div class="footer-row">
+<footer style="color: #000; background: url(assets/pointer-point-trekking-route-marks-260nw-2306481053.jpg); background-repeat: no-repeat; background-size: cover;" class="pt-5 pb-4">
+  <div class="footer-container">
+    <div class="footer-row">
 
-				<!-- College Logo -->
-				<div class="footer-col">
-					<img src="assets/christ Logo.png" alt="College Logo" class="img-fluid mb-2 animate__animated animate__fadeInLeft" style="max-width: 300px;" >
-				</div>
+      <!-- College Logo -->
+      <div class="footer-col">
+        <img src="assets/christ Logo.png" alt="College Logo" class="img-fluid mb-2 animate__animated animate__fadeInLeft" style="max-width: 300px;" >
+      </div>
 
-				<!-- Quick Links -->
-				<div class="footer-col">
-					<h5 class="animate__animated animate__fadeInUp">Quick Links</h5>
-					<ul>
-					<li><a href="#logo-section">Home</a></li>
-					<li><a href="#about-innowave">About</a></li>
-					<li><a href="#speakers">Our Collaborators</a></li>
-					<li><a href="#Competitions-and-Events">Competitions & Events</a></li>
-					<li><a href="#Innofair">Innofair</a></li>
-					<li><a href="Off-stage.html">Off-stage Events</a></li>
-					<li><a href="On-stage.html">On-Stage Events</a></li>
-					</ul>
-				</div>
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h5 class="animate__animated animate__fadeInUp">Quick Links</h5>
+        <ul>
+          <li><a href="#logo-section">Home</a></li>
+          <li><a href="#about-innowave">About</a></li>
+          <li><a href="#speakers">Our Collaborators</a></li>
+          <li><a href="#Competitions-and-Events">Competitions & Events</a></li>
+          <li><a href="#Innofair">Innofair</a></li>
+		  <li><a href="Off-stage.html">Off-stage Events</a></li>
+		  <li><a href="On-stage.html">On-Stage Events</a></li>
+        </ul>
+      </div>
 
-				<!-- Contact Info -->
-				<div class="footer-col">
-					<h5 class="animate__animated animate__fadeInUp">Contact</h5>
-					<p>Email: fest@abc.edu</p>
-					<p>Phone: +91 9876543210</p>
-					<a href="https://maps.app.goo.gl/7NXAhesxVLy8Qbe2A" target="_blank"  style="color: #000;">View Map</a><br>
-				</div>
+      <!-- Contact Info -->
+      <div class="footer-col">
+        <h5 class="animate__animated animate__fadeInUp">Contact</h5>
+        <p>Email: fest@abc.edu</p>
+        <p>Phone: +91 9876543210</p>
+        <a href="https://maps.app.goo.gl/7NXAhesxVLy8Qbe2A" target="_blank"  style="color: #000;">View Map</a><br>
+      </div>
 
-				<!-- Social Media and Newsletter -->
-				<div class="footer-col">
-					<h5 class="animate__animated animate__fadeInUp">Follow Us</h5>
-					<a href="#"><i class="fab fa-instagram"></i></a>&nbsp;
-					<a href="#"><i class="fab fa-linkedin"></i></a>&nbsp;
-					<a href="#"><i class="fab fa-facebook"></i></a>&nbsp;
-					<a href="#"><i class="fab fa-youtube"></i></a>&nbsp;
-					<a href="#"><i class="fab fa-twitter"></i></a>
+      <!-- Social Media and Newsletter -->
+      <div class="footer-col">
+        <h5 class="animate__animated animate__fadeInUp">Follow Us</h5>
+        <a href="#"><i class="fab fa-instagram"></i></a>&nbsp;
+        <a href="#"><i class="fab fa-linkedin"></i></a>&nbsp;
+        <a href="#"><i class="fab fa-facebook"></i></a>&nbsp;
+        <a href="#"><i class="fab fa-youtube"></i></a>&nbsp;
+        <a href="#"><i class="fab fa-twitter"></i></a>
 
-					<form class="mt-3" id="newsletter-form">
-					<div class="input-group">
-						<input type="email" class="form-control" placeholder="Subscribe..." name="email" required>
-						<button class="btn btn-info" type="submit">Join</button>
-					</div>
-					</form>
-					<div id="subscribe-message" class="text-success mt-2"></div>
-				</div>
-				</div>
+        <form class="mt-3" id="newsletter-form">
+          <div class="input-group">
+            <input type="email" class="form-control" placeholder="Subscribe..." name="email" required>
+            <button class="btn btn-info" type="submit">Join</button>
+          </div>
+        </form>
+        <div id="subscribe-message" class="text-success mt-2"></div>
+      </div>
+    </div>
 
-				<!-- Fest Logo Centered -->
-			<div class="text-center my-4 animate__animated animate__zoomIn">
-			<a href="#logo-section"><img src="assets/Innowave logo (year detached).png" alt="Fest Logo" class="img-fluid logo5-hover" style="max-height: 80px;"></a>
-			<p class="fst-italic">“Empowering Minds, Celebrating Creativity”</p>
-			</div>
-				<!-- Sponsors Carousel -->
-				<div class="text-center mb-4 fade-in-custom">
-			<h6 class="text-uppercase mb-3">Our Sponsors</h6>
-			<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-				<a href="https://kreo-tech.com/" target="_blank">
-				<img class="sponsor-logo" src="assets/Sponsors Logo/Kreo.png" alt="Kreo" height="40" style="margin-top: 10px;">
-				</a>
-				<a href="https://falhari.com/" target="_blank">
-				<img class="sponsor-logo" src="assets/Sponsors Logo/falhari.png" alt="falhari" height="60">
-				</a>
-				<a href="https://in.bookmyshow.com/"target="_blank">
-				<img class="sponsor-logo" src="assets/Sponsors Logo/bookmyshow.png" alt="bookmyshow" height="60">
-				</a>
-				<a href="https://therootsofindia.com/"target="_blank">
-				<img class="sponsor-logo" src="assets/Sponsors Logo/TRIo.avif" alt="TRIo" height="60">
-				</a>
-				<a href="https://everything-gets-inked.ueniweb.com/"target="_blank">
-				<img class="sponsor-logo" src="assets/Sponsors Logo/E.avif" alt="E" height="60">
-				</a>
-			</div>
-			</div>
+    <!-- Fest Logo Centered -->
+   <div class="text-center my-4 animate__animated animate__zoomIn">
+  <a href="#logo-section"><img src="assets/Innowave logo (year detached).png" alt="Fest Logo" class="img-fluid logo5-hover" style="max-height: 80px;"></a>
+  <p class="fst-italic">“Empowering Minds, Celebrating Creativity”</p>
+</div>
+    <!-- Sponsors Carousel -->
+    <div class="text-center mb-4 fade-in-custom">
+  <h6 class="text-uppercase mb-3">Our Sponsors</h6>
+  <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+    <a href="https://kreo-tech.com/" target="_blank">
+      <img class="sponsor-logo" src="assets/Sponsors Logo/Kreo.png" alt="Kreo" height="40" style="margin-top: 10px;">
+    </a>
+    <a href="https://falhari.com/" target="_blank">
+      <img class="sponsor-logo" src="assets/Sponsors Logo/falhari.png" alt="falhari" height="60">
+    </a>
+    <a href="https://in.bookmyshow.com/"target="_blank">
+      <img class="sponsor-logo" src="assets/Sponsors Logo/bookmyshow.png" alt="bookmyshow" height="60">
+    </a>
+    <a href="https://therootsofindia.com/"target="_blank">
+      <img class="sponsor-logo" src="assets/Sponsors Logo/TRIo.avif" alt="TRIo" height="60">
+    </a>
+    <a href="https://everything-gets-inked.ueniweb.com/"target="_blank">
+      <img class="sponsor-logo" src="assets/Sponsors Logo/E.avif" alt="E" height="60">
+    </a>
+  </div>
+</div>
 
-				<!-- Credits -->
-				<div class="text-center pt-3 border-top animate__animated animate__fadeInUp">
-				<p class="mb-1">Made with <span class="text-danger">&#10084;</span> by the students of Christ University.</p>
-				<small>
-					<a href="https://www.instagram.com/christ_university_bangalore?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" style="text-decoration: none; color: #000;" target="_blank">Instagram</a> |
-					<a href="https://linkedin.com/school/christ-university-bangalore/" style="text-decoration: none; color: #000;" target="_blank">LinkedIn</a>
-				</small>
-				</div>
-			</div>
-		</footer>
+    <!-- Credits -->
+    <div class="text-center pt-3 border-top animate__animated animate__fadeInUp">
+      <p class="mb-1">Made with <span class="text-danger">&#10084;</span> by the students of Christ University.</p>
+      <small>
+        <a href="https://www.instagram.com/christ_university_bangalore?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" style="text-decoration: none; color: #000;" target="_blank">Instagram</a> |
+        <a href="https://linkedin.com/school/christ-university-bangalore/" style="text-decoration: none; color: #000;" target="_blank">LinkedIn</a>
+      </small>
+    </div>
+  </div>
+</footer>
 
 		<script>
-			document.getElementById('newsletter-form').addEventListener('submit', function(e) {
-				e.preventDefault();
-				const email = e.target.email.value;
-				// Mock backend call
-				fetch('/api/subscribe', {
-					method: 'POST',
-					headers: { 'Content-Type': 'application/json' },
-					body: JSON.stringify({ email })
-				})
-					.then(response => response.ok ? 'Thank you for subscribing!' : 'Subscription failed.')
-					.then(message => {
-						document.getElementById('subscribe-message').textContent = message;
-						e.target.reset();
-					})
-					.catch(() => {
-						document.getElementById('subscribe-message').textContent = 'Error! Try again later.';
-					});
-			});
+
+
+
+
+ document.getElementById('newsletter-form').addEventListener('sub	function(e) {
+    e.preventDefault();
+    const email = e.target.email.value;
+
+    // Mock backend call
+    fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    })
+    .then(response => response.ok ? 'Thank you for subscribing!' : 'Subscription failed.')
+    .then(message => {
+      document.getElementById('subscribe-message').textContent = message;
+      e.target.reset();
+    })
+    .catch(() => {
+      document.getElementById('subscribe-message').textContent = 'Error! Try again later.';
+    });
+  });
+
+
+
 
 			const scrollDownMessage = document.querySelector("#scroll-down-message");
 
@@ -1355,9 +1396,9 @@
 					logo.style.zIndex = 997;
 					navLinks.style.zIndex = 998;
 				}
-				// if (actualProgress > 2) {
-				// 	return;
-				// }
+				if (actualProgress > 2) {
+					return;
+				}
 				const logoOrigWidth = Math.min(960, window.innerWidth - 20);
 				const logoOrigHeight = logoOrigWidth / logoWidthByHeight;
 				const logoOrigX = window.innerWidth / 2;
@@ -1395,6 +1436,7 @@
 
 			cardsFadeIn.observe(document.querySelector("#pastSpeakersCardsDiv"));
 			cardsFadeIn.observe(document.querySelector("#sponsorCardsDiv"));
+			cardsFadeIn.observe(document.querySelector(".timeline"));
 
 			const prizeBarsRise = new IntersectionObserver(entries => {
 				const prizeBarsSection = entries[0];
@@ -1406,27 +1448,16 @@
 			}, { threshold: 0.1 });
 
 			prizeBarsRise.observe(document.querySelector("#prize-bars"));
+			document.querySelector("#prize-bars").classList.add("show");
+			console.log(document.querySelector("#prize-bars"));
+	// Always scroll to top on refresh
+if ('scrollRestoration' in history) {
+	history.scrollRestoration = 'manual';
+}
 
-			// if ('scrollRestoration' in history) {
-			// 	history.scrollRestoration = 'manual';
-			// }
-
-			// window.addEventListener("load", () => {
-			// 	window.scrollTo(0, 0);
-			// });
-			
-			function startSlideshow(containerId) {
-				const slides = document.querySelectorAll(`#${containerId} img`);
-				let index = 0;
-				setInterval(() => {
-					slides[index].classList.remove("active");
-					index = (index + 1) % slides.length;
-					slides[index].classList.add("active");
-				}, 3000);
-			}
-
-			startSlideshow("slideshow1");
-			startSlideshow("slideshow2");
+window.addEventListener("load", () => {
+	window.scrollTo(0, 0);
+});
 		</script>
-	</body>
+			</body>
 </html>
