@@ -1355,9 +1355,9 @@
 					logo.style.zIndex = 997;
 					navLinks.style.zIndex = 998;
 				}
-				if (actualProgress > 2) {
-					return;
-				}
+				// if (actualProgress > 2) {
+				// 	return;
+				// }
 				const logoOrigWidth = Math.min(960, window.innerWidth - 20);
 				const logoOrigHeight = logoOrigWidth / logoWidthByHeight;
 				const logoOrigX = window.innerWidth / 2;
@@ -1407,9 +1407,9 @@
 
 			prizeBarsRise.observe(document.querySelector("#prize-bars"));
 
-			if ('scrollRestoration' in history) {
-				history.scrollRestoration = 'manual';
-			}
+			// if ('scrollRestoration' in history) {
+			// 	history.scrollRestoration = 'manual';
+			// }
 
 			// window.addEventListener("load", () => {
 			// 	window.scrollTo(0, 0);
