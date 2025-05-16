@@ -251,6 +251,7 @@
 				opacity: 0;
 				transform: translateY(30px);
 				text-align: center;
+				color: white;
 				transition: opacity 0.8s ease, transform 0.8s ease; 
 			}
 
@@ -265,7 +266,6 @@
 				/* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 				cursor: pointer;  */
 				transition: transform 0.2s ease, box-shadow 0.2s ease; 
-				color: white;
 			}
 
 			.sponsor-card {
@@ -297,7 +297,7 @@
 				margin-top: 0.5rem;
 				margin-bottom: 0;
 				text-align: center;
-				transition: color 0.3s ease;
+				color: #ffffff;
 			}
 			
 			.sponsor-card:hover {
@@ -306,10 +306,6 @@
 			
 			.sponsor-card:hover .sponsor-logo {
 				transform: scale(1.05);
-			}
-			
-			.sponsor-card:hover .sponsor-title {
-				color: #ffffff;
 			}
 			
 			@media (max-width: 768px) {
@@ -562,12 +558,6 @@
 				font-size: 12px;
 				color: #555;
 			}
-			
-			.section-title {
-				font-size: clamp(2rem, 5vw, 4rem);
-				font-weight: bold;
-				text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-			}
 
 			.innofair-img {
 				width: 180px;
@@ -580,11 +570,13 @@
 				margin: 0 auto 40px;
 				font-size: 1.2rem;
 				text-align: center;
+				color: #ffffff;
 			}
 
 			.objective-box {
 				background-color: white;
 				color: black;
+				height: 136px;
 				padding: 20px;
 				margin-bottom: 20px;
 				position: relative;
@@ -618,6 +610,7 @@
 			.stall-card {
 				background-color: #e0f0f0;
 				color: #000;
+				height: 230px;
 				border-radius: 12px;
 				padding: 20px;
 				box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
@@ -632,7 +625,7 @@
 			}
 
 			.stall-icon {
-				width: 60px;
+				height: 75px;
 				margin-bottom: 15px;
 			}
 
@@ -649,6 +642,8 @@
 				margin-bottom: 20px;
 				position: relative;
 				display: inline-block;
+				/* font-size: clamp(2rem, 5vw, 4rem); */
+				text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
 			}
 
 			.host-logo {
@@ -851,7 +846,7 @@
 		</svg>
 
 		<ul id="navLinks">
-			<li><a href="#logo">Home</a></li>
+			<li><a href="#logo-section">Home</a></li>
 			<li><a href="#about-innowave">About</a></li>
 			<li><a href="#speakers">Our Collaborators</a></li>
 			<li><a href="#Competitions-and-Events">Competitions & Events</a></li>
@@ -934,9 +929,9 @@
 				</div>
 			</div>
 		</section>
-		<section id="speakers" style="background: url('assets/pointer-point-trekking-route-marks-260nw-2306481053.jpg') no-repeat center center / cover;">
+		<section id="speakers" style="background: url('./assets/blue-green-dark-background.jpg') no-repeat center center / cover;">
 			<section id="past-speakers" class="position-relative py-5 text-white">
-				<div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.4);"></div>
+				<div class="position-absolute top-0 start-0 w-100 h-100"></div>
 				<div class="container position-relative">
 					<div class="mb-5 d-flex align-items-center">
 						<div style="border-left: 10px dotted #ffffff; height: 120px; margin-right: 20px;"></div>
@@ -1017,7 +1012,7 @@
 			</section>
 
 			<section id="past-sponsors" class="position-relative py-5 text-white">
-				<div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.4);"></div>
+				<div class="position-absolute top-0 start-0 w-100 h-100"></div>
 				<div class="container position-relative">
 					<div class="mb-5 d-flex align-items-center">
 						<div style="border-left: 10px dotted #ffffff; height: 120px; margin-right: 20px;"></div>
@@ -1120,14 +1115,14 @@
 		</section>
 
 
-		<section id="Innofair" style="background: url('assets/pointer-point-trekking-route-marks-260nw-2306481053.jpg') no-repeat center center / cover;">
+		<section id="Innofair" style="background: url('./assets/blue-green-dark-background.jpg') no-repeat center center / cover;">
 			<div class="container py-5">
-				<h1 class="section-title">INNOFAIR</h1>
+				<h1 class="section-title" style="color: #ffffff;">INNOFAIR</h1>
 				<img src="./assets/InnoFair_edited.png" alt="INNOFAIR Carnival" class="innofair-img">
 				<p class="lead">INNOFAIR 2024 stands as a distinguished platform celebrating the ingenuity and entrepreneurial spirit of students.</p>
 
-				<h2 class="section-title mt-5">THE OBJECTIVES</h2>
-				<div class="row justify-content-center mt-4">
+				<h2 class="section-title" style="color: #ffffff;">The Objectives</h2>
+				<div class="row justify-content-center mb-4">
 					<div class="col-md-4">
 						<div class="objective-box">INNOFAIR aims to bridge the gap between student entrepreneurs and key stakeholders in the business ecosystem.</div>
 					</div>
@@ -1139,8 +1134,8 @@
 					</div>
 				</div>
 
-				<h2 class="section-title mt-5">THE STALL</h2>
-				<div class="row justify-content-center mt-4">
+				<h2 class="section-title" style="color: #ffffff;">The Stall</h2>
+				<div class="row justify-content-center mb-4">
 					<div class="col-md-4">
 						<div class="stall-card">
 							<img src="./assets/InnoFair (2)_edited.png" alt="Stall Icon" class="stall-icon">
@@ -1199,7 +1194,7 @@
 		</section>
 
 
-		<footer style="color: #000; background: url(assets/pointer-point-trekking-route-marks-260nw-2306481053.jpg); background-repeat: no-repeat; background-size: cover;" class="pt-5 pb-4">
+		<footer style="color: #000; background: url('./assets/blue-green-dark-background.jpg'); background-repeat: no-repeat; background-size: cover;" class="pt-5 pb-4">
 			<div class="footer-container">
 				<div class="footer-row">
 
@@ -1225,9 +1220,9 @@
 				<!-- Contact Info -->
 				<div class="footer-col">
 					<h5 class="animate__animated animate__fadeInUp">Contact</h5>
-					<p>Email: fest@abc.edu</p>
+					<p>Email: <a href="mailto:fest@abc.edu">fest@abc.edu</a></p>
 					<p>Phone: +91 9876543210</p>
-					<a href="https://maps.app.goo.gl/7NXAhesxVLy8Qbe2A" target="_blank"  style="color: #000;">View Map</a><br>
+					<a href="https://maps.app.goo.gl/7NXAhesxVLy8Qbe2A" target="_blank">View Map</a><br>
 				</div>
 
 				<!-- Social Media and Newsletter -->
@@ -1252,11 +1247,11 @@
 				<!-- Fest Logo Centered -->
 			<div class="text-center my-4 animate__animated animate__zoomIn">
 			<a href="#logo-section"><img src="assets/Innowave logo (year detached).png" alt="Fest Logo" class="img-fluid logo5-hover" style="max-height: 80px;"></a>
-			<p class="fst-italic">“Empowering Minds, Celebrating Creativity”</p>
+			<p class="fst-italic" style="color: #ffffff;">“tagline placeholder”</p>
 			</div>
 				<!-- Sponsors Carousel -->
 				<div class="text-center mb-4 fade-in-custom">
-			<h6 class="text-uppercase mb-3">Our Sponsors</h6>
+			<h6 class="text-uppercase mb-3" style="color: #ffffff;">Our Sponsors</h6>
 			<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
 				<a href="https://kreo-tech.com/" target="_blank">
 				<img class="sponsor-logo" src="assets/Sponsors Logo/Kreo.png" alt="Kreo" height="40" style="margin-top: 10px;">
@@ -1264,25 +1259,23 @@
 				<a href="https://falhari.com/" target="_blank">
 				<img class="sponsor-logo" src="assets/Sponsors Logo/falhari.png" alt="falhari" height="60">
 				</a>
-				<a href="https://in.bookmyshow.com/"target="_blank">
+				<a href="https://in.bookmyshow.com/" target="_blank">
 				<img class="sponsor-logo" src="assets/Sponsors Logo/bookmyshow.png" alt="bookmyshow" height="60">
 				</a>
-				<a href="https://therootsofindia.com/"target="_blank">
+				<a href="https://therootsofindia.com/" target="_blank">
 				<img class="sponsor-logo" src="assets/Sponsors Logo/TRIo.avif" alt="TRIo" height="60">
 				</a>
-				<a href="https://everything-gets-inked.ueniweb.com/"target="_blank">
+				<a href="https://everything-gets-inked.ueniweb.com/" target="_blank">
 				<img class="sponsor-logo" src="assets/Sponsors Logo/E.avif" alt="E" height="60">
 				</a>
 			</div>
 			</div>
-
 				<!-- Credits -->
-				<div class="text-center pt-3 border-top animate__animated animate__fadeInUp">
-				<p class="mb-1">Made with <span class="text-danger">&#10084;</span> by the students of Christ University.</p>
-				<small>
-					<a href="https://www.instagram.com/christ_university_bangalore?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" style="text-decoration: none; color: #000;" target="_blank">Instagram</a> |
-					<a href="https://linkedin.com/school/christ-university-bangalore/" style="text-decoration: none; color: #000;" target="_blank">LinkedIn</a>
-				</small>
+				<div class="text-center pt-3 border-top animate__animated animate__fadeInUp" style="color: #ffffff;">
+					<small>
+						<a href="https://www.instagram.com/christ_university_bangalore?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" style="text-decoration: none; color: inherit;" target="_blank">Instagram</a> |
+						<a href="https://linkedin.com/school/christ-university-bangalore/" style="text-decoration: none; color: inherit;" target="_blank">LinkedIn</a>
+					</small>
 				</div>
 			</div>
 		</footer>
