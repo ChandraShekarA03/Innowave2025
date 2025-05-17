@@ -836,7 +836,54 @@
 			.host-logo:hover {
 				transform: scale(1.1); /* Slightly enlarge the image on hover */
 			}
-		</style>
+
+  #left-container {
+    width: 40vw;
+    height: 80vh;
+    margin-left: 10px;
+    margin-right: 0;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  #right-container {
+    width: 40vw;
+    height: 80vh;
+    margin-left: 0;
+    margin-right: 15px;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .fade-top, .fade-bottom {
+    position: absolute;
+    left: 0; right: 0;
+    height: 10%;
+    pointer-events: none;
+    z-index: 10;
+  }
+  .fade-top {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(34,34,34,1), rgba(34,34,34,0));
+  }
+  .fade-bottom {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(34,34,34,1), rgba(34,34,34,0));
+  }
+  .slideshow {
+    position: absolute;
+    width: 100%;
+  }
+  .slide {
+    width: 100%;
+    height: 20vh;
+    background-size: cover;
+    background-position: center;
+  }
+	
+	</style>
 	</head>
 	<body>
 		<img src="./assets/Innowave logo.png" id="logo">
@@ -885,6 +932,16 @@
 		</section>
 
 		<section id="about-innowave" class="position-relative text-dark">
+			  <div class="slideshow">
+<!-- LEFT SLIDESHOW -->
+
+<div class="container" id="left-container">
+  <div class="fade-top"></div>
+  <div class="fade-bottom"></div>
+  <div class="slideshow" id="left-slideshow">
+    <!-- Slides will be injected here -->
+  </div>
+</div>
 			<div class="container py-5">
 				<div class="row">
 					<div class="d-flex align-items-center mb-3">
@@ -918,8 +975,81 @@
 					</div>
 				</div>
 			</div>
+<div class="container" id="right-container">
+  <div class="fade-top"></div>
+  <div class="fade-bottom"></div>
+  <div class="slideshow" id="right-slideshow">
+    <!-- Slides will be injected here -->
+  </div>
+</div>
 		</section>
 
+
+		<script>
+  const leftImages = [
+    'https://picsum.photos/id/1015/600/400',
+    'https://picsum.photos/id/1016/600/400',
+    'https://picsum.photos/id/1018/600/400',
+    'https://picsum.photos/id/1020/600/400'
+  ];
+
+  const rightImages = [
+    'https://picsum.photos/id/1024/600/400',
+    'https://picsum.photos/id/1027/600/400',
+    'https://picsum.photos/id/1031/600/400',
+    'https://picsum.photos/id/1035/600/400'
+  ];
+
+  function createSlides(images, containerId) {
+    const container = document.getElementById(containerId);
+    images.forEach(src => {
+      const slide = document.createElement('div');
+      slide.className = 'slide';
+      slide.style.backgroundImage = `url(${src})`;
+      container.appendChild(slide);
+    });
+  }
+
+  createSlides(leftImages, 'left-slideshow');
+  createSlides(rightImages, 'right-slideshow');
+
+  // Animation logic for infinite vertical sliding with fade at top and bottom
+
+  function animateSlideshow(containerId, direction = 'down') {
+    const container = document.getElementById(containerId);
+    const slides = container.children;
+    const slideHeight = slides[0].offsetHeight;
+    let position = 0;
+    
+    // Clone slides to create infinite loop effect
+    for (let i = 0; i < slides.length; i++) {
+      const clone = slides[i].cloneNode(true);
+      container.appendChild(clone);
+    }
+
+    function step() {
+      if (direction === 'down') {
+        position += 1;
+        if (position >= slideHeight * slides.length) {
+          position = 0;
+        }
+        container.style.transform = `translateY(-${position}px)`;
+      } else {
+        position -= 1;
+        if (position <= -slideHeight * slides.length) {
+          position = 0;
+        }
+        container.style.transform = `translateY(${position}px)`;
+      }
+      requestAnimationFrame(step);
+    }
+    step();
+  }
+
+  animateSlideshow('left-slideshow', 'down');
+  animateSlideshow('right-slideshow', 'up');
+
+</script>
 
 		<section id="aboutHostSection" class="about-host-section" style="background: url('./assets/blue-green-dark-background.jpg') no-repeat center center / cover;">
 				<h2 class="section-title">ABOUT THE HOST</h2>
