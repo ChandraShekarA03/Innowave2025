@@ -837,53 +837,9 @@
 				transform: scale(1.1); /* Slightly enlarge the image on hover */
 			}
 
-  #left-container {
-    width: 40vw;
-    height: 80vh;
-    margin-left: 10px;
-    margin-right: 0;
-    position: relative;
-    overflow: hidden;
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.3);
-  }
-  #right-container {
-    width: 40vw;
-    height: 80vh;
-    margin-left: 0;
-    margin-right: 15px;
-    position: relative;
-    overflow: hidden;
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.3);
-  }
-  .fade-top, .fade-bottom {
-    position: absolute;
-    left: 0; right: 0;
-    height: 10%;
-    pointer-events: none;
-    z-index: 10;
-  }
-  .fade-top {
-    top: 0;
-    background: linear-gradient(to bottom, rgba(34,34,34,1), rgba(34,34,34,0));
-  }
-  .fade-bottom {
-    bottom: 0;
-    background: linear-gradient(to top, rgba(34,34,34,1), rgba(34,34,34,0));
-  }
-  .slideshow {
-    position: absolute;
-    width: 100%;
-  }
-  .slide {
-    width: 100%;
-    height: 20vh;
-    background-size: cover;
-    background-position: center;
-  }
-	
-	</style>
+
+			
+		</style>
 	</head>
 	<body>
 		<img src="./assets/Innowave logo.png" id="logo">
@@ -932,16 +888,6 @@
 		</section>
 
 		<section id="about-innowave" class="position-relative text-dark">
-			  <div class="slideshow">
-<!-- LEFT SLIDESHOW -->
-
-<div class="container" id="left-container">
-  <div class="fade-top"></div>
-  <div class="fade-bottom"></div>
-  <div class="slideshow" id="left-slideshow">
-    <!-- Slides will be injected here -->
-  </div>
-</div>
 			<div class="container py-5">
 				<div class="row">
 					<div class="d-flex align-items-center mb-3">
@@ -975,81 +921,8 @@
 					</div>
 				</div>
 			</div>
-<div class="container" id="right-container">
-  <div class="fade-top"></div>
-  <div class="fade-bottom"></div>
-  <div class="slideshow" id="right-slideshow">
-    <!-- Slides will be injected here -->
-  </div>
-</div>
 		</section>
 
-
-		<script>
-  const leftImages = [
-    'https://picsum.photos/id/1015/600/400',
-    'https://picsum.photos/id/1016/600/400',
-    'https://picsum.photos/id/1018/600/400',
-    'https://picsum.photos/id/1020/600/400'
-  ];
-
-  const rightImages = [
-    'https://picsum.photos/id/1024/600/400',
-    'https://picsum.photos/id/1027/600/400',
-    'https://picsum.photos/id/1031/600/400',
-    'https://picsum.photos/id/1035/600/400'
-  ];
-
-  function createSlides(images, containerId) {
-    const container = document.getElementById(containerId);
-    images.forEach(src => {
-      const slide = document.createElement('div');
-      slide.className = 'slide';
-      slide.style.backgroundImage = `url(${src})`;
-      container.appendChild(slide);
-    });
-  }
-
-  createSlides(leftImages, 'left-slideshow');
-  createSlides(rightImages, 'right-slideshow');
-
-  // Animation logic for infinite vertical sliding with fade at top and bottom
-
-  function animateSlideshow(containerId, direction = 'down') {
-    const container = document.getElementById(containerId);
-    const slides = container.children;
-    const slideHeight = slides[0].offsetHeight;
-    let position = 0;
-    
-    // Clone slides to create infinite loop effect
-    for (let i = 0; i < slides.length; i++) {
-      const clone = slides[i].cloneNode(true);
-      container.appendChild(clone);
-    }
-
-    function step() {
-      if (direction === 'down') {
-        position += 1;
-        if (position >= slideHeight * slides.length) {
-          position = 0;
-        }
-        container.style.transform = `translateY(-${position}px)`;
-      } else {
-        position -= 1;
-        if (position <= -slideHeight * slides.length) {
-          position = 0;
-        }
-        container.style.transform = `translateY(${position}px)`;
-      }
-      requestAnimationFrame(step);
-    }
-    step();
-  }
-
-  animateSlideshow('left-slideshow', 'down');
-  animateSlideshow('right-slideshow', 'up');
-
-</script>
 
 		<section id="aboutHostSection" class="about-host-section" style="background: url('./assets/blue-green-dark-background.jpg') no-repeat center center / cover;">
 				<h2 class="section-title">ABOUT THE HOST</h2>
@@ -1326,66 +1199,79 @@
 		<footer style="color: #000; background: url('./assets/blue-green-dark-background.jpg'); background-repeat: no-repeat; background-size: cover;" class="pt-5 pb-4">
 			<div class="footer-container">
 				<div class="footer-row">
-					<!-- College Logo -->
-					<div class="footer-col">
-						<img src="assets/christ Logo.png" alt="College Logo" class="img-fluid mb-2 animate__animated animate__fadeInLeft" style="max-width: 300px;">
-					</div>
-					<!-- Quick Links -->
-					<div class="footer-col">
-						<h5 class="animate__animated animate__fadeInUp">Quick Links</h5>
-						<ul>
-							<li><a href="#logo-section">Home</a></li>
-							<li><a href="#about-innowave">About</a></li>
-							<li><a href="#speakers">Our Collaborators</a></li>
-							<li><a href="#Competitions-and-Events">Competitions & Events</a></li>
-							<li><a href="#Innofair">Innofair</a></li>
-							<li><a href="Off-stage.html">Off-stage Events</a></li>
-							<li><a href="On-stage.html">On-Stage Events</a></li>
-						</ul>
-					</div>
-					<!-- Contact Info -->
-					<div class="footer-col">
-						<h5 class="animate__animated animate__fadeInUp">Contact</h5>
-						<p>Email: <a href="mailto:fest@abc.edu">fest@abc.edu</a></p>
-						<p>Phone: +91 9876543210</p>
-						<a href="https://maps.app.goo.gl/7NXAhesxVLy8Qbe2A" target="_blank">View Map</a><br>
-					</div>
-					<!-- Social Media and Newsletter -->
-					<div class="footer-col">
-						<h5 class="animate__animated animate__fadeInUp">Follow Us</h5>
-						<a href="#"><i class="fab fa-instagram"></i></a>&nbsp;
-						<a href="#"><i class="fab fa-linkedin"></i></a>&nbsp;
-						<a href="#"><i class="fab fa-facebook"></i></a>&nbsp;
-						<a href="#"><i class="fab fa-youtube"></i></a>&nbsp;
-						<a href="#"><i class="fab fa-twitter"></i></a>
-					</div>
+
+				<!-- College Logo -->
+				<div class="footer-col">
+					<img src="assets/christ Logo.png" alt="College Logo" class="img-fluid mb-2 animate__animated animate__fadeInLeft" style="max-width: 300px;" >
 				</div>
+
+				<!-- Quick Links -->
+				<div class="footer-col">
+					<h5 class="animate__animated animate__fadeInUp">Quick Links</h5>
+					<ul>
+					<li><a href="#logo-section">Home</a></li>
+					<li><a href="#about-innowave">About</a></li>
+					<li><a href="#speakers">Our Collaborators</a></li>
+					<li><a href="#Competitions-and-Events">Competitions & Events</a></li>
+					<li><a href="#Innofair">Innofair</a></li>
+					<li><a href="Off-stage.html">Off-stage Events</a></li>
+					<li><a href="On-stage.html">On-Stage Events</a></li>
+					</ul>
+				</div>
+
+				<!-- Contact Info -->
+				<div class="footer-col">
+					<h5 class="animate__animated animate__fadeInUp">Contact</h5>
+					<p>Email: <a href="mailto:fest@abc.edu">fest@abc.edu</a></p>
+					<p>Phone: +91 9876543210</p>
+					<a href="https://maps.app.goo.gl/7NXAhesxVLy8Qbe2A" target="_blank">View Map</a><br>
+				</div>
+
+				<!-- Social Media and Newsletter -->
+				<div class="footer-col">
+					<h5 class="animate__animated animate__fadeInUp">Follow Us</h5>
+					<a href="#"><i class="fab fa-instagram"></i></a>&nbsp;
+					<a href="#"><i class="fab fa-linkedin"></i></a>&nbsp;
+					<a href="#"><i class="fab fa-facebook"></i></a>&nbsp;
+					<a href="#"><i class="fab fa-youtube"></i></a>&nbsp;
+					<a href="#"><i class="fab fa-twitter"></i></a>
+
+					<form class="mt-3" id="newsletter-form">
+					<div class="input-group">
+						<input type="email" class="form-control" placeholder="Subscribe..." name="email" required>
+						<button class="btn btn-info" type="submit">Join</button>
+					</div>
+					</form>
+					<div id="subscribe-message" class="text-success mt-2"></div>
+				</div>
+				</div>
+
 				<!-- Fest Logo Centered -->
-				<div class="text-center my-4 animate__animated animate__zoomIn">
-					<a href="#logo-section"><img src="assets/Innowave logo (year detached).png" alt="Fest Logo" class="img-fluid logo5-hover" style="max-height: 80px;"></a>
-					<p class="fst-italic" style="color: #ffffff;">“tagline placeholder”</p>
-				</div>
+			<div class="text-center my-4 animate__animated animate__zoomIn">
+			<a href="#logo-section"><img src="assets/Innowave logo (year detached).png" alt="Fest Logo" class="img-fluid logo5-hover" style="max-height: 80px;"></a>
+			<p class="fst-italic" style="color: #ffffff;">“tagline placeholder”</p>
+			</div>
 				<!-- Sponsors Carousel -->
 				<div class="text-center mb-4 fade-in-custom">
-					<h6 class="text-uppercase mb-3" style="color: #ffffff;">Our Sponsors</h6>
-					<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-						<a href="https://kreo-tech.com/" target="_blank">
-							<img class="sponsor-logo" src="assets/Sponsors Logo/Kreo.png" alt="Kreo" height="40" style="margin-top: 10px;">
-						</a>
-						<a href="https://falhari.com/" target="_blank">
-							<img class="sponsor-logo" src="assets/Sponsors Logo/falhari.png" alt="falhari" height="60">
-						</a>
-						<a href="https://in.bookmyshow.com/" target="_blank">
-							<img class="sponsor-logo" src="assets/Sponsors Logo/bookmyshow.png" alt="bookmyshow" height="60">
-						</a>
-						<a href="https://therootsofindia.com/" target="_blank">
-							<img class="sponsor-logo" src="assets/Sponsors Logo/TRIo.avif" alt="TRIo" height="60">
-						</a>
-						<a href="https://everything-gets-inked.ueniweb.com/" target="_blank">
-							<img class="sponsor-logo" src="assets/Sponsors Logo/E.avif" alt="E" height="60">
-						</a>
-					</div>
-				</div>
+			<h6 class="text-uppercase mb-3" style="color: #ffffff;">Our Sponsors</h6>
+			<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+				<a href="https://kreo-tech.com/" target="_blank">
+				<img class="sponsor-logo" src="assets/Sponsors Logo/Kreo.png" alt="Kreo" height="40" style="margin-top: 10px;">
+				</a>
+				<a href="https://falhari.com/" target="_blank">
+				<img class="sponsor-logo" src="assets/Sponsors Logo/falhari.png" alt="falhari" height="60">
+				</a>
+				<a href="https://in.bookmyshow.com/" target="_blank">
+				<img class="sponsor-logo" src="assets/Sponsors Logo/bookmyshow.png" alt="bookmyshow" height="60">
+				</a>
+				<a href="https://therootsofindia.com/" target="_blank">
+				<img class="sponsor-logo" src="assets/Sponsors Logo/TRIo.avif" alt="TRIo" height="60">
+				</a>
+				<a href="https://everything-gets-inked.ueniweb.com/" target="_blank">
+				<img class="sponsor-logo" src="assets/Sponsors Logo/E.avif" alt="E" height="60">
+				</a>
+			</div>
+			</div>
 				<!-- Credits -->
 				<div class="text-center pt-3 border-top animate__animated animate__fadeInUp" style="color: #ffffff;">
 					<small>
@@ -1397,6 +1283,25 @@
 		</footer>
 
 		<script>
+			document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+				e.preventDefault();
+				const email = e.target.email.value;
+				// Mock backend call
+				fetch('/api/subscribe', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ email })
+				})
+					.then(response => response.ok ? 'Thank you for subscribing!' : 'Subscription failed.')
+					.then(message => {
+						document.getElementById('subscribe-message').textContent = message;
+						e.target.reset();
+					})
+					.catch(() => {
+						document.getElementById('subscribe-message').textContent = 'Error! Try again later.';
+					});
+			});
+
 			const scrollDownMessage = document.querySelector("#scroll-down-message");
 
 			scrollDownMessage.onclick = () => {
