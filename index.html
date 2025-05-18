@@ -850,74 +850,91 @@
 .Our-team{
 	text-align: center;
 }
-	.team-section {
-    position: relative;
-    width: auto;
-    max-width: auto;
-    margin: auto;
-    overflow: hidden;
-    background: #ffffff00;
-    padding: 40px 0;
-  }
-  .carousel-track {
-    display: flex;
-    transition: transform 0.05s linear;
-    will-change: transform;
-  }
-  .team-member {
-    position: relative;
-    flex: 0 0 250px;
-	  min-height: 300px;
-    margin: 0 15px;
-    background: #e0e0e0;
-    border-radius: 12px;
-    overflow: hidden;
-    cursor: pointer;
-  }
-  .team-member img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    display: block;
-  }
-  .info {
-    position: absolute;
-    bottom: 0; left: 0; width: 100%;
-    background: rgba(0, 0, 0, 0.356);
-    color: white;
-    padding: 15px;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
-	text-align: center;
-	gap: 8px;
-  }
-  .team-member:hover .info {
-    transform: translateY(0);
-  }
-  .info h3 {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-  }
-  .info p {
-    margin-bottom: 10px;
-  }
-  .info a {
-    color: #0a66c2;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  .linkedin-icon svg {
-  vertical-align: middle;
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 40px 0;
+}
+
+.carousel-track {
+  display: flex;
+  flex-wrap: nowrap;
+  will-change: transform;
+}
+
+.team-member {
+  position: relative;
+  flex: 0 0 250px;
+  min-height: 300px;
+  margin: 0 15px;
+  background: #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s ease;
-  width: 34px;
-  height: 34px;
-  margin-top: 5px;
+}
+
+.team-member img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.info {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 15px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.team-member:hover .info {
+  transform: translateY(0);
+}
+
+.linkedin-icon svg {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .linkedin-icon:hover svg {
   transform: scale(1.1);
 }
+
+
+@media (max-width: 768px) {
+  .team-member {
+    flex: 0 0 180px;
+    min-height: 250px;
+  }
+
+  .team-member img {
+    height: 250px;
+  }
+
+
+}
+
+@media (max-width: 480px) {
+  .team-member {
+    flex: 0 0 150px;
+    min-height: 220px;
+  }
+
+  .team-member img {
+    height: 220px;
+  }
+}
+
 			
 		</style>
 	</head>
@@ -1273,17 +1290,19 @@
 				</div>
 			</section>
 		</section>
-		<section id="Our-team" class="position-relative py-5 text-white">
-			<div class="d-flex justify-content-center mb-5 align-items-center">
-				<div style="border-left: 8px dotted #2d7777; height: 150px; margin-right: 20px; margin-top: 40px;"></div>
-				<h1 style="color: #2d7777; font-size: min(15vw, 5rem); font-weight: 600; line-height: 1.1; text-align: left;">
-					Our<br>Team
-				</h1>
-			</div>
-			<section class="team-section" id="teamSection">
-				<div class="carousel-track" id="carouselTrack"></div>
-			</section>
-		</section>
+
+<section id="Our-team" class="position-relative py-5 text-white">
+  <div class="d-flex justify-content-center mb-5 align-items-center">
+    <div style="border-left: 8px dotted #2d7777; height: 150px; margin-right: 20px; margin-top: 40px;"></div>
+    <h1 style="color: #2d7777; font-size: min(15vw, 5rem); font-weight: 600; line-height: 1.1; text-align: left;">
+      Our<br>Team
+    </h1>
+  </div>
+  <section id="teamSection">
+    <div class="carousel">
+      <div class="carousel-track" id="carouselTrack"></div>
+    </div>
+  </section>
 
 		<section>
 			<div>
@@ -1298,67 +1317,71 @@
 		<footer style="color: #000; background: url('./assets/blue-green-dark-background.jpg'); background-repeat: no-repeat; background-size: cover;" class="pt-5 pb-4">
 			<div class="footer-container">
 				<div class="footer-row">
-					<!-- College Logo -->
-					<div class="footer-col">
-						<img src="assets/christ Logo.png" alt="College Logo" class="img-fluid mb-2 animate__animated animate__fadeInLeft" style="max-width: 300px;">
-					</div>
-					<!-- Quick Links -->
-					<div class="footer-col">
-						<h5 class="animate__animated animate__fadeInUp">Quick Links</h5>
-						<ul>
-							<li><a href="#logo-section">Home</a></li>
-							<li><a href="#about-innowave">About</a></li>
-							<li><a href="#speakers">Our Collaborators</a></li>
-							<li><a href="#Competitions-and-Events">Competitions & Events</a></li>
-							<li><a href="#Innofair">Innofair</a></li>
-							<li><a href="Off-stage.html">Off-stage Events</a></li>
-							<li><a href="On-stage.html">On-Stage Events</a></li>
-						</ul>
-					</div>
-					<!-- Contact Info -->
-					<div class="footer-col">
-						<h5 class="animate__animated animate__fadeInUp">Contact</h5>
-						<p>Email: <a href="mailto:fest@abc.edu">fest@abc.edu</a></p>
-						<p>Phone: +91 9876543210</p>
-						<a href="https://maps.app.goo.gl/7NXAhesxVLy8Qbe2A" target="_blank">View Map</a><br>
-					</div>
-					<!-- Social Media and Newsletter -->
-					<div class="footer-col">
-						<h5 class="animate__animated animate__fadeInUp">Follow Us</h5>
-						<a href="#"><i class="fab fa-instagram"></i></a>&nbsp;
-						<a href="#"><i class="fab fa-linkedin"></i></a>&nbsp;
-						<a href="#"><i class="fab fa-facebook"></i></a>&nbsp;
-						<a href="#"><i class="fab fa-youtube"></i></a>&nbsp;
-						<a href="#"><i class="fab fa-twitter"></i></a>
-					</div>
+
+				<!-- College Logo -->
+				<div class="footer-col">
+					<img src="assets/christ Logo.png" alt="College Logo" class="img-fluid mb-2 animate__animated animate__fadeInLeft" style="max-width: 300px;" >
+				</div>
+
+				<!-- Quick Links -->
+				<div class="footer-col">
+					<h5 class="animate__animated animate__fadeInUp">Quick Links</h5>
+					<ul>
+					<li><a href="#logo-section">Home</a></li>
+					<li><a href="#about-innowave">About</a></li>
+					<li><a href="#speakers">Our Collaborators</a></li>
+					<li><a href="#Competitions-and-Events">Competitions & Events</a></li>
+					<li><a href="#Innofair">Innofair</a></li>
+					<li><a href="Off-stage.html">Off-stage Events</a></li>
+					<li><a href="On-stage.html">On-Stage Events</a></li>
+					</ul>
+				</div>
+
+				<!-- Contact Info -->
+				<div class="footer-col">
+					<h5 class="animate__animated animate__fadeInUp">Contact</h5>
+					<p>Email: <a href="mailto:fest@abc.edu">fest@abc.edu</a></p>
+					<p>Phone: +91 9876543210</p>
+					<a href="https://maps.app.goo.gl/7NXAhesxVLy8Qbe2A" target="_blank">View Map</a><br>
+				</div>
+
+				<!-- Social Media and Newsletter -->
+				<div class="footer-col">
+					<h5 class="animate__animated animate__fadeInUp">Follow Us</h5>
+					<a href="#"><i class="fab fa-instagram"></i></a>&nbsp;
+					<a href="#"><i class="fab fa-linkedin"></i></a>&nbsp;
+					<a href="#"><i class="fab fa-facebook"></i></a>&nbsp;
+					<a href="#"><i class="fab fa-youtube"></i></a>&nbsp;
+					<a href="#"><i class="fab fa-twitter"></i></a>
+				</div>
 				</div>
 
 				<!-- Fest Logo Centered -->
-				<div class="text-center my-4 animate__animated animate__zoomIn">
-					<a href="#logo-section"><img src="assets/Innowave logo (year detached).png" alt="Fest Logo" class="img-fluid logo5-hover" style="max-height: 80px;"></a>
-					<p class="fst-italic" style="color: #ffffff;">“tagline placeholder”</p>
-				</div>
+			<div class="text-center my-4 animate__animated animate__zoomIn">
+			<a href="#logo-section"><img src="assets/Innowave logo (year detached).png" alt="Fest Logo" class="img-fluid logo5-hover" style="max-height: 80px;"></a>
+			<p class="fst-italic" style="color: #ffffff;">“tagline placeholder”</p>
+			</div>
 				<!-- Sponsors Carousel -->
 				<div class="text-center mb-4 fade-in-custom">
-					<h6 class="text-uppercase mb-3" style="color: #ffffff;">Our Sponsors</h6>
-					<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-						<a href="https://kreo-tech.com/" target="_blank">
-							<img class="sponsor-logo" src="assets/Sponsors Logo/Kreo.png" alt="Kreo" height="40" style="margin-top: 10px;">
-						</a>
-						<a href="https://falhari.com/" target="_blank">
-							<img class="sponsor-logo" src="assets/Sponsors Logo/falhari.png" alt="falhari" height="60">
-						</a>
-						<a href="https://in.bookmyshow.com/" target="_blank">
-							<img class="sponsor-logo" src="assets/Sponsors Logo/bookmyshow.png" alt="bookmyshow" height="60">
-						</a>
-						<a href="https://therootsofindia.com/" target="_blank">
-							<img class="sponsor-logo" src="assets/Sponsors Logo/TRIo.avif" alt="TRIo" height="60">
-						</a>
-						<a href="https://everything-gets-inked.ueniweb.com/" target="_blank">
-							<img class="sponsor-logo" src="assets/Sponsors Logo/E.avif" alt="E" height="60">
-						</a>
-					</div>
-				</div>
+			<h6 class="text-uppercase mb-3" style="color: #ffffff;">Our Sponsors</h6>
+			<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+				<a href="https://kreo-tech.com/" target="_blank">
+				<img class="sponsor-logo" src="assets/Sponsors Logo/Kreo.png" alt="Kreo" height="40" style="margin-top: 10px;">
+				</a>
+				<a href="https://falhari.com/" target="_blank">
+				<img class="sponsor-logo" src="assets/Sponsors Logo/falhari.png" alt="falhari" height="60">
+				</a>
+				<a href="https://in.bookmyshow.com/" target="_blank">
+				<img class="sponsor-logo" src="assets/Sponsors Logo/bookmyshow.png" alt="bookmyshow" height="60">
+				</a>
+				<a href="https://therootsofindia.com/" target="_blank">
+				<img class="sponsor-logo" src="assets/Sponsors Logo/TRIo.avif" alt="TRIo" height="60">
+				</a>
+				<a href="https://everything-gets-inked.ueniweb.com/" target="_blank">
+				<img class="sponsor-logo" src="assets/Sponsors Logo/E.avif" alt="E" height="60">
+				</a>
+			</div>
+			</div>
 				<!-- Credits -->
 				<div class="text-center pt-3 border-top animate__animated animate__fadeInUp" style="color: #ffffff;">
 					<small>
@@ -1368,94 +1391,102 @@
 				</div>
 			</div>
 		</footer>
+
 		<script>
-			const members = [
-				{name:"Tom Holand", denary:"Head Coordinator", linkedIn:"#", img:"assets/demo.jpeg"},
-				{name:"Thejus", denary:"Design Lead", linkedIn:"#", img:"assets/demo.jpeg"},
-				{name:"ChandraShekar", denary:"Tech Lead", linkedIn:"#", img:"assets/demo.jpeg"},
-				{name:"Queens", denary:"Operations", linkedIn:"#", img:"assets/demo.jpeg"},
-				{name:"SnnopDogg", denary:"Marketing", linkedIn:"#", img:"assets/demo.jpeg"},
-				{name:" cute.as.ducks", denary:"Food", linkedIn:"#", img:"assets/demo.jpeg"},
-				{name:"google_was_my_idea", denary:"Entertainment", linkedIn:"#", img:"assets/demo.jpeg"},
-				{name:" HairyPoppins", denary:"Hospitality", linkedIn:"#", img:"assets/demo.jpeg"},
-				{name:"Queens", denary:"Dance", linkedIn:"#", img:"assets/demo.jpeg"},
-				{name:"SnnopDogg", denary:"Joking", linkedIn:"#", img:"assets/demo.jpeg"},
-			];
 
-			const track = document.getElementById('carouselTrack');
-			let position = 0;
-			let speed = 1.0; 
-			let animationFrameId;
 
-			function createMemberCard(member) {
-				const card = document.createElement('div');
-				card.className = 'team-member';
 
-				const img = document.createElement('img');
-				img.src = member.img;
-				img.alt = member.name;
-				img.loading = 'lazy';
+ const members = [
+  { name: "Tom Holand", denary: "Head Coordinator", linkedIn: "#", img: "assets/demo.jpeg" },
+  { name: "Thejus", denary: "Design Lead", linkedIn: "#", img: "assets/demo.jpeg" },
+  { name: "ChandraShekar", denary: "Tech Lead", linkedIn: "#", img: "assets/demo.jpeg" },
+  { name: "Queens", denary: "Operations", linkedIn: "#", img: "assets/demo.jpeg" },
+  { name: "SnnopDogg", denary: "Marketing", linkedIn: "#", img: "assets/demo.jpeg" },
+  { name: "cute.as.ducks", denary: "Food", linkedIn: "#", img: "assets/demo.jpeg" },
+  { name: "google_was_my_idea", denary: "Entertainment", linkedIn: "#", img: "assets/demo.jpeg" },
+  { name: "HairyPoppins", denary: "Hospitality", linkedIn: "#", img: "assets/demo.jpeg" },
+  { name: "Queens", denary: "Dance", linkedIn: "#", img: "assets/demo.jpeg" },
+  { name: "SnnopDogg", denary: "Joking", linkedIn: "#", img: "assets/demo.jpeg" }
+];
 
-				const info = document.createElement('div');
-				info.className = 'info';
+const track = document.getElementById('carouselTrack');
 
-				const name = document.createElement('h3');
-				name.textContent = member.name;
+let position = 0;
+let speed = 115.0; // default left scroll
+let animationFrameId;
 
-				const denary = document.createElement('p');
-				denary.textContent = member.denary;
+function createMemberCard(member) {
+  const card = document.createElement('div');
+  card.className = 'team-member';
 
-				const link = document.createElement('a');
-				link.href = member.linkedIn;
-				link.target = '_blank';
-				link.rel = 'noopener noreferrer';
-				link.setAttribute('aria-label', `${member.name} LinkedIn profile`);
-				link.className = 'linkedin-icon';
+  const img = document.createElement('img');
+  img.src = member.img;
+  img.alt = member.name;
+  img.loading = 'lazy';
 
-				link.innerHTML = `
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-						<path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-					</svg>
-				`;
+  const info = document.createElement('div');
+  info.className = 'info';
 
-				info.appendChild(name);
-				info.appendChild(denary);
-				info.appendChild(link);
+  const name = document.createElement('h3');
+  name.textContent = member.name;
 
-				card.appendChild(img);
-				card.appendChild(info);
+  const denary = document.createElement('p');
+  denary.textContent = member.denary;
 
-				return card;
-			}
+  const link = document.createElement('a');
+  link.href = member.linkedIn;
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.className = 'linkedin-icon';
+  link.setAttribute('aria-label', `${member.name} LinkedIn profile`);
 
-			function populateCarousel() {
-				members.forEach(m => {
-				track.appendChild(createMemberCard(m));
-				});
-				members.forEach(m => {
-				track.appendChild(createMemberCard(m));
-				});
-			}
+  link.innerHTML = `
+<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
+    <path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
+</svg>
+  `;
 
-			function animate() {
-				position -= speed;
-				if (Math.abs(position) >= track.scrollWidth / 2) {
-					position = 0;
-				}
-				track.style.transform = `translateX(${position}px)`;
-				animationFrameId = requestAnimationFrame(animate);
-			}
+  info.appendChild(name);
+  info.appendChild(denary);
+  info.appendChild(link);
+  card.appendChild(img);
+  card.appendChild(info);
+  return card;
+}
 
-			const teamSection = document.getElementById('teamSection');
-			teamSection.addEventListener('mouseenter', () => {
-				cancelAnimationFrame(animationFrameId);
-			});
-			teamSection.addEventListener('mouseleave', () => {
-				animationFrameId = requestAnimationFrame(animate);
-			});
+function populateCarousel() {
+  members.forEach(m => track.appendChild(createMemberCard(m)));
+  members.forEach(m => track.appendChild(createMemberCard(m))); // duplicate for loop
+}
 
-			populateCarousel();
-			animationFrameId = requestAnimationFrame(animate);
+function animate() {
+  position -= speed;
+  if (Math.abs(position) >= track.scrollWidth / 2) {
+    position += track.scrollWidth / 2;
+  }
+  track.style.transform = `translateX(${position}px)`;
+  animationFrameId = requestAnimationFrame(animate);
+}
+
+// Pause/resume on hover
+const teamSection = document.getElementById('teamSection');
+teamSection.addEventListener('mouseenter', () => cancelAnimationFrame(animationFrameId));
+teamSection.addEventListener('mouseleave', () => animationFrameId = requestAnimationFrame(animate));
+
+
+// Initialize
+populateCarousel();
+animationFrameId = requestAnimationFrame(animate);
+
+
+
+
+
+
+
+
+
+
 
 			const scrollDownMessage = document.querySelector("#scroll-down-message");
 
