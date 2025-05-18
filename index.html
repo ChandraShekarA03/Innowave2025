@@ -1250,14 +1250,6 @@
 					<a href="#"><i class="fab fa-facebook"></i></a>&nbsp;
 					<a href="#"><i class="fab fa-youtube"></i></a>&nbsp;
 					<a href="#"><i class="fab fa-twitter"></i></a>
-
-					<form class="mt-3" id="newsletter-form">
-					<div class="input-group">
-						<input type="email" class="form-control" placeholder="Subscribe..." name="email" required>
-						<button class="btn btn-info" type="submit">Join</button>
-					</div>
-					</form>
-					<div id="subscribe-message" class="text-success mt-2"></div>
 				</div>
 				</div>
 
@@ -1298,25 +1290,6 @@
 		</footer>
 
 		<script>
-			document.getElementById('newsletter-form').addEventListener('submit', function(e) {
-				e.preventDefault();
-				const email = e.target.email.value;
-				// Mock backend call
-				fetch('/api/subscribe', {
-					method: 'POST',
-					headers: { 'Content-Type': 'application/json' },
-					body: JSON.stringify({ email })
-				})
-					.then(response => response.ok ? 'Thank you for subscribing!' : 'Subscription failed.')
-					.then(message => {
-						document.getElementById('subscribe-message').textContent = message;
-						e.target.reset();
-					})
-					.catch(() => {
-						document.getElementById('subscribe-message').textContent = 'Error! Try again later.';
-					});
-			});
-
 			const scrollDownMessage = document.querySelector("#scroll-down-message");
 
 			scrollDownMessage.onclick = () => {
