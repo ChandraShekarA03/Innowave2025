@@ -845,6 +845,79 @@
 			}
 
 
+
+
+.Our-team{
+	text-align: center;
+}
+	.team-section {
+    position: relative;
+    width: auto;
+    max-width: auto;
+    margin: auto;
+    overflow: hidden;
+    background: #ffffff00;
+    padding: 40px 0;
+  }
+  .carousel-track {
+    display: flex;
+    transition: transform 0.05s linear;
+    will-change: transform;
+  }
+  .team-member {
+    position: relative;
+    flex: 0 0 250px;
+	  min-height: 300px;
+    margin: 0 15px;
+    background: #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .team-member img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+  }
+  .info {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%;
+    background: rgba(0, 0, 0, 0.356);
+    color: white;
+    padding: 15px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+	text-align: center;
+	gap: 8px;
+  }
+  .team-member:hover .info {
+    transform: translateY(0);
+  }
+  .info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+  .info p {
+    margin-bottom: 10px;
+  }
+  .info a {
+    color: #0a66c2;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .linkedin-icon svg {
+  vertical-align: middle;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  width: 34px;
+  height: 34px;
+  margin-top: 5px;
+}
+
+.linkedin-icon:hover svg {
+  transform: scale(1.1);
+}
 			
 		</style>
 	</head>
@@ -1201,6 +1274,20 @@
 			</section>
 		</section>
 
+<section id="Our-team" class="position-relative py-5 text-white">
+  <div class="d-flex justify-content-center mb-5 align-items-center">
+    <div style="border-left: 8px dotted #2d7777; height: 150px; margin-right: 20px; margin-top: 40px;"></div>
+    <h1 style="color: #2d7777; font-size: min(15vw, 5rem); font-weight: 600; line-height: 1.1; text-align: left;">
+      Our<br>Team
+    </h1>
+  </div>
+					
+		<section class="team-section" id="teamSection">
+  <div class="carousel-track" id="carouselTrack">
+  </div>
+</section>
+</section>
+
 		<section>
 			<div>
 				<h1>Dev Section </h1>
@@ -1290,6 +1377,108 @@
 		</footer>
 
 		<script>
+
+
+
+  const members = [
+    {name:"Tom Holand", denary:"Head Coordinator", linkedIn:"#", img:"assets/demo.jpeg"},
+    {name:"Thejus", denary:"Design Lead", linkedIn:"#", img:"assets/demo.jpeg"},
+    {name:"ChandraShekar", denary:"Tech Lead", linkedIn:"#", img:"assets/demo.jpeg"},
+    {name:"Queens", denary:"Operations", linkedIn:"#", img:"assets/demo.jpeg"},
+    {name:"SnnopDogg", denary:"Marketing", linkedIn:"#", img:"assets/demo.jpeg"},
+	{name:" cute.as.ducks", denary:"Food", linkedIn:"#", img:"assets/demo.jpeg"},
+    {name:"google_was_my_idea", denary:"Entertainment", linkedIn:"#", img:"assets/demo.jpeg"},
+    {name:" HairyPoppins", denary:"Hospitality", linkedIn:"#", img:"assets/demo.jpeg"},
+    {name:"Queens", denary:"Dance", linkedIn:"#", img:"assets/demo.jpeg"},
+    {name:"SnnopDogg", denary:"Joking", linkedIn:"#", img:"assets/demo.jpeg"},
+    // Add  members here
+  ];
+
+  const track = document.getElementById('carouselTrack');
+  let position = 0;
+  let speed = 1.0; 
+  let animationFrameId;
+
+  function createMemberCard(member) {
+    const card = document.createElement('div');
+    card.className = 'team-member';
+
+    const img = document.createElement('img');
+    img.src = member.img;
+    img.alt = member.name;
+    img.loading = 'lazy';
+
+    const info = document.createElement('div');
+    info.className = 'info';
+
+    const name = document.createElement('h3');
+    name.textContent = member.name;
+
+    const denary = document.createElement('p');
+    denary.textContent = member.denary;
+
+const link = document.createElement('a');
+link.href = member.linkedIn;
+link.target = '_blank';
+link.rel = 'noopener noreferrer';
+link.setAttribute('aria-label', `${member.name} LinkedIn profile`);
+link.className = 'linkedin-icon';
+
+link.innerHTML = `
+<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
+    <path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
+</svg>
+`;
+
+    info.appendChild(name);
+    info.appendChild(denary);
+    info.appendChild(link);
+
+    card.appendChild(img);
+    card.appendChild(info);
+
+    return card;
+  }
+
+  function populateCarousel() {
+    members.forEach(m => {
+      track.appendChild(createMemberCard(m));
+    });
+    members.forEach(m => {
+      track.appendChild(createMemberCard(m));
+    });
+  }
+
+  function animate() {
+    position -= speed;
+    if (Math.abs(position) >= track.scrollWidth / 2) {
+      position = 0;
+    }
+    track.style.transform = `translateX(${position}px)`;
+    animationFrameId = requestAnimationFrame(animate);
+  }
+
+  const teamSection = document.getElementById('teamSection');
+  teamSection.addEventListener('mouseenter', () => {
+    cancelAnimationFrame(animationFrameId);
+  });
+  teamSection.addEventListener('mouseleave', () => {
+    animationFrameId = requestAnimationFrame(animate);
+  });
+
+  populateCarousel();
+  animationFrameId = requestAnimationFrame(animate);
+
+
+
+
+
+
+
+
+
+
+
 			const scrollDownMessage = document.querySelector("#scroll-down-message");
 
 			scrollDownMessage.onclick = () => {
