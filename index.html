@@ -57,6 +57,108 @@
 				background-size: cover;
 			}
 
+			#about-section-texts {
+				position: absolute;
+				left: 50vw;
+				transform: translateX(-50%);
+				max-width: 1200px;
+				margin: 40px 0px;
+				background-color: #ffffff;
+				opacity: 0.75;
+				border-radius: 12px;
+				padding: 2em;
+			}
+
+			#about-section-bg-carousel {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+                display: flex;
+                height: 100%;
+                width: 1000%; /* 100 * no of slides */
+                animation: slideshow 30s infinite; /* 3 * no of slides */
+				z-index: 0;
+			}
+
+			#about-section-bg-carousel > img {
+                width: 10%; /* 100 / no of slides */
+                object-fit: cover;
+				filter: brightness(50%);
+			}
+			
+            @keyframes slideshow {
+                0% {
+                    transform: translateX(0%);
+                    animation-timing-function: ease-in;
+                }
+                9% {
+                    transform: translateX(0%);
+                }
+                10% {
+                    transform: translateX(-10%);
+                    animation-timing-function: ease-in;
+                }
+                19% {
+                    transform: translateX(-10%);
+                }
+                20% {
+                    transform: translateX(-20%);
+                    animation-timing-function: ease-in;
+                }
+                29% {
+                    transform: translateX(-20%);
+                }
+                30% {
+                    transform: translateX(-30%);
+                    animation-timing-function: ease-in;
+                }
+                39% {
+                    transform: translateX(-30%);
+                }
+                40% {
+                    transform: translateX(-40%);
+                    animation-timing-function: ease-in;
+                }
+                49% {
+                    transform: translateX(-40%);
+                }
+                50% {
+                    transform: translateX(-50%);
+                    animation-timing-function: ease-in;
+                }
+                59% {
+                    transform: translateX(-50%);
+                }
+                60% {
+                    transform: translateX(-60%);
+                    animation-timing-function: ease-in;
+                }
+                69% {
+                    transform: translateX(-60%);
+                }
+                70% {
+                    transform: translateX(-70%);
+                    animation-timing-function: ease-in;
+                }
+                79% {
+                    transform: translateX(-70%);
+                }
+                80% {
+                    transform: translateX(-80%);
+                    animation-timing-function: ease-in;
+                }
+                89% {
+                    transform: translateX(-80%);
+                }
+                90% {
+                    transform: translateX(-90%);
+                    animation-timing-function: ease-in;
+                }
+                99% {
+                    transform: translateX(-90%);
+                }
+            }
+
 			#navbar {
 				position: fixed;
 				top: 0px;
@@ -985,12 +1087,23 @@
 		</section>
 
 		<section id="about-innowave" class="position-relative text-dark">
-			<div class="container py-5">
+			<div id="about-section-bg-carousel">
+                <img src="./assets/about-section-slideshow/1.jpg">
+                <img src="./assets/about-section-slideshow/2.jpg">
+                <img src="./assets/about-section-slideshow/3.jpg">
+                <img src="./assets/about-section-slideshow/4.jpg">
+                <img src="./assets/about-section-slideshow/5.jpg">
+                <img src="./assets/about-section-slideshow/6.jpg">
+                <img src="./assets/about-section-slideshow/7.jpg">
+                <img src="./assets/about-section-slideshow/8.jpg">
+                <img src="./assets/about-section-slideshow/9.jpg">
+                <img src="./assets/about-section-slideshow/10.jpg">
+            </div>
+			<div id="about-section-texts">
 				<div class="row">
 					<div class="d-flex align-items-center mb-3">
 						<div style="border-left: 9px dotted #2d7777; height: 200px; margin-right: 15px; margin-top: 5%;"></div>
-						<div>
-							<br><br>	
+						<div>	
 							<h6 class="text-uppercase mb-1" style="font-weight: 700;">About</h6>
 							<h1 style="color: #2d7777; font-size: min(15vw, 6rem); font-weight: 800; line-height: 1.1; margin-top: 0px; text-align: left;">Innowave<br>2025</h1>
 						</div>
@@ -1021,8 +1134,8 @@
 		</section>
 
 		<section style="background: url('./assets/blue-green-dark-background.jpg') no-repeat center center / cover;">
-						<div class="container py-5">				
-			<h2 class="section-title" style="color: #e9eeee;">The Objectives</h2>
+			<div class="container py-5">				
+				<h2 class="section-title" style="color: #e9eeee;">The Objectives</h2>
 				<div class="row justify-content-center mb-4">
 					<div class="col-md-4">
 						<div class="objective-box">INNOFAIR aims to bridge the gap between student entrepreneurs and key stakeholders in the business ecosystem.</div>
@@ -1034,7 +1147,7 @@
 						<div class="objective-box">It invites professionals, investors, and enthusiasts to witness the pioneering efforts of the next generation of leaders.</div>
 					</div>
 				</div>
-				</div>
+			</div>
 
 
 
