@@ -158,8 +158,7 @@
 				top: 0px;
 				height: 63.5px;
 				width: 100vw;
-				background-color: #000000;
-				opacity: 0;
+				background-color: #00000000;
 				z-index: 996;
 				transition: opacity 0.3s;
 			}
@@ -167,15 +166,16 @@
 			#logo {
 				position: fixed;
 				z-index: 997;
-				transform: translateX(-50%);
 				width: 50vw;
-				left: 50vw;
+				top: 8.25px;
+				left: 0px;
+				transform: translateX(var(--XTranslation));
 			}
 
 			#navLinks {
-				position: fixed;
-				transform: translateX(50%);
-				right: 50vw;
+				position: absolute;
+				right: 0px;
+				transform: translateX(var(--XTranslation));
 				width: fit-content;
 				margin-top: 19.75px;
 				margin-bottom: unset;
@@ -240,6 +240,7 @@
 			@media screen and (max-width: 920px) {
 				#navLinks {
 					display: unset;
+					position: fixed;
 					background-color: #000000bf;
 					width: 100vw;
 					top: 0px;
@@ -1027,22 +1028,22 @@
 			<path d="M 10.75, 15 L 52.75, 15 M 10.75, 31.75 L 52.75, 31.75 M 10.75, 48.5 L 52.75, 48.5" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
 		</svg>
 
-		<ul id="navLinks">
-			<li><a href="#logo-section">Home</a></li>
-			<li><a href="#about-innowave">About</a></li>
-			<li><a href="#speakers">Our Collaborators</a></li>
-			<li><a href="#Competitions-and-Events">Competitions & Events</a></li>
-			<li><a href="#Innofair">Innofair</a></li>
-			<li class="dropdown">
-				<a href="#">Events</a>
-				<ul class="dropdown-menu">
-					<li><a href="On-stage.html">On Stage Events</a></li>
-					<li><a href="Off-stage.html">Off Stage Events</a></li>
-				</ul>
-			</li>
-		</ul>
-
-		<nav id="navbar"></nav>
+		<nav id="navbar">
+			<ul id="navLinks">
+				<li><a href="#logo-section">Home</a></li>
+				<li><a href="#about-innowave">About</a></li>
+				<li><a href="#speakers">Our Collaborators</a></li>
+				<li><a href="#Competitions-and-Events">Competitions & Events</a></li>
+				<li><a href="#Innofair">Innofair</a></li>
+				<li class="dropdown">
+					<a href="#">Events</a>
+					<ul class="dropdown-menu">
+						<li><a href="On-stage.html">On Stage Events</a></li>
+						<li><a href="Off-stage.html">Off Stage Events</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
 
 		<section id="logo-section">
 			<div id="logo-section-texts">
@@ -1586,11 +1587,11 @@
 				let progress = actualProgress;
 				if (progress >= 1) {
 					progress = 1;
-					navbar.style.opacity = 0.75;
+					// navbar.style.opacity = 0.75;
 					logo.style.zIndex = 998;
 					navLinks.style.zIndex = 997;
 				} else {
-					navbar.style.opacity = 0;
+					// navbar.style.opacity = 0;
 					logo.style.zIndex = 997;
 					navLinks.style.zIndex = 998;
 				}
@@ -1599,16 +1600,15 @@
 				// }
 				const logoOrigWidth = Math.min(960, window.innerWidth - 20);
 				const logoOrigHeight = logoOrigWidth / logoWidthByHeight;
-				const logoOrigX = window.innerWidth / 2;
+				const windowWidthHalf = window.innerWidth / 2;
 				const logoOrigY = (window.innerHeight / 2) - logoOrigHeight;
 
-				logo.style.left = `${logoOrigX - ((logoOrigX - logoTargetX) * progress)}px`;
+				// logo.style.left = `${logoOrigX - ((logoOrigX - logoTargetX) * progress)}px`;
+				logo.style.setProperty("--XTranslation", `${(windowWidthHalf - (logoOrigWidth / 2)) * (1 - progress)}px`)
 				logo.style.top = `${logoOrigY - ((logoOrigY - logoTargetY) * progress)}px`;
 				logo.style.width = `${logoOrigWidth - ((logoOrigWidth - logoTargetWidth) * progress)}px`;
 
-				const navbarOrigRight = window.innerWidth / 2;
-
-				navLinks.style.right = `${navbarOrigRight - ((navbarOrigRight - navbarTargetRight) * progress)}px`;
+				navLinks.style.setProperty("--XTranslation", `${(0 - (windowWidthHalf - (navLinksWidth / 2))) * (1 - progress)}px`);
 
 				const logoSectionTextsOrigY = (window.innerHeight / 2) + 40;
 
@@ -1618,6 +1618,16 @@
 			window.addEventListener("scroll", scrollAction);
 			window.addEventListener("resize", scrollAction);
 			scrollAction();
+
+			const logoSectionAnimation = new IntersectionObserver(entries => {
+				const section = entries[0];
+				if (!section.isIntersecting) {
+					logo.style.left = `${logoTargetX}px`;
+					logo.style.top = `${logoTargetY}px`;
+					logo.style.width = `${logoTargetWidth}px`;
+					navLinks.style.right = `${navbarTargetRight}px`;
+				}
+			});
 
 			const cardsFadeIn = new IntersectionObserver(entries => {
 				const cardsDiv = entries[0];
@@ -1653,19 +1663,6 @@
 			// window.addEventListener("load", () => {
 			// 	window.scrollTo(0, 0);
 			// });
-			
-			function startSlideshow(containerId) {
-				const slides = document.querySelectorAll(`#${containerId} img`);
-				let index = 0;
-				setInterval(() => {
-					slides[index].classList.remove("active");
-					index = (index + 1) % slides.length;
-					slides[index].classList.add("active");
-				}, 3000);
-			}
-
-			startSlideshow("slideshow1");
-			startSlideshow("slideshow2");
 		</script>
 	</body>
 </html>
