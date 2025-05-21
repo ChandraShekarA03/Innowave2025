@@ -168,10 +168,9 @@
 			#logo {
 				position: fixed;
 				z-index: 997;
-				width: 50vw;
 				top: 8.25px;
-				left: 0px;
-				transform: translateX(var(--XTranslation));
+				left: 10px;
+				transform: translateX(var(--XTranslation)) translateY(var(--YTranslation));
 			}
 
 			#navLinks {
@@ -274,6 +273,14 @@
 				}
 			}
 
+			#logo-section-animation-observe {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				height: calc(100% - 63.5px);
+				width: 1px;
+			}
+
 			#logo-section-texts {
 				position: relative;
 				top: calc(50vh + 30px);
@@ -281,6 +288,13 @@
 				text-align: center;
 				color: #ffffff;
 				margin: 0 auto;
+				opacity: 1;
+				transition: transform 0.3s, opacity 0.3s;
+			}
+
+			#logo-section-texts.hide {
+				transform: translateY(-30px);
+				opacity: 0;
 			}
 
 			#event-info {
@@ -533,6 +547,10 @@
 				margin-top: 10px;
 				transition: font-size 1s;
 			}
+
+			#prize-trophies > div:nth-child(1), #prize-trophies > div:nth-child(2) {
+				margin-right: 15px;
+			}
 		  
 			#prize-trophies > div:nth-child(1) > i {
 				background: 
@@ -577,7 +595,6 @@
 				background-clip: text;
 				color: #00000000;
 				width: 225px;
-				margin: 10px 30px 0px;
 			}
 			#prize-trophies > div:nth-child(3) > i {
 				background: 
@@ -608,14 +625,13 @@
 
 			#prize-trophies.show > div:nth-child(2) > i {
 				font-size: 200px;
-				margin: 10px 15px 0px;
 			}
 
 			#prize-trophies.show > div:nth-child(3) > i {
 				font-size: 80px;
 			}
 
-			@media screen and (max-width: 510px) {
+			@media screen and (max-width: 500px) {
 				#prize-trophies {
 					height: 100px;
 				}
@@ -770,6 +786,12 @@
 				font-weight: 500;
 				line-height: 1.6;
 				color: #ffffff;
+			}
+
+			#prizes-registration {
+				padding: 60px 0px;
+				text-align: center;
+				font-family: 'Roboto', sans-serif;
 			}
 
 			.register-button {
@@ -1070,6 +1092,7 @@
 		</nav>
 
 		<section id="logo-section">
+			<div id="logo-section-animation-observe"></div>
 			<div id="logo-section-texts">
 				<p id="event-info">
 					<span>16 Dec 2024, 10:00 am - 17 Dec 2024, 2:00 pm</span><br>
@@ -1244,8 +1267,8 @@
 			</div>
 		</section>
 
-		<section id="prizes-registration" style="padding: 60px 20px; text-align: center; font-family: 'Roboto', sans-serif;">
-			<div class="prizes-title">Prizes</div>
+		<section id="prizes-registration">
+			<h2 class="prizes-title">Prizes</h2>
 			<div id="prize-trophies">
 				<div>
 					<span>₹30,000</span><br>
@@ -1260,13 +1283,17 @@
 					<i class="fa-solid fa-trophy"></i>
 				</div>
 			</div>
-			<div class="registration-title">Registration Fees</div>
-			<div class="registration-sub">TOP 30 PARTICIPANT RATES</div>
-			<div class="fee-box">Student Fees: ₹2,500 + 18% GST</div>
-			<button class="register-btn">
-				<a href="https://forms.gle/VSwXoqM1AxWxN3Ri7" style="color: white; text-decoration: none;" target="_blank">Click Here to Register</a>
-			</button>
-			<div class="register-note">Register before December 11, 2024</div>
+			<div style="padding: 0px 20px;">
+				<div class="registration-title">Registration Fees</div>
+				<div class="registration-sub">TOP 30 PARTICIPANT RATES</div>
+				<div class="fee-box">Student Fees: ₹2,500 + 18% GST</div>
+				<button class="register-btn">
+					<a href="https://forms.gle/VSwXoqM1AxWxN3Ri7" style="color: white; text-decoration: none;" target="_blank">Click Here to Register</a>
+				</button>
+				<div class="register-note">Register before December 11, 2024</div>
+
+			</div>
+			
 		</section>
 		
 		<section id="speakers" style="background: url('./assets/blue-green-dark-background.jpg') no-repeat center center / cover;">
@@ -1610,53 +1637,63 @@
 			
 			const logoSectionTextsTargetY = (8.25 + 47) + 40;
 
-			const scrollAction = () => {
-				const scrollThreshold = window.innerHeight - navbarHeight;
-				const actualProgress = window.scrollY / scrollThreshold;
-				let progress = actualProgress;
-				if (progress >= 1) {
-					progress = 1;
-					// navbar.style.opacity = 0.75;
-					logo.style.zIndex = 998;
-					navLinks.style.zIndex = 997;
-				} else {
-					// navbar.style.opacity = 0;
-					logo.style.zIndex = 997;
-					navLinks.style.zIndex = 998;
-				}
-				// if (actualProgress > 2) {
-				// 	return;
-				// }
-				const logoOrigWidth = Math.min(960, window.innerWidth - 20);
-				const logoOrigHeight = logoOrigWidth / logoWidthByHeight;
-				const windowWidthHalf = window.innerWidth / 2;
-				const logoOrigY = (window.innerHeight / 2) - logoOrigHeight;
+			// const scrollAction = () => {
+			// 	const scrollThreshold = window.innerHeight - navbarHeight;
+			// 	const actualProgress = window.scrollY / scrollThreshold;
+			// 	let progress = actualProgress;
+			// 	if (progress >= 1) {
+			// 		progress = 1;
+			// 		// navbar.style.opacity = 0.75;
+			// 		logo.style.zIndex = 998;
+			// 		navLinks.style.zIndex = 997;
+			// 	} else {
+			// 		// navbar.style.opacity = 0;
+			// 		logo.style.zIndex = 997;
+			// 		navLinks.style.zIndex = 998;
+			// 	}
+			// 	const logoOrigWidth = Math.min(960, window.innerWidth - 20);
+			// 	const logoOrigHeight = logoOrigWidth / logoWidthByHeight;
+			// 	const windowWidthHalf = window.innerWidth / 2;
+			// 	const logoOrigY = (window.innerHeight / 2) - logoOrigHeight;
 
-				// logo.style.left = `${logoOrigX - ((logoOrigX - logoTargetX) * progress)}px`;
-				logo.style.setProperty("--XTranslation", `${(windowWidthHalf - (logoOrigWidth / 2)) * (1 - progress)}px`)
-				logo.style.top = `${logoOrigY - ((logoOrigY - logoTargetY) * progress)}px`;
-				logo.style.width = `${logoOrigWidth - ((logoOrigWidth - logoTargetWidth) * progress)}px`;
+			// 	// logo.style.left = `${logoOrigX - ((logoOrigX - logoTargetX) * progress)}px`;
+			// 	// logo.style.setProperty("--XTranslation", `${(windowWidthHalf - (logoOrigWidth / 2)) * (1 - progress)}px`);
+			// 	// logo.style.top = `${logoOrigY - ((logoOrigY - logoTargetY) * progress)}px`;
 
-				navLinks.style.setProperty("--XTranslation", `${(0 - (windowWidthHalf - (navLinksWidth / 2))) * (1 - progress)}px`);
-
-				// const logoSectionTextsOrigY = (window.innerHeight / 2) + 40;
-
-				// logoSectionTexts.style.top = `${logoSectionTextsOrigY - ((logoSectionTextsOrigY - logoSectionTextsTargetY) * progress)}px`;
-				// logoSectionTexts.style.opacity = `${1 - (progress * 4)}`;
-			}
-			window.addEventListener("scroll", scrollAction);
-			window.addEventListener("resize", scrollAction);
-			scrollAction();
+			// 	navLinks.style.setProperty("--XTranslation", `${(0 - (windowWidthHalf - (navLinksWidth / 2))) * (1 - progress)}px`);
+			// }
+			// window.addEventListener("scroll", scrollAction);
+			// window.addEventListener("resize", scrollAction);
+			// scrollAction();
 
 			const logoSectionAnimation = new IntersectionObserver(entries => {
 				const section = entries[0];
 				if (!section.isIntersecting) {
-					logo.style.left = `${logoTargetX}px`;
-					logo.style.top = `${logoTargetY}px`;
+					logo.style.setProperty("--XTranslation", "0px");
+					logo.style.setProperty("--YTranslation", "0px");
 					logo.style.width = `${logoTargetWidth}px`;
-					navLinks.style.right = `${navbarTargetRight}px`;
+
+					navLinks.style.setProperty("--XTranslation", "0px");
+					return;
 				}
-			});
+				if(section.intersectionRatio < 1) {
+					logoSectionTexts.classList.add("hide");
+				} else {
+					logoSectionTexts.classList.remove("hide");
+				}
+				const windowWidthHalf = window.innerWidth / 2;
+				const windowHeightHalf = window.innerHeight / 2;
+				const logoOrigWidth = Math.min(960, window.innerWidth - 20);
+				const logoOrigHeight = logoOrigWidth / logoWidthByHeight;
+
+				logo.style.setProperty("--XTranslation", `${(windowWidthHalf - 10 - (logoOrigWidth / 2)) * section.intersectionRatio}px`);
+				logo.style.setProperty("--YTranslation", `${(windowHeightHalf - 8.25 - logoOrigHeight) * section.intersectionRatio}px`);
+				logo.style.width = `${logoOrigWidth - ((logoOrigWidth - logoTargetWidth) * (1 - section.intersectionRatio))}px`;
+
+				navLinks.style.setProperty("--XTranslation", `${(0 - (windowWidthHalf - (navLinksWidth / 2))) * section.intersectionRatio}px`);
+			}, { threshold: Array.from({length: 101}, (_, i) => i / 100) });
+
+			logoSectionAnimation.observe(document.querySelector("#logo-section-animation-observe"));
 
 			const cardsFadeIn = new IntersectionObserver(entries => {
 				const cardsDiv = entries[0];
