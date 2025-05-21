@@ -275,20 +275,21 @@
 			}
 
 			#logo-section-texts {
-				position: absolute;
+				position: relative;
+				top: calc(50vh + 30px);
 				width: fit-content;
 				text-align: center;
 				color: #ffffff;
-				left: 50vw;
-				transform: translateX(-50%);
+				margin: 0 auto;
+			}
+
+			#event-info {
+				margin-bottom: 20px;
 			}
 
 			#scroll-down-message {
-				position: absolute;
-				text-align: center;
-				left: 50%;
-				transform: translateX(-50%);
-				width: 100px;
+				margin: 0 auto;
+				width: fit-content;
                 cursor: pointer;
                 transition: transform 0.3s;
 			}
@@ -304,7 +305,7 @@
             }
 
 			#scroll-down-message:hover {
-                transform: translate(-50%, 5px);
+                transform: translateY(5px);
             }
 
 			#scroll-down-message:hover #scroll-arrow {
@@ -312,38 +313,24 @@
                 width: 90px;
             }
 
-			#event-info {
-				max-width: 402px;
-			}
-
 			#event-info span {
 				font-size: min(19px, 4vw);
-				text-wrap: nowrap;
 			}
 
 			#button_detail {
-				text-align: center;
-				/* font-family: 'Times New Roman', Times, serif; */
-			}
-
-			#button_detail a {
 				display: inline-block;
-				padding: 0px 25px;
+				padding: 5px 20px;
+				margin-bottom: 20px;
 				text-decoration: none;
-				color: rgb(255, 255, 255); /* Make text black for clarity */
-				/* font-weight: 1000;
-				font-size: 30px; */
-				border: none;
+				color: #ffffff;
 				border-radius: 12px;
-				background-color: #00ffff0c;
-				transition: transform 0.3s ease, opacity 0.3s ease;
-				position: relative;
-				overflow: hidden;
+				background-color: #1e6c5d33;
+				transition: transform 0.3s ease, background-color 0.3s ease;
 			}
 
-			#button_detail a:hover {
+			#button_detail:hover {
+				background-color: #1e6c5d55;
 				transform: scale(1.05);
-				opacity: 0.9;
 			}
 
 			#pastSpeakersCardsDiv .pastSpeakersCard {
@@ -1086,17 +1073,13 @@
 			<div id="logo-section-texts">
 				<p id="event-info">
 					<span>16 Dec 2024, 10:00 am - 17 Dec 2024, 2:00 pm</span><br>
-					<span>Christ University Central Campus, </span>
-					<span>Bhavani Nagar, S.G. Palya, </span>
+					<span>Christ University Central Campus,</span><br>
+					<span>Bhavani Nagar, S.G. Palya,</span><br>
 					<span>Bengaluru, Karnataka 560029</span>
 				</p>
-				<br>
-				<div id="button_detail">
-					<a href="task.pdf" target="_blank">MORE<br>DETAILS</a>
-				</div>
-				<br><br><br>
+				<a href="task.pdf" id="button_detail" target="_blank">MORE<br>DETAILS</a>
 				<div id="scroll-down-message">
-					<p>SCROLL DOWN</p>
+					<p>SCROLL<br>DOWN</p>
 					<svg id="scroll-arrow" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
 						<path d="M 10, 10 L 45, 25 A 10 10, 0 0, 0 55, 25 L 90, 10" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 					</svg>
@@ -1656,10 +1639,10 @@
 
 				navLinks.style.setProperty("--XTranslation", `${(0 - (windowWidthHalf - (navLinksWidth / 2))) * (1 - progress)}px`);
 
-				const logoSectionTextsOrigY = (window.innerHeight / 2) + 40;
+				// const logoSectionTextsOrigY = (window.innerHeight / 2) + 40;
 
-				logoSectionTexts.style.top = `${logoSectionTextsOrigY - ((logoSectionTextsOrigY - logoSectionTextsTargetY) * progress)}px`;
-				logoSectionTexts.style.opacity = `${1 - (progress * 4)}`;
+				// logoSectionTexts.style.top = `${logoSectionTextsOrigY - ((logoSectionTextsOrigY - logoSectionTextsTargetY) * progress)}px`;
+				// logoSectionTexts.style.opacity = `${1 - (progress * 4)}`;
 			}
 			window.addEventListener("scroll", scrollAction);
 			window.addEventListener("resize", scrollAction);
