@@ -518,52 +518,36 @@
 				margin: 0;
 			}
 
-
 			.prizes-title {
 				font-size: 24px;
 				font-weight: bold;
 				color: #2d7c7b;
 				margin-bottom: 40px;
 			}
-		  
-			.bar-graph {
+
+			#prize-trophies {
 				display: flex;
 				justify-content: center;
 				align-items: flex-end;
-				gap: 30px;
-				margin-bottom: 40px;
+				margin: 0 auto 40px;
 				height: 200px;
-			}
-		  
-			.bar {
-				width: 80px;
-				position: relative;
-				border-radius: 8px 8px 0 0;
-				transform: scaleY(0);
-				transform-origin: bottom;
-				transition: transform 1s ease-out;
-			}
-		  
-			.bar span {
-				position: absolute;
-				top: -40px;
-				left: 50%;
-				transform: translateX(-50%);
-				background: rgb(255, 255, 255);
-				padding: 5px 10px;
-				border-radius: 8px;
-				font-weight: bold;
-				box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-				color: #666;
+				width: fit-content;
 			}
 
-			#prize-bars > div > i {
+			#prize-trophies > div > span {
+				background: #ffffff;
+				padding: 5px 10px;
+				border-radius: 8px;
+				box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+			}
+
+			#prize-trophies > div > i {
 				font-size: 0px;
 				margin-top: 10px;
 				transition: font-size 1s;
 			}
 		  
-			#prize-bars > div:nth-child(1) > i {
+			#prize-trophies > div:nth-child(1) > i {
 				background: 
 					radial-gradient(
 						ellipse farthest-corner at left bottom,
@@ -585,7 +569,7 @@
 				color: #00000000;
 				width: 135px;
 			}
-			#prize-bars > div:nth-child(2) > i {
+			#prize-trophies > div:nth-child(2) > i {
 				background: 
   					radial-gradient(
 						ellipse farthest-corner at left bottom,
@@ -606,8 +590,9 @@
 				background-clip: text;
 				color: #00000000;
 				width: 225px;
+				margin: 10px 30px 0px;
 			}
-			#prize-bars > div:nth-child(3) > i {
+			#prize-trophies > div:nth-child(3) > i {
 				background: 
 					radial-gradient(
 						ellipse farthest-corner at left bottom,
@@ -629,24 +614,45 @@
 				color: #00000000;
 				width: 90px;
 			}
-
-			#prize-bars > div > span {
-				background: #ffffff;
-				padding: 5px 10px;
-				border-radius: 8px;
-				box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-			}
 		  
-			#prize-bars.show > div:nth-child(1) > i {
+			#prize-trophies.show > div:nth-child(1) > i {
 				font-size: 120px;
 			}
 
-			#prize-bars.show > div:nth-child(2) > i {
+			#prize-trophies.show > div:nth-child(2) > i {
 				font-size: 200px;
+				margin: 10px 15px 0px;
 			}
 
-			#prize-bars.show > div:nth-child(3) > i {
+			#prize-trophies.show > div:nth-child(3) > i {
 				font-size: 80px;
+			}
+
+			@media screen and (max-width: 510px) {
+				#prize-trophies {
+					height: 100px;
+				}
+				#prize-trophies > div:nth-child(1) > i {
+					width: 67.5px;
+				}
+				#prize-trophies > div:nth-child(2) > i {
+					width: 112.5px;
+				}
+				#prize-trophies > div:nth-child(3) > i {
+					width: 45px;
+				}
+			
+				#prize-trophies.show > div:nth-child(1) > i {
+					font-size: 60px;
+				}
+
+				#prize-trophies.show > div:nth-child(2) > i {
+					font-size: 100px;
+				}
+
+				#prize-trophies.show > div:nth-child(3) > i {
+					font-size: 40px;
+				}
 			}
 		  
 			.registration-title {
@@ -765,7 +771,9 @@
 			}
 
 			.host-logo {
-				width: 500px;
+				width: 90vw;
+				max-width: 500px;
+				transition: transform 0.3s ease;
 			}
 
 			.host-description {
@@ -1160,7 +1168,7 @@
 			</div>
 			<section id="aboutHostSection" class="about-host-section" >
 				<h2 class="section-title">ABOUT THE HOST</h2><br>
-				<img src="./assets/Group 2.png" alt="CIC Logo" class="host-logo" style="max-width: 500px; width: 90vw; transition: transform 0.3s ease;">
+				<img src="./assets/Group 2.png" alt="CIC Logo" class="host-logo">
 				<br><br>
 				<p class="host-description">
 					CHRIST Incubation Centre, also known as the CHRIST Incubation and Entrepreneurship Support Cell, is the official
@@ -1255,7 +1263,7 @@
 
 		<section id="prizes-registration" style="padding: 60px 20px; text-align: center; font-family: 'Roboto', sans-serif;">
 			<div class="prizes-title">Prizes</div>
-			<div class="bar-graph" id="prize-bars">
+			<div id="prize-trophies">
 				<div>
 					<span>₹30,000</span><br>
 					<i class="fa-solid fa-trophy"></i>
@@ -1692,7 +1700,7 @@
 				prizeBarsRise.unobserve(prizeBarsSection.target)
 			}, { threshold: 0.1 });
 
-			prizeBarsRise.observe(document.querySelector("#prize-bars"));
+			prizeBarsRise.observe(document.querySelector("#prize-trophies"));
 
 			// if ('scrollRestoration' in history) {
 			// 	history.scrollRestoration = 'manual';
