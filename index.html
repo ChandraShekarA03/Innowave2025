@@ -725,7 +725,8 @@
 			.objective-box {
 				background-color: #ffffffcc;
 				color: #000000;
-				height: 136px;
+				min-height: 136px;
+				height: fit-content;
 				padding: 20px;
 				margin-bottom: 20px;
 				position: relative;
@@ -745,7 +746,8 @@
 			.stall-card {
 				background-color: #ffffffcc;
 				color: #000000;
-				height: 230px;
+				min-height: 230px;
+				height: fit-content;
 				border-radius: 12px;
 				padding: 20px;
 				box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
@@ -1671,9 +1673,23 @@
 			// window.addEventListener("resize", scrollAction);
 			// scrollAction();
 
+			const logoSectionRefresh = () => {
+				const scrollThreshold = window.innerHeight - navbarHeight;
+				const progress = window.scrollY / scrollThreshold;
+
+				const windowWidthHalf = window.innerWidth / 2;
+				const logoOrigWidth = Math.min(960, window.innerWidth - 20);
+
+				logo.style.setProperty("--XTranslation", `${(windowWidthHalf - 10 - (logoOrigWidth / 2)) * (1 - progress)}px`);
+				logo.style.width = `${logoOrigWidth - ((logoOrigWidth - logoTargetWidth) * progress)}px`;
+				navLinks.style.setProperty("--XTranslation", `${(0 - (windowWidthHalf - (navLinksWidth / 2))) * (1 - progress)}px`);
+			};
+
 			const logoSectionAnimation = new IntersectionObserver(entries => {
 				const section = entries[0];
 				if (!section.isIntersecting) {
+					window.removeEventListener("resize", logoSectionRefresh);
+
 					logo.classList.add("atopNavbar");
 					navbar.classList.add("show");
 
@@ -1684,6 +1700,8 @@
 					navLinks.style.setProperty("--XTranslation", "0px");
 					return;
 				}
+				window.addEventListener("resize", logoSectionRefresh);
+
 				logo.classList.remove("atopNavbar");
 				navbar.classList.remove("show");
 				if(section.intersectionRatio < 1) {
