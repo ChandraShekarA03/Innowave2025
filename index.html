@@ -275,7 +275,7 @@
 			}
 
 			#logo-section-texts {
-				position: fixed;
+				position: absolute;
 				width: fit-content;
 				text-align: center;
 				color: #ffffff;
@@ -556,11 +556,17 @@
 				box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
 				color: #666;
 			}
+
+			#prize-bars > div > i {
+				font-size: 0px;
+				margin-top: 10px;
+				transition: font-size 1s;
+			}
 		  
-			.bar1 {
+			#prize-bars > div:nth-child(1) > i {
 				background: 
 					radial-gradient(
-						ellipse farthest-corner at right bottom,
+						ellipse farthest-corner at left bottom,
 						#e6e6e6 0%,
 						#cccccc 8%,
 						#a6a6a6 30%,
@@ -568,19 +574,21 @@
 						transparent 80%
 					),
 					radial-gradient(
-						ellipse farthest-corner at left top,
+						ellipse farthest-corner at right top,
 						#ffffff 0%,
 						#f2f2f2 8%,
 						#d9d9d9 25%,
 						#999999 62.5%,
 						#999999 100%
 					);
-				height: 60%;
+				background-clip: text;
+				color: #00000000;
+				width: 135px;
 			}
-			.bar2 {
+			#prize-bars > div:nth-child(2) > i {
 				background: 
   					radial-gradient(
-						ellipse farthest-corner at right bottom,
+						ellipse farthest-corner at left bottom,
 						#FEDB37 0%,
 						#FDB931 8%,
 						#9f7928 30%,
@@ -588,19 +596,21 @@
 						transparent 80%
 					),
 					radial-gradient(
-						ellipse farthest-corner at left top,
+						ellipse farthest-corner at right top,
 						#FFFFFF 0%,
 						#FFFFAC 8%,
 						#D1B464 25%,
 						#5d4a1f 62.5%,
 						#5d4a1f 100%
 					);
-				height: 100%;
+				background-clip: text;
+				color: #00000000;
+				width: 225px;
 			}
-			.bar3 {
+			#prize-bars > div:nth-child(3) > i {
 				background: 
 					radial-gradient(
-						ellipse farthest-corner at right bottom,
+						ellipse farthest-corner at left bottom,
 						#d88c46 0%,
 						#c2763f 8%,
 						#8c5a2b 30%,
@@ -608,18 +618,35 @@
 						transparent 80%
 					),
 					radial-gradient(
-						ellipse farthest-corner at left top,
+						ellipse farthest-corner at right top,
 						#f6e7d7 0%,
 						#e5bb94 8%,
 						#b27b43 25%,
 						#5a3c1a 62.5%,
 						#5a3c1a 100%
 					);
-				height: 40%;
+				background-clip: text;
+				color: #00000000;
+				width: 90px;
+			}
+
+			#prize-bars > div > span {
+				background: #ffffff;
+				padding: 5px 10px;
+				border-radius: 8px;
+				box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
 			}
 		  
-			.show .bar {
-				transform: scaleY(1);
+			#prize-bars.show > div:nth-child(1) > i {
+				font-size: 120px;
+			}
+
+			#prize-bars.show > div:nth-child(2) > i {
+				font-size: 200px;
+			}
+
+			#prize-bars.show > div:nth-child(3) > i {
+				font-size: 80px;
 			}
 		  
 			.registration-title {
@@ -1229,9 +1256,18 @@
 		<section id="prizes-registration" style="padding: 60px 20px; text-align: center; font-family: 'Roboto', sans-serif;">
 			<div class="prizes-title">Prizes</div>
 			<div class="bar-graph" id="prize-bars">
-				<div class="bar bar1"><span>₹30,000</span></div>
-				<div class="bar bar2"><span>₹50,000</span></div>
-				<div class="bar bar3"><span>₹20,000</span></div>
+				<div>
+					<span>₹30,000</span><br>
+					<i class="fa-solid fa-trophy"></i>
+				</div>
+				<div>
+					<span>₹50,000</span><br>
+					<i class="fa-solid fa-trophy"></i>
+				</div>
+				<div>
+					<span>₹20,000</span><br>
+					<i class="fa-solid fa-trophy"></i>
+				</div>
 			</div>
 			<div class="registration-title">Registration Fees</div>
 			<div class="registration-sub">TOP 30 PARTICIPANT RATES</div>
