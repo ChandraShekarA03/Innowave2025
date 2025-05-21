@@ -323,7 +323,7 @@
 
 			#scroll-arrow {
                 width: 85px;
-                transition: width 0.3s;
+                transition: transform 0.3s;
                 animation: bounce 2s infinite;
             }
 
@@ -333,7 +333,7 @@
 
 			#scroll-down-message:hover #scroll-arrow {
                 animation: none;
-                width: 90px;
+                transform: scale(1.05);
             }
 
 			#event-info span {
@@ -1635,7 +1635,7 @@
 			const pastSpeakersCardsDiv = document.querySelector("#pastSpeakersCardsDiv");
 
 			const navbarHeight = navbar.getBoundingClientRect().height;
-			const logoWidthByHeight = 2471 / 383;
+			const logoWidthByHeight = 2269 / 408;
 			const navLinksWidth = 594.9666748046875;
 			
 			const logoTargetWidth = 47 * logoWidthByHeight;
