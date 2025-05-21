@@ -160,17 +160,26 @@
 				top: 0px;
 				height: 63.5px;
 				width: 100vw;
-				background-color: #00000000;
+				background-color: rgba(0, 0, 0, 0);
+				z-index: 997;
+				transition: background-color 0.3s;
+			}
+
+			#navbar.show {
 				z-index: 996;
-				transition: opacity 0.3s;
+				background-color: rgba(0, 0, 0, 0.75);
 			}
 
 			#logo {
 				position: fixed;
-				z-index: 997;
+				z-index: 996;
 				top: 8.25px;
 				left: 10px;
 				transform: translateX(var(--XTranslation)) translateY(var(--YTranslation));
+			}
+
+			#logo.atopNavbar {
+				z-index: 997;
 			}
 
 			#navLinks {
@@ -1632,10 +1641,6 @@
 			const logoTargetWidth = 47 * logoWidthByHeight;
 			const logoTargetX = 10 + (logoTargetWidth / 2);
 			const logoTargetY = 8.25;
-			
-			const navbarTargetRight = navLinksWidth / 2;
-			
-			const logoSectionTextsTargetY = (8.25 + 47) + 40;
 
 			// const scrollAction = () => {
 			// 	const scrollThreshold = window.innerHeight - navbarHeight;
@@ -1669,6 +1674,9 @@
 			const logoSectionAnimation = new IntersectionObserver(entries => {
 				const section = entries[0];
 				if (!section.isIntersecting) {
+					logo.classList.add("atopNavbar");
+					navbar.classList.add("show");
+
 					logo.style.setProperty("--XTranslation", "0px");
 					logo.style.setProperty("--YTranslation", "0px");
 					logo.style.width = `${logoTargetWidth}px`;
@@ -1676,6 +1684,8 @@
 					navLinks.style.setProperty("--XTranslation", "0px");
 					return;
 				}
+				logo.classList.remove("atopNavbar");
+				navbar.classList.remove("show");
 				if(section.intersectionRatio < 1) {
 					logoSectionTexts.classList.add("hide");
 				} else {
