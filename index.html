@@ -175,8 +175,9 @@
 				position: fixed;
 				z-index: 996;
 				top: 8.25px;
-				left: 10px;
-				transform: translateX(var(--XTranslation)) translateY(var(--YTranslation));
+				left: 140.6915px;
+				width: 261.383;
+				transform: translateX(-50%) translateX(var(--XTranslation)) translateY(var(--YTranslation)) scale(var(--scaling));
 			}
 
 			#logo.atopNavbar {
@@ -1678,8 +1679,8 @@
 				const windowWidthHalf = window.innerWidth / 2;
 				const logoOrigWidth = Math.min(960, window.innerWidth - 20);
 
-				logo.style.setProperty("--XTranslation", `${(windowWidthHalf - 10 - (logoOrigWidth / 2)) * (1 - progress)}px`);
-				logo.style.width = `${logoOrigWidth - ((logoOrigWidth - logoTargetWidth) * progress)}px`;
+				logo.style.setProperty("--XTranslation", `${(windowWidthHalf - 140.6915) * (1 - progress)}px`);
+				logo.style.setProperty("--scaling", 1 + ((logoOrigWidth / logoTargetWidth) - 1) * (1 - progress));
 				navLinks.style.setProperty("--XTranslation", `${(0 - (windowWidthHalf - (navLinksWidth / 2))) * (1 - progress)}px`);
 			};
 
@@ -1693,7 +1694,7 @@
 
 					logo.style.setProperty("--XTranslation", "0px");
 					logo.style.setProperty("--YTranslation", "0px");
-					logo.style.width = `${logoTargetWidth}px`;
+					logo.style.setProperty("--scaling", 1);
 
 					navLinks.style.setProperty("--XTranslation", "0px");
 					return;
@@ -1712,9 +1713,9 @@
 				const logoOrigWidth = Math.min(960, window.innerWidth - 20);
 				const logoOrigHeight = logoOrigWidth / logoWidthByHeight;
 
-				logo.style.setProperty("--XTranslation", `${(windowWidthHalf - 10 - (logoOrigWidth / 2)) * section.intersectionRatio}px`);
+				logo.style.setProperty("--XTranslation", `${(windowWidthHalf - 140.6915) * section.intersectionRatio}px`);
 				logo.style.setProperty("--YTranslation", `${(windowHeightHalf - 8.25 - logoOrigHeight) * section.intersectionRatio}px`);
-				logo.style.width = `${logoOrigWidth - ((logoOrigWidth - logoTargetWidth) * (1 - section.intersectionRatio))}px`;
+				logo.style.setProperty("--scaling", 1 + ((logoOrigWidth / logoTargetWidth) - 1) * section.intersectionRatio);
 
 				navLinks.style.setProperty("--XTranslation", `${(0 - (windowWidthHalf - (navLinksWidth / 2))) * section.intersectionRatio}px`);
 			}, { threshold: Array.from({length: 31}, (_, i) => i / 30) });
