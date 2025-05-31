@@ -358,51 +358,85 @@
 				transform: scale(1.05);
 			}
 
-			#pastSpeakersCardsDiv .pastSpeakersCard {
-				opacity: 0;
-				transform: translateY(30px);
+			.pastSpeakersCard {
 				text-align: center;
 				color: white;
-				transition: opacity 0.8s ease, transform 0.8s ease; 
+				transition: opacity 0.8s, transform 0.8s;
 			}
 
-			#pastSpeakersCardsDiv .pastSpeakersCard.fadeIn {
-				opacity: 1;
-				transform: translateY(0);
-				transition: opacity 0.8s, transform 0.8s; 
+			.pastSpeakersCard.hidden {
+				opacity: 0;
+				transform: translateY(30px);
 			}
 
-			#pastSpeakersCardsDiv .pastSpeakersCard:hover {
-				transform: translateY(-10px); 
-				/* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-				cursor: pointer;  */
-				transition: transform 0.2s ease, box-shadow 0.2s ease; 
+			.pastSpeakersCard > div {
+				width: fit-content;
+				margin: 0 auto;
+				transition: transform 0.8s;
+			}
+
+			.pastSpeakersCard > div:hover {
+				transform: translateY(-5px);
+			}
+
+			.pastSpeakersCard > div > img {
+				display: block;
+				margin: 0 auto 1rem;
+				border-radius: 0.375rem;
+				max-width: 100%;
+				transition: transform 0.3s;
+			}
+			
+			.pastSpeakersCard > div:hover > img {
+				transform: scale(1.05);
+			}
+
+			.pastSpeakersCard > div > p {
+				font-size: .875em;
+			}
+
+			.pastSpeakersCard > div > h4 {
+				font-weight: bold;
+			}
+
+			.pastSpeakersCard > div > span > a > i {
+				color: #ffffff;
+				font-size: 24px;
 			}
 
 			.sponsor-card {
 				display: flex;
-				flex-direction: column;
-				align-items: center;
+				width: 300px;
 				padding: 1rem;
+				transition: transform 0.8s, opacity 0.8s;
+			}
+			
+			.sponsor-card.hidden {
 				opacity: 0;
 				transform: translateY(30px);
-				transition: all 0.8s ease-out;
+			}
+
+			.sponsor-card > div {
+				width: fit-content;
+				align-items: center;
+				margin: 0 auto;
+				transition: transform 0.8s;
 			}
 			
-			.sponsor-card.fadeIn {
-				opacity: 1;
-				transform: translateY(0);
-			}
-			
-			.sponsor-logo {
+			.sponsor-card > div > img {
+				display: block;
+				margin: 0 auto;
 				max-height: 80px;
-				width: auto;
 				object-fit: contain;
 				padding: 0.5rem;
-				transition: transform 0.3s ease;
+				transition: transform 0.3s;
 			}
 			
-			.sponsor-title {
+			.sponsor-card > div:hover > img {
+				transform: scale(1.05);
+			}
+			
+			.sponsor-card > div > h4 {
 				font-weight: bold;
 				font-size: 1rem;
 				margin-top: 0.5rem;
@@ -411,12 +445,8 @@
 				color: #ffffff;
 			}
 			
-			.sponsor-card:hover {
-				transform: translateY(-5px) !important;
-			}
-			
-			.sponsor-card:hover .sponsor-logo {
-				transform: scale(1.05);
+			.sponsor-card > div:hover {
+				transform: translateY(-5px);
 			}
 			
 			@media (max-width: 768px) {
@@ -432,7 +462,7 @@
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				color: #333;
+				color: #333333;
     		}
 
 			.top-section {
@@ -933,13 +963,6 @@
 					transform: translateY(0);
 				}
 			}
-			.sponsor-logo {
-				transition: transform 0.3s ease, box-shadow 0.3s ease;
-			}
-
-			.sponsor-logo:hover {
-				transform: scale(1.1);
-			}
 
 			.logo5-hover {
 				transition: transform 0.3s ease, filter 0.3s ease;
@@ -1150,7 +1173,7 @@
 					</div>
 					<div class="col-md-6">
 						<p>
-							<span style="font-weight: 600; color: #2d7777;">Innowave 2025</span> is the official Entrepreneurship
+							<span style="font-weight: bold; color: #2d7777;">Innowave 2025</span> is the official Entrepreneurship
 							Summit of CHRIST (Deemed to be University), a two-day long event encompassing startups, incubation,
 							entrepreneurship and everything in between. The summit, spanning the entirety of CHRIST (Deemed to be
 							University)'s 28-acre campus, will host numerous activities and programmes. It will bring to the fore
@@ -1321,77 +1344,88 @@
 					</div>
 
 					<div id="pastSpeakersCardsDiv" class="row justify-content-center gx-4 gy-4">
-						<div class="col-md-4 pastSpeakersCard cardToFadeIn">
-							<img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="SS Rajamouli">
-							<h4 class="fw-bold">S. S. Rajamouli</h4>
-							<p class="text-uppercase small">Filmmaker</p>
-							<p>
-								<a href="#"><i class="fab fa-instagram me-2" style="color: #ffffff; font-size: 24px;"></i></a>
-								<a href="#"><i class="fab fa-linkedin" style="color: #ffffff; font-size: 24px;"></i></a>
-							</p>
-							<p class="small">descriptive paragraph</p>
+						<div class="pastSpeakersCard cardToFadeIn col-md-4 hidden">
+							<div>
+								<img src="./assets/demo.jpeg" alt="S. S. Rajamouli">
+								<h4>S. S. Rajamouli</h4>
+								<p>FILMMAKER</p>
+								<span>
+									<a href="#"><i class="fab fa-instagram me-2"></i></a>
+									<a href="#"><i class="fab fa-linkedin"></i></a>
+								</span>
+								<p>descriptive paragraph</p>
+							</div>
 						</div>
 
-						<div class="col-md-4 pastSpeakersCard cardToFadeIn">
-							<img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="Belson Coutinho">
-							<h4 class="fw-bold">Belson Coutinho</h4>
-							<p class="text-uppercase small">CO-FOUNDER, CMO & CXO, AKASA AIR</p>
-							<p>
-								<a href="#"><i class="fab fa-instagram me-2" style="color: #ffffff; font-size: 24px;"></i></a>
-								<a href="#"><i class="fab fa-linkedin" style="color: #ffffff; font-size: 24px;"></i></a>
-							</p>
-							<p class="small">descriptive paragraph</p>
+						<div class="pastSpeakersCard cardToFadeIn col-md-4 hidden">
+							<div>
+								<img src="./assets/demo.jpeg" alt="Belson Coutinho">
+								<h4>Belson Coutinho</h4>
+								<p>CO-FOUNDER, CMO & CXO, AKASA AIR</p>
+								<span>
+									<a href="#"><i class="fab fa-instagram me-2"></i></a>
+									<a href="#"><i class="fab fa-linkedin"></i></a>
+								</span>
+								<p>descriptive paragraph</p>
+							</div>
 						</div>
 
-						<div class="col-md-4 pastSpeakersCard cardToFadeIn">
-							<img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="Vikas Nahar">
-							<h4 class="fw-bold">Vikas Nahar</h4>
-							<p class="text-uppercase small">FOUNDER, HAPPILO</p>
-							<p>
-								<a href="#"><i class="fab fa-instagram me-2" style="color: #ffffff; font-size: 24px;"></i></a>
-								<a href="#"><i class="fab fa-linkedin" style="color: #ffffff; font-size: 24px;"></i></a>
-							</p>
-							<p class="small">descriptive paragraph</p>
+						<div class="pastSpeakersCard cardToFadeIn col-md-4 hidden">
+							<div>
+								<img src="./assets/demo.jpeg" alt="Vikas Nahar">
+								<h4>Vikas Nahar</h4>
+								<p>FOUNDER, HAPPILO</p>
+								<span>
+									<a href="#"><i class="fab fa-instagram me-2"></i></a>
+									<a href="#"><i class="fab fa-linkedin"></i></a>
+								</span>
+								<p>descriptive paragraph</p>
+							</div>
 						</div>
 
-						<div class="col-md-4 pastSpeakersCard cardToFadeIn">
-							<img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="Ritesh Agarwal">
-							<h4 class="fw-bold">Ritesh Agarwal</h4>
-							<p class="text-uppercase small">FOUNDER & CEO, OYO</p>
-							<p>
-								<a href="#"><i class="fab fa-instagram me-2" style="color: #ffffff; font-size: 24px;"></i></a>
-								<a href="#"><i class="fab fa-linkedin" style="color: #ffffff; font-size: 24px;"></i></a>
-							</p>
-							<p class="small">descriptive paragraph</p>
+						<div class="pastSpeakersCard cardToFadeIn col-md-4 hidden">
+							<div>
+								<img src="./assets/demo.jpeg" alt="Ritesh Agarwal">
+								<h4>Ritesh Agarwal</h4>
+								<p>FOUNDER & CEO, OYO</p>
+								<span>
+									<a href="#"><i class="fab fa-instagram me-2"></i></a>
+									<a href="#"><i class="fab fa-linkedin"></i></a>
+								</span>
+								<p>descriptive paragraph</p>
+							</div>
 						</div>
 
-						<div class="col-md-4 pastSpeakersCard cardToFadeIn">
-							<img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="Raj Shamani">
-							<h4 class="fw-bold">Raj Shamani</h4>
-							<p class="text-uppercase small">CONTENT CREATOR & ENTREPRENEUR</p>
-							<p>
-								<a href="#"><i class="fab fa-instagram me-2" style="color: #ffffff; font-size: 24px;"></i></a>
-								<a href="#"><i class="fab fa-linkedin" style="color: #ffffff; font-size: 24px;"></i></a>
-							</p>
-							<p class="small">descriptive paragraph</p>
+						<div class="pastSpeakersCard cardToFadeIn col-md-4 hidden">
+							<div>
+								<img src="./assets/demo.jpeg" alt="Raj Shamani">
+								<h4>Raj Shamani</h4>
+								<p>CONTENT CREATOR & ENTREPRENEUR</p>
+								<span>
+									<a href="#"><i class="fab fa-instagram me-2"></i></a>
+									<a href="#"><i class="fab fa-linkedin"></i></a>
+								</span>
+								<p>descriptive paragraph</p>
+							</div>
 						</div>
 
-						<div class="col-md-4 pastSpeakersCard cardToFadeIn">
-							<img src="./assets/demo.jpeg" class="img-fluid rounded mb-3" alt="Ankur Warikoo">
-							<h4 class="fw-bold">Ankur Warikoo</h4>
-							<p class="text-uppercase small">AUTHOR, EDUCATOR & ENTREPRENEUR</p>
-							<p>
-								<a href="#"><i class="fab fa-instagram me-2" style="color: #ffffff; font-size: 24px;"></i></a>
-								<a href="#"><i class="fab fa-linkedin" style="color: #ffffff; font-size: 24px;"></i></a>
-							</p>
-							<p class="small">descriptive paragraph</p>
+						<div class="pastSpeakersCard cardToFadeIn col-md-4 hidden">
+							<div>
+								<img src="./assets/demo.jpeg" alt="Ankur Warikoo">
+								<h4>Ankur Warikoo</h4>
+								<p>AUTHOR, EDUCATOR & ENTREPRENEUR</p>
+								<span>
+									<a href="#"><i class="fab fa-instagram me-2"></i></a>
+									<a href="#"><i class="fab fa-linkedin"></i></a>
+								</span>
+								<p>descriptive paragraph</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</section>
 
 			<section id="past-sponsors" class="position-relative py-5 text-white">
-				<div class="position-absolute top-0 start-0 w-100 h-100"></div>
 				<div class="container position-relative">
 					<div style="display: flex; height: fit-content; margin-bottom: 40px;">	
 						<div style="border-left: 9px dotted #ffffff; width: 9px; margin-right: 20px;"></div>
@@ -1399,36 +1433,38 @@
 					</div>
 			
 					<div id="sponsorCardsDiv" class="row justify-content-center g-4">
-						<div class="col-lg-4 col-md-6 col-12">
-							<div class="sponsor-card cardToFadeIn">
+						<div class="sponsor-card cardToFadeIn hidden">
+							<div>
 								<img src="./assets/Sponsors Logo/Kreo.png" class="sponsor-logo" alt="KREO">
 								<h4 class="sponsor-title">Official Sponsor</h4>
 							</div>
 						</div>
 						
-						<div class="col-lg-4 col-md-6 col-12">
-							<div class="sponsor-card cardToFadeIn" data-delay="0.2">
+						
+						<div class="sponsor-card cardToFadeIn hidden">
+							<div>
 								<img src="./assets/Sponsors Logo/falhari.png" class="sponsor-logo" alt="Food Partner">
 								<h4 class="sponsor-title">Food Partner</h4>
 							</div>
 						</div>
 						
-						<div class="col-lg-4 col-md-6 col-12">
-							<div class="sponsor-card cardToFadeIn" data-delay="0.4">
+						<div class="sponsor-card cardToFadeIn hidden">
+							<div>
 								<img src="./assets/Sponsors Logo/bookmyshow.png" class="sponsor-logo" alt="Ticketing Partner">
 								<h4 class="sponsor-title">Ticketing Partner</h4>
 							</div>
+							
 						</div>
-						
-						<div class="col-lg-4 col-md-6 col-12">
-							<div class="sponsor-card cardToFadeIn" data-delay="0.6">
+					
+						<div class="sponsor-card cardToFadeIn hidden">
+							<div>
 								<img src="./assets/Sponsors Logo/TRIo.avif" class="sponsor-logo" alt="Gifting Partner">
 								<h4 class="sponsor-title">Gifting Partner</h4>
 							</div>
 						</div>
-						
-						<div class="col-lg-4 col-md-6 col-12">
-							<div class="sponsor-card cardToFadeIn" data-delay="0.8">
+					
+						<div class="sponsor-card cardToFadeIn hidden">
+							<div>
 								<img src="./assets/Sponsors Logo/E.avif" class="sponsor-logo" alt="Printing Partner">
 								<h4 class="sponsor-title">Printing Partner</h4>
 							</div>
@@ -1733,7 +1769,7 @@
 				}
 				cardsDiv.target.querySelectorAll(".cardToFadeIn").forEach((card, i) => {
 					setTimeout(() => {
-						card.classList.add("fadeIn");
+						card.classList.remove("hidden");
 					}, 200 * i);
 				});
 				cardsFadeIn.unobserve(cardsDiv.target);
