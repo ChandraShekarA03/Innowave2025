@@ -859,12 +859,6 @@
 				transform: translateY(-2px);
 			}
 
-			h1 {
-				text-align: center;
-				color: #146c63;
-				margin-top: 40px;
-			}
-
 			#past-sponsors {
 				color: #ffffff;
 			}
@@ -1025,10 +1019,20 @@
   padding: 40px 0;
 }
 
+@keyframes teamCarouselAnimation {
+	from { transform: translateX(0px); }
+	to { transform: translateX(-2800px); } /* 280 * no. of cards */
+}
+
 .carousel-track {
   display: flex;
+  width: max-content;
   flex-wrap: nowrap;
-  will-change: transform;
+  animation: teamCarouselAnimation 10s linear infinite;
+}
+
+.carousel-track:hover {
+	animation-play-state: paused;
 }
 
 .team-member {
@@ -1039,7 +1043,6 @@
   background: #e0e0e0;
   border-radius: 12px;
   overflow: hidden;
-  cursor: pointer;
   transition: transform 0.3s ease;
 }
 
@@ -1051,7 +1054,8 @@
 
 .info {
   position: absolute;
-  bottom: 0; left: 0;
+  bottom: 0;
+  left: 0;
   width: 100%;
   background: rgba(0, 0, 0, 0.7);
   color: white;
@@ -1067,14 +1071,18 @@
   transform: translateY(0);
 }
 
-.linkedin-icon svg {
-  width: 24px;
-  height: 24px;
+.linkedin-icon {
+	width: fit-content;
+}
+
+.linkedin-icon > i {
+  font-size: 24px;
+  color: #ffffff;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
-.linkedin-icon:hover svg {
+.linkedin-icon:hover i {
   transform: scale(1.1);
 }
 
@@ -1483,87 +1491,207 @@
 
 			<section id="teamSection">
 				<div class="carousel">
-					<div class="carousel-track" id="carouselTrack" style="transform: translateX(-565px);"><div class="team-member"><img src="assets/demo.jpeg" alt="Tom Holand" loading="lazy"><div class="info"><h3>Tom Holand</h3><p>Head Coordinator</p><a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="Tom Holand LinkedIn profile">
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-						<path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-					</svg>
-				</a></div></div><div class="team-member"><img src="assets/demo.jpeg" alt="Thejus" loading="lazy"><div class="info"><h3>Thejus</h3><p>Design Lead</p><a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="Thejus LinkedIn profile">
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-						<path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-					</svg>
-				</a></div></div><div class="team-member"><img src="assets/demo.jpeg" alt="ChandraShekar" loading="lazy"><div class="info"><h3>ChandraShekar</h3><p>Tech Lead</p><a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="ChandraShekar LinkedIn profile">
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-						<path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-					</svg>
-				</a></div></div><div class="team-member"><img src="assets/demo.jpeg" alt="Queens" loading="lazy"><div class="info"><h3>Queens</h3><p>Operations</p><a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="Queens LinkedIn profile">
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-						<path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-					</svg>
-				</a></div></div><div class="team-member"><img src="assets/demo.jpeg" alt="SnnopDogg" loading="lazy"><div class="info"><h3>SnnopDogg</h3><p>Marketing</p><a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="SnnopDogg LinkedIn profile">
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-						<path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-					</svg>
-				</a></div></div><div class="team-member"><img src="assets/demo.jpeg" alt="cute.as.ducks" loading="lazy"><div class="info"><h3>cute.as.ducks</h3><p>Food</p><a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="cute.as.ducks LinkedIn profile">
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-						<path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-					</svg>
-				</a></div></div><div class="team-member"><img src="assets/demo.jpeg" alt="google_was_my_idea" loading="lazy"><div class="info"><h3>google_was_my_idea</h3><p>Entertainment</p><a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="google_was_my_idea LinkedIn profile">
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-						<path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-					</svg>
-				</a></div></div><div class="team-member"><img src="assets/demo.jpeg" alt="HairyPoppins" loading="lazy"><div class="info"><h3>HairyPoppins</h3><p>Hospitality</p><a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="HairyPoppins LinkedIn profile">
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-						<path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-					</svg>
-				</a></div></div><div class="team-member"><img src="assets/demo.jpeg" alt="Queens" loading="lazy"><div class="info"><h3>Queens</h3><p>Dance</p><a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="Queens LinkedIn profile">
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-						<path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-					</svg>
-				</a></div></div><div class="team-member"><img src="assets/demo.jpeg" alt="SnnopDogg" loading="lazy"><div class="info"><h3>SnnopDogg</h3><p>Joking</p><a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="SnnopDogg LinkedIn profile">
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-						<path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-					</svg>
-				</a></div></div><div class="team-member"><img src="assets/demo.jpeg" alt="Tom Holand" loading="lazy"><div class="info"><h3>Tom Holand</h3><p>Head Coordinator</p><a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="Tom Holand LinkedIn profile">
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-						<path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-					</svg>
-				</a></div></div><div class="team-member"><img src="assets/demo.jpeg" alt="Thejus" loading="lazy"><div class="info"><h3>Thejus</h3><p>Design Lead</p><a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="Thejus LinkedIn profile">
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-						<path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-					</svg>
-				</a></div></div><div class="team-member"><img src="assets/demo.jpeg" alt="ChandraShekar" loading="lazy"><div class="info"><h3>ChandraShekar</h3><p>Tech Lead</p><a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="ChandraShekar LinkedIn profile">
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-						<path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-					</svg>
-				</a></div></div><div class="team-member"><img src="assets/demo.jpeg" alt="Queens" loading="lazy"><div class="info"><h3>Queens</h3><p>Operations</p><a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="Queens LinkedIn profile">
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-						<path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-					</svg>
-				</a></div></div><div class="team-member"><img src="assets/demo.jpeg" alt="SnnopDogg" loading="lazy"><div class="info"><h3>SnnopDogg</h3><p>Marketing</p><a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="SnnopDogg LinkedIn profile">
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-						<path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-					</svg>
-				</a></div></div><div class="team-member"><img src="assets/demo.jpeg" alt="cute.as.ducks" loading="lazy"><div class="info"><h3>cute.as.ducks</h3><p>Food</p><a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="cute.as.ducks LinkedIn profile">
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-						<path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-					</svg>
-				</a></div></div><div class="team-member"><img src="assets/demo.jpeg" alt="google_was_my_idea" loading="lazy"><div class="info"><h3>google_was_my_idea</h3><p>Entertainment</p><a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="google_was_my_idea LinkedIn profile">
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-						<path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-					</svg>
-				</a></div></div><div class="team-member"><img src="assets/demo.jpeg" alt="HairyPoppins" loading="lazy"><div class="info"><h3>HairyPoppins</h3><p>Hospitality</p><a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="HairyPoppins LinkedIn profile">
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-						<path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-					</svg>
-				</a></div></div><div class="team-member"><img src="assets/demo.jpeg" alt="Queens" loading="lazy"><div class="info"><h3>Queens</h3><p>Dance</p><a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="Queens LinkedIn profile">
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-						<path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-					</svg>
-				</a></div></div><div class="team-member"><img src="assets/demo.jpeg" alt="SnnopDogg" loading="lazy"><div class="info"><h3>SnnopDogg</h3><p>Joking</p><a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="SnnopDogg LinkedIn profile">
-					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
-						<path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z"></path>
-					</svg>
-				</a></div></div></div>
+					<div class="carousel-track" id="carouselTrack">
+						<div class="team-member">
+							<img src="assets/demo.jpeg" alt="Tom Holand" loading="lazy">
+							<div class="info">
+								<h3>a</h3>
+								<p>a</p>
+								<a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="Tom Holand LinkedIn profile">
+									<i class="fab fa-linkedin"></i>
+								</a>
+							</div>
+						</div>
+						<div class="team-member">
+							<img src="assets/demo.jpeg" alt="Thejus" loading="lazy">
+							<div class="info">
+								<h3>b</h3>
+								<p>b</p>
+								<a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="Thejus LinkedIn profile">
+									<i class="fab fa-linkedin"></i>
+								</a>
+							</div>
+						</div>
+						<div class="team-member">
+							<img src="assets/demo.jpeg" alt="ChandraShekar" loading="lazy">
+							<div class="info">
+								<h3>c</h3>
+								<p>c</p>
+								<a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="ChandraShekar LinkedIn profile">
+									<i class="fab fa-linkedin"></i>
+								</a>
+							</div>
+						</div>
+						<div class="team-member">
+							<img src="assets/demo.jpeg" alt="Queens" loading="lazy">
+							<div class="info">
+								<h3>d</h3>
+								<p>d</p>
+								<a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="Queens LinkedIn profile">
+									<i class="fab fa-linkedin"></i>
+								</a>
+							</div>
+						</div>
+						<div class="team-member">
+							<img src="assets/demo.jpeg" alt="SnnopDogg" loading="lazy">
+							<div class="info">
+								<h3>e</h3>
+								<p>e</p>
+								<a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="SnnopDogg LinkedIn profile">
+									<i class="fab fa-linkedin"></i>
+								</a>
+							</div>
+						</div>
+						<div class="team-member">
+							<img src="assets/demo.jpeg" alt="cute.as.ducks" loading="lazy">
+							<div class="info">
+								<h3>f</h3>
+								<p>f</p>
+								<a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="cute.as.ducks LinkedIn profile">
+									<i class="fab fa-linkedin"></i>
+								</a>
+							</div>
+						</div>
+						<div class="team-member">
+							<img src="assets/demo.jpeg" alt="google_was_my_idea" loading="lazy">
+							<div class="info">
+								<h3>g</h3>
+								<p>g</p>
+								<a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="google_was_my_idea LinkedIn profile">
+									<i class="fab fa-linkedin"></i>
+								</a>
+							</div>
+						</div>
+						<div class="team-member">
+							<img src="assets/demo.jpeg" alt="HairyPoppins" loading="lazy">
+							<div class="info">
+								<h3>h</h3>
+								<p>h</p>
+								<a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="HairyPoppins LinkedIn profile">
+									<i class="fab fa-linkedin"></i>
+								</a>
+							</div>
+						</div>
+						<div class="team-member">
+							<img src="assets/demo.jpeg" alt="Queens" loading="lazy">
+							<div class="info">
+								<h3>i</h3>
+								<p>i</p>
+								<a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="Queens LinkedIn profile">
+									<i class="fab fa-linkedin"></i>
+								</a>
+							</div>
+						</div>
+						<div class="team-member">
+							<img src="assets/demo.jpeg" alt="SnnopDogg" loading="lazy"><div class="info">
+								<h3>j</h3>
+								<p>j</p>
+								<a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="SnnopDogg LinkedIn profile">
+									<i class="fab fa-linkedin"></i>
+								</a>
+							</div>
+						</div>
+						<div class="team-member">
+							<img src="assets/demo.jpeg" alt="Tom Holand" loading="lazy">
+							<div class="info">
+								<h3>a</h3>
+								<p>a</p>
+								<a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="Tom Holand LinkedIn profile">
+									<i class="fab fa-linkedin"></i>
+								</a>
+							</div>
+						</div>
+						<div class="team-member">
+							<img src="assets/demo.jpeg" alt="Thejus" loading="lazy">
+							<div class="info">
+								<h3>b</h3>
+								<p>b</p>
+								<a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="Thejus LinkedIn profile">
+									<i class="fab fa-linkedin"></i>
+								</a>
+							</div>
+						</div>
+						<div class="team-member">
+							<img src="assets/demo.jpeg" alt="ChandraShekar" loading="lazy">
+							<div class="info">
+								<h3>c</h3>
+								<p>c</p>
+								<a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="ChandraShekar LinkedIn profile">
+									<i class="fab fa-linkedin"></i>
+								</a>
+							</div>
+						</div>
+						<div class="team-member">
+							<img src="assets/demo.jpeg" alt="Queens" loading="lazy">
+							<div class="info">
+								<h3>d</h3>
+								<p>d</p>
+								<a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="Queens LinkedIn profile">
+									<i class="fab fa-linkedin"></i>
+								</a>
+							</div>
+						</div>
+						<div class="team-member">
+							<img src="assets/demo.jpeg" alt="SnnopDogg" loading="lazy">
+							<div class="info">
+								<h3>e</h3>
+								<p>e</p>
+								<a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="SnnopDogg LinkedIn profile">
+									<i class="fab fa-linkedin"></i>
+								</a>
+							</div>
+						</div>
+						<div class="team-member">
+							<img src="assets/demo.jpeg" alt="cute.as.ducks" loading="lazy">
+							<div class="info">
+								<h3>f</h3>
+								<p>f</p>
+								<a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="cute.as.ducks LinkedIn profile">
+									<i class="fab fa-linkedin"></i>
+								</a>
+							</div>
+						</div>
+						<div class="team-member">
+							<img src="assets/demo.jpeg" alt="google_was_my_idea" loading="lazy">
+							<div class="info">
+								<h3>g</h3>
+								<p>g</p>
+								<a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="google_was_my_idea LinkedIn profile">
+									<i class="fab fa-linkedin"></i>
+								</a>
+							</div>
+						</div>
+						<div class="team-member">
+							<img src="assets/demo.jpeg" alt="HairyPoppins" loading="lazy">
+							<div class="info">
+								<h3>h</h3>
+								<p>h</p>
+								<a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="HairyPoppins LinkedIn profile">
+									<i class="fab fa-linkedin"></i>
+								</a>
+							</div>
+						</div>
+						<div class="team-member">
+							<img src="assets/demo.jpeg" alt="Queens" loading="lazy">
+							<div class="info">
+								<h3>i</h3>
+								<p>i</p>
+								<a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="Queens LinkedIn profile">
+									<i class="fab fa-linkedin"></i>
+								</a>
+							</div>
+						</div>
+						<div class="team-member">
+							<img src="assets/demo.jpeg" alt="SnnopDogg" loading="lazy">
+							<div class="info">
+								<h3>j</h3>
+								<p>j</p>
+								<a href="#" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="SnnopDogg LinkedIn profile">
+									<i class="fab fa-linkedin"></i>
+								</a>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 		</section>
@@ -1656,26 +1784,6 @@
 		</footer>
 
 		<script>
-			const track = document.getElementById('carouselTrack');
-			let position = 0;
-			let speed = 5.0;
-
-			function animate() {
-				position -= speed;
-				if (Math.abs(position) >= track.scrollWidth / 2) {
-					position += track.scrollWidth / 2;
-				}
-				track.style.transform = `translateX(${position}px)`;
-				animationFrameId = requestAnimationFrame(animate);
-			}
-
-			const teamSection = document.getElementById('teamSection');
-			teamSection.addEventListener('mouseenter', () => cancelAnimationFrame(animationFrameId));
-			teamSection.addEventListener('mouseleave', () => animationFrameId = requestAnimationFrame(animate));
-
-			// populateCarousel();
-			animationFrameId = requestAnimationFrame(animate);
-
 			const scrollDownMessage = document.querySelector("#scroll-down-message");
 
 			scrollDownMessage.onclick = () => {
@@ -1705,35 +1813,6 @@
 			const logoTargetWidth = 47 * logoWidthByHeight;
 			const logoTargetX = 10 + (logoTargetWidth / 2);
 			const logoTargetY = 8.25;
-
-			// const scrollAction = () => {
-			// 	const scrollThreshold = window.innerHeight - navbarHeight;
-			// 	const actualProgress = window.scrollY / scrollThreshold;
-			// 	let progress = actualProgress;
-			// 	if (progress >= 1) {
-			// 		progress = 1;
-			// 		// navbar.style.opacity = 0.75;
-			// 		logo.style.zIndex = 998;
-			// 		navLinks.style.zIndex = 997;
-			// 	} else {
-			// 		// navbar.style.opacity = 0;
-			// 		logo.style.zIndex = 997;
-			// 		navLinks.style.zIndex = 998;
-			// 	}
-			// 	const logoOrigWidth = Math.min(960, window.innerWidth - 20);
-			// 	const logoOrigHeight = logoOrigWidth / logoWidthByHeight;
-			// 	const windowWidthHalf = window.innerWidth / 2;
-			// 	const logoOrigY = (window.innerHeight / 2) - logoOrigHeight;
-
-			// 	// logo.style.left = `${logoOrigX - ((logoOrigX - logoTargetX) * progress)}px`;
-			// 	// logo.style.setProperty("--XTranslation", `${(windowWidthHalf - (logoOrigWidth / 2)) * (1 - progress)}px`);
-			// 	// logo.style.top = `${logoOrigY - ((logoOrigY - logoTargetY) * progress)}px`;
-
-			// 	navLinks.style.setProperty("--XTranslation", `${(0 - (windowWidthHalf - (navLinksWidth / 2))) * (1 - progress)}px`);
-			// }
-			// window.addEventListener("scroll", scrollAction);
-			// window.addEventListener("resize", scrollAction);
-			// scrollAction();
 
 			const logoSectionRefresh = () => {
 				const scrollThreshold = window.innerHeight - navbarHeight;
@@ -1811,14 +1890,6 @@
 			}, { threshold: 0.1 });
 
 			prizeBarsRise.observe(document.querySelector("#prize-trophies"));
-
-			// if ('scrollRestoration' in history) {
-			// 	history.scrollRestoration = 'manual';
-			// }
-
-			// window.addEventListener("load", () => {
-			// 	window.scrollTo(0, 0);
-			// });
 		</script>
 	</body>
 </html>
