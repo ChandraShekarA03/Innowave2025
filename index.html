@@ -1006,112 +1006,105 @@
 				transform: scale(1.1); /* Slightly enlarge the image on hover */
 			}
 
+			.Our-team{
+				text-align: center;
+			}
+			.carousel {
+			position: relative;
+			overflow: hidden;
+			width: 100%;
+			padding: 40px 0;
+			}
+
+			@keyframes teamCarouselAnimation {
+				from { transform: translateX(0px); }
+				to { transform: translateX(-2800px); } /* 280 * no. of cards */
+			}
+
+			.carousel-track {
+				display: flex;
+				width: max-content;
+				flex-wrap: nowrap;
+				animation: teamCarouselAnimation 15s linear infinite;
+			}
+
+			.carousel-track:hover {
+				animation-play-state: paused;
+			}
+
+			.team-member {
+				position: relative;
+				flex: 0 0 250px;
+				min-height: 300px;
+				margin: 0 15px;
+				background: #e0e0e0;
+				border-radius: 12px;
+				overflow: hidden;
+				transition: transform 0.3s ease;
+			}
+
+			.team-member img {
+				width: 100%;
+				height: 300px;
+				object-fit: cover;
+			}
+
+			.info {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				background: rgba(0, 0, 0, 0.7);
+				color: white;
+				padding: 15px;
+				transform: translateY(100%);
+				transition: transform 0.3s ease;
+				display: flex;
+				flex-direction: column;
+				gap: 8px;
+			}
+
+			.team-member:hover .info {
+				transform: translateY(0);
+			}
+
+			.linkedin-icon {
+				width: fit-content;
+			}
+
+			.linkedin-icon > i {
+				font-size: 24px;
+				color: #ffffff;
+				cursor: pointer;
+				transition: transform 0.3s ease;
+			}
+
+			.linkedin-icon:hover i {
+				transform: scale(1.1);
+			}
 
 
+			@media (max-width: 768px) {
+				.team-member {
+					flex: 0 0 180px;
+					min-height: 250px;
+				}
 
-.Our-team{
-	text-align: center;
-}
-.carousel {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  padding: 40px 0;
-}
+				.team-member img {
+					height: 250px;
+				}
+			}
 
-@keyframes teamCarouselAnimation {
-	from { transform: translateX(0px); }
-	to { transform: translateX(-2800px); } /* 280 * no. of cards */
-}
+			@media (max-width: 480px) {
+				.team-member {
+					flex: 0 0 150px;
+					min-height: 220px;
+				}
 
-.carousel-track {
-  display: flex;
-  width: max-content;
-  flex-wrap: nowrap;
-  animation: teamCarouselAnimation 15s linear infinite;
-}
-
-.carousel-track:hover {
-	animation-play-state: paused;
-}
-
-.team-member {
-  position: relative;
-  flex: 0 0 250px;
-  min-height: 300px;
-  margin: 0 15px;
-  background: #e0e0e0;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-.team-member img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
-
-.info {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 15px;
-  transform: translateY(100%);
-  transition: transform 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.team-member:hover .info {
-  transform: translateY(0);
-}
-
-.linkedin-icon {
-	width: fit-content;
-}
-
-.linkedin-icon > i {
-  font-size: 24px;
-  color: #ffffff;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.linkedin-icon:hover i {
-  transform: scale(1.1);
-}
-
-
-@media (max-width: 768px) {
-  .team-member {
-    flex: 0 0 180px;
-    min-height: 250px;
-  }
-
-  .team-member img {
-    height: 250px;
-  }
-
-
-}
-
-@media (max-width: 480px) {
-  .team-member {
-    flex: 0 0 150px;
-    min-height: 220px;
-  }
-
-  .team-member img {
-    height: 220px;
-  }
-}
-
-			
+				.team-member img {
+					height: 220px;
+				}
+			}
 		</style>
 	</head>
 	<body>
