@@ -1853,7 +1853,7 @@
 				logo.style.setProperty("--scaling", 1 + ((logoOrigWidth / logoTargetWidth) - 1) * section.intersectionRatio);
 
 				navLinks.style.setProperty("--XTranslation", `${(0 - (windowWidthHalf - (navLinksWidth / 2))) * section.intersectionRatio}px`);
-			}, { threshold: Array.from({length: 31}, (_, i) => i / 30) });
+			}, { threshold: Array.from({length: 101}, (_, i) => i / 100) });
 
 			logoSectionAnimation.observe(document.querySelector("#logo-section-animation-observe"));
 
