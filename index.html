@@ -1105,6 +1105,86 @@
 					height: 220px;
 				}
 			}
+			.gallery-section {
+				padding: 2rem;
+				background: #fff;
+			}
+
+			.gallery-container {
+				max-width: 900px;
+				margin: auto;
+			}
+
+			.gallery-main-wrapper {
+				position: relative;
+				overflow: hidden;
+				border-radius: 8px;
+				height: 500px;
+			}
+
+			.gallery-main-track {
+				display: flex;
+				transition: transform 0.6s ease-in-out;
+				height: 100%;
+			}
+
+			.gallery-main-track .slide {
+				min-width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.3s ease;
+			}
+
+			.gallery-main-track .slide:hover {
+				transform: scale(1.05);
+				cursor:default;
+			}
+
+			.nav-btn {
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				background: rgba(255, 255, 255, 0.8);
+				border: none;
+				font-size: 2rem;
+				padding: 0 10px;
+				cursor: pointer;
+				z-index: 10;
+				border-radius: 50%;
+			}
+
+			#prev-btn {
+				left: 10px;
+			}
+
+			#next-btn {
+				right: 10px;
+			}
+
+			.gallery-thumbnails {
+				display: flex;
+				justify-content: center;
+				gap: 10px;
+				margin-top: 1rem;
+				overflow-x: auto;
+			}
+
+			.gallery-thumbnails img {
+				width: 90px;
+				height: 60px;
+				object-fit: cover;
+				cursor: pointer;
+				border-radius: 4px;
+				opacity: 0.7;
+				transition: all 0.3s;
+			}
+
+			.gallery-thumbnails img.active,
+			.gallery-thumbnails img:hover {
+				opacity: 1;
+				border: 2px solid #000;
+			}
+
 		</style>
 	</head>
 	<body>
@@ -1689,6 +1769,97 @@
 			</section>
 		</section>
 
+
+
+		<section class="gallery-section">
+			<div class="gallery-container">
+				<div class="gallery-main-wrapper">
+					<div class="gallery-main-track" id="gallery-track">
+						<img class="slide" src="assets/images/DSC07038.jpg" />
+						<img class="slide" src="assets/images/DSC07039.jpg" />
+						<img class="slide" src="assets/images/DSC07040.jpg" />
+						<img class="slide" src="assets/images/DSC07041.jpg" />
+						<img class="slide" src="assets/images/DSC07042.jpg" />
+						<img class="slide" src="assets/images/DSC07043.jpg" />
+						<img class="slide" src="assets/images/DSC07044.jpg" />
+					</div>
+				<button id="prev-btn" class="nav-btn">&#10094;</button>
+				<button id="next-btn" class="nav-btn">&#10095;</button>
+				</div>
+
+				<div class="gallery-thumbnails">
+				<img src="assets/images/DSC07038.jpg" class="thumb active" />
+				<img src="assets/images/DSC07039.jpg" class="thumb" />
+				<img src="assets/images/DSC07040.jpg" class="thumb" />
+				<img src="assets/images/DSC07041.jpg" class="thumb" />
+				<img src="assets/images/DSC07042.jpg" class="thumb" />
+				<img src="assets/images/DSC07043.jpg" class="thumb" />
+				<img src="assets/images/DSC07044.jpg" class="thumb" />
+				</div>
+			</div>
+		</section>
+
+
+		<script>
+			const track = document.getElementById('gallery-track');
+			const slides = document.querySelectorAll('.slide');
+			const thumbnails = document.querySelectorAll('.thumb');
+			const slideCount = slides.length;
+			const mainWrapper = document.querySelector('.gallery-main-wrapper');
+			let currentIndex = 0;
+			let autoPlayInterval;
+
+			function updateSlidePosition() {
+				track.style.transform = `translateX(-${currentIndex * 100}%)`;
+				thumbnails.forEach(t => t.classList.remove('active'));
+				thumbnails[currentIndex].classList.add('active');
+			}
+
+			function showNext() {
+				currentIndex = (currentIndex + 1) % slideCount;
+				updateSlidePosition();
+			}
+
+			function showPrev() {
+				currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+				updateSlidePosition();
+			}
+
+			function startAutoPlay() {
+				autoPlayInterval = setInterval(showNext, 4000);
+			}
+
+			function stopAutoPlay() {
+				clearInterval(autoPlayInterval);
+			}
+
+			document.getElementById('prev-btn').addEventListener('click', () => {
+				stopAutoPlay();
+				showPrev();
+				startAutoPlay();
+			});
+
+			document.getElementById('next-btn').addEventListener('click', () => {
+				stopAutoPlay();
+				showNext();
+				startAutoPlay();
+			});
+
+			thumbnails.forEach((thumb, index) => {
+				thumb.addEventListener('click', () => {
+				stopAutoPlay();
+				currentIndex = index;
+				updateSlidePosition();
+				startAutoPlay();
+				});
+			});
+
+			mainWrapper.addEventListener('mouseenter', stopAutoPlay);
+			mainWrapper.addEventListener('mouseleave', startAutoPlay);
+
+			updateSlidePosition();
+			startAutoPlay();
+		</script>
 
 
 		<footer style="color: #000; background: url('./assets/blue-green-dark-background.jpg'); background-repeat: no-repeat; background-size: cover;" class="pt-5 pb-4">
