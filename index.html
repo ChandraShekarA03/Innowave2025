@@ -313,27 +313,36 @@
 			}
 
 			#scroll-down-message {
-				margin: 0 auto;
-				width: fit-content;
+				position: absolute;
+				bottom: 0px;
+				right: 0px;
+				margin: 10px;
+				width: min-content;
                 cursor: pointer;
+				text-align: center;
                 transition: transform 0.3s;
 			}
 
-			#scroll-down-message p {
+			#scroll-down-message > span {
+				display: block;
+				font-size: 19px;
+				color: #ffffff;
 				margin-bottom: 0px;
+				transition: transform 0.3s, opacity 0.3s;
 			}
 
-			#scroll-arrow {
-                width: 85px;
+			#scroll-down-message > svg {
+                width: 19px;
                 transition: transform 0.3s;
                 animation: bounce 2s infinite;
             }
 
-			#scroll-down-message:hover {
-                transform: translateY(5px);
+			#scroll-down-message.hide > span {
+                transform: translateY(-100%);
+				opacity: 0;
             }
 
-			#scroll-down-message:hover #scroll-arrow {
+			#scroll-down-message:hover > svg {
                 animation: none;
                 transform: scale(1.05);
             }
@@ -1220,13 +1229,24 @@
 					<span>BHAVANI NAGAR, S.G. PALYA,</span><br>
 					<span>BENGALURU, KARNATAKA 560029</span>
 				</p>
-				<a href="task.pdf" id="button_detail" target="_blank">MORE DETAILS</a>
-				<div id="scroll-down-message">
-					<p>SCROLL<br>DOWN</p>
-					<svg id="scroll-arrow" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
-						<path d="M 10, 10 L 45, 25 A 10 10, 0 0, 0 55, 25 L 90, 10" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-					</svg>
-				</div>
+				<a href="task.pdf" id="button_detail" target="_blank">MORE<br>DETAILS</a>
+				
+			</div>
+			<div id="scroll-down-message">
+				<span>S</span>
+				<span style="transition-delay: 10ms;">C</span>
+				<span style="transition-delay: 20ms;">R</span>
+				<span style="transition-delay: 30ms;">O</span>
+				<span style="transition-delay: 40ms;">L</span>
+				<span style="transition-delay: 50ms;">L</span>
+				<br>
+				<span style="transition-delay: 60ms;">D</span>
+				<span style="transition-delay: 70ms;">O</span>
+				<span style="transition-delay: 80ms;">W</span>
+				<span style="transition-delay: 90ms;">N</span>
+				<svg viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
+					<path d="M 10, 10 L 45, 25 A 10 10, 0 0, 0 55, 25 L 90, 10" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
 			</div>
 		</section>
 
@@ -2007,8 +2027,10 @@
 				navbar.classList.remove("show");
 				if(section.intersectionRatio < 1) {
 					logoSectionTexts.classList.add("hide");
+					scrollDownMessage.classList.add("hide");
 				} else {
 					logoSectionTexts.classList.remove("hide");
+					scrollDownMessage.classList.remove("hide");
 				}
 				const windowWidthHalf = window.innerWidth / 2;
 				const windowHeightHalf = window.innerHeight / 2;
