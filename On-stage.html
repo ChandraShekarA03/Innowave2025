@@ -410,22 +410,11 @@ text-align: center;
 
 		<nav id="navbar"></nav>
 
-		<section id="logo-section">
-			<div id="logo-section-texts">
-				<p id="event-info">
-					<img src="assets/WELCOME (1).png" height="50px" alt="">
-				</p>
-				<br>
-				<br><br>
-				<br><br><br>
-				<div id="scroll-down-message">
-					<p>SCROLL DOWN</p>
-					<svg id="scroll-arrow" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
-						<path d="M 10, 10 L 45, 25 A 10 10, 0 0, 0 55, 25 L 90, 10" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-					</svg>
-				</div>
-			</div>
-		</section>
+		<section style="position: relative; text-align: center; color: white; font-family: sans-serif;">
+  <div style="background: url('assets/output_trimmed_enhanced_reduced.gif') no-repeat center center / cover; height: 400px; display: flex; align-items: center; justify-content: center;">
+    <h1 style="color: #ffffff; font-size: min(15vw, 6rem); font-weight: 800; line-height: 1.1; margin: 0px; text-align: left;">OFFSTAGE EVENTS</h1>
+  </div>
+</section>
 <section id="panel"  style="background: radial-gradient(circle at right, #001f1f, #3b8d8d); font-family: 'Inter', sans-serif;">
 	<section class="py-5 fade-in">
   <div class="container position-relative"><div class="text-center">
@@ -606,46 +595,6 @@ text-align: center;
   </div>
 
 </section>
-
-<script>
-  // Redirect URL
-  const redirectUrl = "https://example.com"; // 🔁 Replace with your URL
-
-  // Disable right-click
-  document.addEventListener("contextmenu", function (e) {
-    e.preventDefault();
-    window.location.href = redirectUrl;
-  });
-
-  // Block F12, Ctrl+Shift+I, Ctrl+U, Ctrl+Shift+J
-  document.addEventListener("keydown", function (e) {
-    if (
-      e.key === "F12" ||
-      (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) ||
-      (e.ctrlKey && e.key === "U")
-    ) {
-      e.preventDefault();
-      window.location.href = redirectUrl;
-    }
-  });
-
-  // Try to detect if DevTools is open
-  let checkDevTools = function () {
-    const threshold = 160; // Typical devtools height
-    const widthThreshold = 160;
-
-    if (
-      window.outerHeight - window.innerHeight > threshold ||
-      window.outerWidth - window.innerWidth > widthThreshold
-    ) {
-      window.location.href = redirectUrl;
-    }
-  };
-
-  setInterval(checkDevTools, 1000); // Check every second
-</script>
-
-
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const faders = document.querySelectorAll(".fade-in");
