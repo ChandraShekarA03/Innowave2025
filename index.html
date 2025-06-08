@@ -175,8 +175,8 @@
 				position: fixed;
 				z-index: 996;
 				top: 8.25px;
-				left: 140.6915px;
-				width: 261.383;
+				left: 197.324996948px;
+				width: 374.6499938964844px;
 				transform: translateX(-50%) translateX(var(--XTranslation)) translateY(var(--YTranslation)) scale(var(--scaling));
 			}
 
@@ -294,22 +294,28 @@
 
 			#logo-section-texts {
 				position: relative;
-				top: calc(50vh + 30px);
+				top: 50vh;
 				width: fit-content;
 				text-align: center;
 				color: #ffffff;
 				margin: 0 auto;
+				padding-top: 30px;
 				opacity: 1;
 				transition: transform 0.3s, opacity 0.3s;
+			}
+
+			#logo-section-texts > a {
+				text-decoration: none;
+				color: white;
+			}
+
+			#logo-section-texts > a:hover > span {
+				text-decoration: underline;
 			}
 
 			#logo-section-texts.hide {
 				transform: translateY(-30px);
 				opacity: 0;
-			}
-
-			#event-info {
-				margin-bottom: 20px;
 			}
 
 			#scroll-down-message {
@@ -332,12 +338,13 @@
 			}
 
 			#scroll-down-message > svg {
+				display: block;
                 width: 19px;
                 transition: transform 0.3s;
                 animation: bounce 2s infinite;
             }
 
-			#scroll-down-message.hide > span {
+			#scroll-down-message.hide > * {
                 transform: translateY(-100%);
 				opacity: 0;
             }
@@ -347,14 +354,13 @@
                 transform: scale(1.05);
             }
 
-			#event-info span {
+			#scroll-down-message > span {
 				font-size: min(19px, 4vw);
 			}
 
 			#button_detail {
 				display: inline-block;
 				padding: 5px 20px;
-				margin-bottom: 20px;
 				text-decoration: none;
 				color: #ffffff;
 				border-radius: 12px;
@@ -1223,11 +1229,14 @@
 		<section id="logo-section">
 			<div id="logo-section-animation-observe"></div>
 			<div id="logo-section-texts">
-				<p id="event-info">
-					<span><strong>29 SEPTEMBER 2025 - 30 SEPTEMBER 2025</strong></span><br><br>
-					<a href="https://maps.app.goo.gl/23eNq8HXCRbkjh41A" style="text-decoration: none; color: white;" target="_blank"><i class="fas fa-map-marker-alt"></i><span> CHRIST (DEEMED TO BE UNIVERSITY),</span></a><br><br>
+				<strong>29 SEPTEMBER 2025 - 30 SEPTEMBER 2025</strong>
+				<br><br>
+				<a href="https://maps.app.goo.gl/23eNq8HXCRbkjh41A" target="_blank">
+					<i class="fa-solid fa-map-marker-alt"></i>
+					<span>CHRIST (DEEMED TO BE UNIVERSITY)</span>
+				</a>
+				<br><br>
 				<a href="task.pdf" id="button_detail" target="_blank">MORE<br>DETAILS</a>
-				
 			</div>
 			<div id="scroll-down-message">
 				<span>S</span>
@@ -1241,7 +1250,8 @@
 				<span style="transition-delay: 70ms;">O</span>
 				<span style="transition-delay: 80ms;">W</span>
 				<span style="transition-delay: 90ms;">N</span>
-				<svg viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
+				<br>
+				<svg viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg" style="transition-delay: 100ms;">
 					<path d="M 10, 10 L 45, 25 A 10 10, 0 0, 0 55, 25 L 90, 10" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
 				</svg>
 			</div>
@@ -1984,11 +1994,10 @@
 			const pastSpeakersCardsDiv = document.querySelector("#pastSpeakersCardsDiv");
 
 			const navbarHeight = navbar.getBoundingClientRect().height;
-			const logoWidthByHeight = 2269 / 408;
+			const logoWidthByHeight = 2224 / 279;
 			const navLinksWidth = 594.9666748046875;
 			
 			const logoTargetWidth = 47 * logoWidthByHeight;
-			const logoTargetX = 10 + (logoTargetWidth / 2);
 			const logoTargetY = 8.25;
 
 			const logoSectionRefresh = () => {
@@ -1998,7 +2007,7 @@
 				const windowWidthHalf = window.innerWidth / 2;
 				const logoOrigWidth = Math.min(960, window.innerWidth - 20);
 
-				logo.style.setProperty("--XTranslation", `${(windowWidthHalf - 140.6915) * (1 - progress)}px`);
+				logo.style.setProperty("--XTranslation", `${(windowWidthHalf - 197.324996948) * (1 - progress)}px`);
 				logo.style.setProperty("--scaling", 1 + ((logoOrigWidth / logoTargetWidth) - 1) * (1 - progress));
 				navLinks.style.setProperty("--XTranslation", `${(0 - (windowWidthHalf - (navLinksWidth / 2))) * (1 - progress)}px`);
 			};
@@ -2034,8 +2043,8 @@
 				const logoOrigWidth = Math.min(960, window.innerWidth - 20);
 				const logoOrigHeight = logoOrigWidth / logoWidthByHeight;
 
-				logo.style.setProperty("--XTranslation", `${(windowWidthHalf - 140.6915) * section.intersectionRatio}px`);
-				logo.style.setProperty("--YTranslation", `${(windowHeightHalf - 8.25 - logoOrigHeight) * section.intersectionRatio}px`);
+				logo.style.setProperty("--XTranslation", `${(windowWidthHalf - 197.324996948) * section.intersectionRatio}px`);
+				logo.style.setProperty("--YTranslation", `${(windowHeightHalf - logoTargetY) * section.intersectionRatio}px`);
 				logo.style.setProperty("--scaling", 1 + ((logoOrigWidth / logoTargetWidth) - 1) * section.intersectionRatio);
 
 				navLinks.style.setProperty("--XTranslation", `${(0 - (windowWidthHalf - (navLinksWidth / 2))) * section.intersectionRatio}px`);
