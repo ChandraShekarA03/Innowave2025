@@ -249,7 +249,7 @@
 				z-index: 999;
 			}
 
-			@media screen and (max-width: 920px) {
+			@media screen and (max-width: 1010px) {
 				#navLinks {
 					display: unset;
 					position: fixed;
@@ -299,7 +299,7 @@
 				text-align: center;
 				color: #ffffff;
 				margin: 0 auto;
-				padding-top: 30px;
+				padding-top: 90.21665954589844px; /* 60.21665954589844 + 30*/
 				opacity: 1;
 				transition: transform 0.3s, opacity 0.3s;
 			}
@@ -2044,7 +2044,11 @@
 				const logoOrigHeight = logoOrigWidth / logoWidthByHeight;
 
 				logo.style.setProperty("--XTranslation", `${(windowWidthHalf - 197.324996948) * section.intersectionRatio}px`);
-				logo.style.setProperty("--YTranslation", `${(windowHeightHalf - logoTargetY) * section.intersectionRatio}px`);
+				logo.style.setProperty("--YTranslation", `${(windowHeightHalf + 36.7166748046875 - logoTargetY - 60.21666717529297) * section.intersectionRatio}px`);
+				/*
+				Half of logo's height when at its largest: 60.21666717529297
+				Extra y for when the logo is scaled up: 36.7166748046875
+				*/
 				logo.style.setProperty("--scaling", 1 + ((logoOrigWidth / logoTargetWidth) - 1) * section.intersectionRatio);
 
 				navLinks.style.setProperty("--XTranslation", `${(0 - (windowWidthHalf - (navLinksWidth / 2))) * section.intersectionRatio}px`);
