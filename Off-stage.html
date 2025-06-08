@@ -43,24 +43,12 @@
 					transform: translateY(3px);
 				}
 			}
-
-			#about-innowave {
-				font-size: larger;
-				height: fit-content;
-				min-height: 100vh;
-				background-image: url("./assets/white\ background.gif");
-				background-attachment: fixed;
-				background-position: center;
-				background-repeat: no-repeat;
-				background-size: cover;
-			}
-
 			#navbar {
 				position: fixed;
 				top: 0px;
 				height: 63.5px;
 				width: 100vw;
-				background-color: #000000;
+				background-color: #0e0d0dbb;
 				opacity: 0;
 				z-index: 996;
 				transition: opacity 0.3s;
@@ -69,15 +57,14 @@
 			#logo {
 				position: fixed;
 				z-index: 997;
-				transform: translateX(-50%);
-				width: 50vw;
-				left: 50vw;
+				height: 47px;
+				left: 0px;
+				top: 10px;
 			}
 
 			#navLinks {
-				position: fixed;
+				position: absolute;
 				transform: translateX(50%);
-				right: 50vw;
 				width: fit-content;
 				margin-top: 19.75px;
 				margin-bottom: unset;
@@ -86,6 +73,7 @@
 				display: flex;
 				flex-wrap: nowrap;
 				list-style-type: none;
+				right: 0px;
 			}
 
 			ul {
@@ -172,44 +160,6 @@
 					}
 				}
 			}
-
-			#logo-section-texts {
-				position: fixed;
-				width: fit-content;
-				text-align: center;
-				color: #ffffff;
-				left: 50vw;
-				transform: translateX(-50%);
-			}
-
-			#scroll-down-message {
-				position: absolute;
-				text-align: center;
-				left: 50%;
-				transform: translateX(-50%);
-				width: 100px;
-                cursor: pointer;
-                transition: transform 0.3s;
-			}
-
-			#scroll-down-message p {
-				margin-bottom: 0px;
-			}
-
-			#scroll-arrow {
-                width: 85px;
-                transition: width 0.3s;
-                animation: bounce 2s infinite;
-            }
-
-			#scroll-down-message:hover {
-                transform: translate(-50%, 5px);
-            }
-
-			#scroll-down-message:hover #scroll-arrow {
-                animation: none;
-                width: 90px;
-            }
 
 			#event-info {
 				max-width: 402px;
