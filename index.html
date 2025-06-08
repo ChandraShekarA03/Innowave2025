@@ -359,7 +359,11 @@
 			}
 
 			#button_detail {
-				display: inline-block;
+				display: block;
+				position: absolute;
+				bottom: 0px;
+				left: 50vw;
+				transform: translateX(-50%);
 				padding: 5px 20px;
 				text-decoration: none;
 				color: #ffffff;
@@ -370,7 +374,7 @@
 
 			#button_detail:hover {
 				background-color: #1e6c5d55;
-				transform: scale(1.05);
+				transform: translateX(-50%) scale(1.05);
 			}
 
 			.pastSpeakersCard {
@@ -1229,15 +1233,17 @@
 		<section id="logo-section">
 			<div id="logo-section-animation-observe"></div>
 			<div id="logo-section-texts">
-				<strong>29 SEPTEMBER 2025 - 30 SEPTEMBER 2025</strong>
-				<br><br>
+				<span>
+					<i class="fa-solid fa-calendar"></i>
+					29 SEPTEMBER 2025 - 30 SEPTEMBER 2025
+				</span>
+				<br>
 				<a href="https://maps.app.goo.gl/23eNq8HXCRbkjh41A" target="_blank">
 					<i class="fa-solid fa-map-marker-alt"></i>
 					<span>CHRIST (DEEMED TO BE UNIVERSITY)</span>
 				</a>
-				<br><br>
-				<a href="task.pdf" id="button_detail" target="_blank">MORE<br>DETAILS</a>
 			</div>
+			<a href="task.pdf" id="button_detail" target="_blank">MORE DETAILS</a>
 			<div id="scroll-down-message">
 				<span>S</span>
 				<span style="transition-delay: 10ms;">C</span>
@@ -1799,9 +1805,7 @@
 				</div>
 			</section>
 		</section>
-
-
-<!-----
+		<!--
 		<section class="gallery-section">
 			<h1 style="color: #2d7777; font-size: min(15vw, 6rem); font-weight: 800; line-height: 1.1; margin: 0px; text-align: center;">GALLERY</h1>
 			<div class="gallery-container">
@@ -1815,23 +1819,22 @@
 						<img class="slide" src="assets/images/DSC07043.jpg" />
 						<img class="slide" src="assets/images/DSC07044.jpg" />
 					</div>
-				<button id="prev-btn" class="nav-btn">&#10094;</button>
-				<button id="next-btn" class="nav-btn">&#10095;</button>
+					<button id="prev-btn" class="nav-btn">&#10094;</button>
+					<button id="next-btn" class="nav-btn">&#10095;</button>
 				</div>
 
 				<div class="gallery-thumbnails">
-				<img src="assets/images/DSC07038.jpg" class="thumb active" />
-				<img src="assets/images/DSC07039.jpg" class="thumb" />
-				<img src="assets/images/DSC07040.jpg" class="thumb" />
-				<img src="assets/images/DSC07041.jpg" class="thumb" />
-				<img src="assets/images/DSC07042.jpg" class="thumb" />
-				<img src="assets/images/DSC07043.jpg" class="thumb" />
-				<img src="assets/images/DSC07044.jpg" class="thumb" />
+					<img src="assets/images/DSC07038.jpg" class="thumb active">
+					<img src="assets/images/DSC07039.jpg" class="thumb">
+					<img src="assets/images/DSC07040.jpg" class="thumb">
+					<img src="assets/images/DSC07041.jpg" class="thumb">
+					<img src="assets/images/DSC07042.jpg" class="thumb">
+					<img src="assets/images/DSC07043.jpg" class="thumb">
+					<img src="assets/images/DSC07044.jpg" class="thumb">
 				</div>
 			</div>
 		</section>
----->
-
+		-->
 		<script>
 			const track = document.getElementById('gallery-track');
 			const slides = document.querySelectorAll('.slide');
