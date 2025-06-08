@@ -13,7 +13,7 @@
 				padding: 0;
 				font-family: Arial, sans-serif;
 				overflow-x: hidden;
-				background-image: url("./assets/output_trimmed_enhanced.gif");
+				background-image: url("./assets/white\ background.gif");
 				background-attachment: fixed;
 				background-position: center;
 				background-repeat: no-repeat;
@@ -24,7 +24,7 @@
 				height: 100vh;
 				position: relative;
 				/* stuff under this makes the background stay in place */
-				background-image: url("./assets/off-stage2.gif");
+				background-image: url("./assets/output_trimmed_enhanced_reduced.gif");
 				background-attachment: fixed;
 				background-position: center;
 				background-repeat: no-repeat;
@@ -365,11 +365,8 @@
         </style>
     </head>
     <body>
-        <img src="./assets/off-stage.png" id="logo">
+        <img src="./assets/Innowave logo.png" id="logo">
 
-		<svg id="navExpandButton" style="width: 63.5px; height: 63.5px;" viewBox="0 0 63.5 63.5" xmlns="http://www.w3.org/2000/svg">
-			<path d="M 10.75, 15 L 52.75, 15 M 10.75, 31.75 L 52.75, 31.75 M 10.75, 48.5 L 52.75, 48.5" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-		</svg>
 
 		<ul id="navLinks">
 			<li><a href="index.html">Home</a></li>
@@ -387,20 +384,6 @@
 
 		<nav id="navbar"></nav>
 
-		<section id="logo-section">
-			<div id="logo-section-texts">
-				<p id="event-info">
-					<span>EVENTS</span><br>
-				</p>
-				<br><br><br><br><br>
-				<div id="scroll-down-message">
-					<p>SCROLL DOWN</p>
-					<svg id="scroll-arrow" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
-						<path d="M 10, 10 L 45, 25 A 10 10, 0 0, 0 55, 25 L 90, 10" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-					</svg>
-				</div>
-			</div>
-		</section><br><br>
 
 <center>
         <section>
@@ -492,115 +475,7 @@
 			});
 
 
-            const logo = document.querySelector("#logo");
-			const navbar = document.querySelector("#navbar")
-			const navLinks = document.querySelector("#navLinks");
-			const navExpandButton = document.querySelector("#navExpandButton");
-			const logoSectionTexts = document.querySelector("#logo-section-texts");
-			const scrollDownMessage = document.querySelector("#scroll-down-message");
-			const pastSpeakersCardsDiv = document.querySelector("#pastSpeakersCardsDiv");
-
-			const navbarHeight = navbar.getBoundingClientRect().height;
-			const logoWidthByHeight = 2471 / 383;
-			const navLinksWidth = 594.9666748046875;
-			
-			const logoTargetWidth = 47 * logoWidthByHeight;
-			const logoTargetX = 10 + (logoTargetWidth / 2);
-			const logoTargetY = 8.25;
-			
-			const navbarTargetRight = navLinksWidth / 2;
-			
-			const logoSectionTextsTargetY = (8.25 + 47) + 40;
-
-			scrollDownMessage.onclick = () => {
-				const aboutSection = document.querySelector("#masterclasses");
-				aboutSection.scrollIntoView({
-					behavior: "smooth"
-				});
-			};
-
-			const scrollAction = () => {
-				const scrollThreshold = window.innerHeight - navbarHeight;
-				const actualProgress = window.scrollY / scrollThreshold;
-				let progress = actualProgress;
-				if (progress >= 1) {
-					progress = 1;
-					navbar.style.opacity = 0.75;
-					logo.style.zIndex = 998;
-					navLinks.style.zIndex = 997;
-				} else {
-					navbar.style.opacity = 0;
-					logo.style.zIndex = 997;
-					navLinks.style.zIndex = 998;
-				}
-				if (actualProgress > 2) {
-					return;
-				}
-				const logoOrigWidth = Math.min(960, window.innerWidth - 20);
-				const logoOrigHeight = logoOrigWidth / logoWidthByHeight;
-				const logoOrigX = window.innerWidth / 2;
-				const logoOrigY = (window.innerHeight / 2) - logoOrigHeight;
-
-				logo.style.left = `${logoOrigX - ((logoOrigX - logoTargetX) * progress)}px`;
-				logo.style.top = `${logoOrigY - ((logoOrigY - logoTargetY) * progress)}px`;
-				logo.style.width = `${logoOrigWidth - ((logoOrigWidth - logoTargetWidth) * progress)}px`;
-
-				const navbarOrigRight = window.innerWidth / 2;
-
-				navLinks.style.right = `${navbarOrigRight - ((navbarOrigRight - navbarTargetRight) * progress)}px`;
-
-				const logoSectionTextsOrigY = (window.innerHeight / 2) + 40;
-
-				logoSectionTexts.style.top = `${logoSectionTextsOrigY - ((logoSectionTextsOrigY - logoSectionTextsTargetY) * progress)}px`;
-				logoSectionTexts.style.opacity = `${1 - (progress * 4)}`;
-			}
-
-			navExpandButton.onclick = () => {
-				navLinks.classList.toggle("visible");
-				navExpandButton.classList.toggle("clicked");
-			};
-
-            window.addEventListener("scroll", scrollAction);
-			window.addEventListener("resize", scrollAction);
-
-			scrollAction();
-        </script><script>
-  // Redirect URL
-  const redirectUrl = "https://example.com"; // 🔁 Replace with your URL
-
-  // Disable right-click
-  document.addEventListener("contextmenu", function (e) {
-    e.preventDefault();
-    window.location.href = redirectUrl;
-  });
-
-  // Block F12, Ctrl+Shift+I, Ctrl+U, Ctrl+Shift+J
-  document.addEventListener("keydown", function (e) {
-    if (
-      e.key === "F12" ||
-      (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) ||
-      (e.ctrlKey && e.key === "U")
-    ) {
-      e.preventDefault();
-      window.location.href = redirectUrl;
-    }
-  });
-
-  // Try to detect if DevTools is open
-  let checkDevTools = function () {
-    const threshold = 160; // Typical devtools height
-    const widthThreshold = 160;
-
-    if (
-      window.outerHeight - window.innerHeight > threshold ||
-      window.outerWidth - window.innerWidth > widthThreshold
-    ) {
-      window.location.href = redirectUrl;
-    }
-  };
-
-  setInterval(checkDevTools, 1000); // Check every second
-</script>
-
+        
+        </script>
     </body>
 </html>
