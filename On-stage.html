@@ -342,17 +342,107 @@ text-align: center;
   }
 
 
+  .footer-container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 15px;
+			}
+
+			.footer-row {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: flex-start;
+				gap: 30px;
+				color: white;
+			}
+
+			.footer-col {
+				flex: 1 1 200px;
+				min-width: 200px;
+				text-align: center;
+			}
+
+			.footer-col h5 {
+				margin-bottom: 1rem;
+				text-transform: uppercase;
+			}
+
+			.footer-col ul {
+				padding: 0;
+				list-style: none;
+			}
+
+			.footer-col ul li {
+				margin-bottom: 0.5rem;
+			}
+
+			.footer-col a {
+				color: white;
+				text-decoration: none;
+			}
+
+			.footer-col a:hover,
+			.footer-col i:hover {
+				color: #17a2b8;
+				transform: scale(1.1);
+				transition: all 0.3s ease-in-out;
+			}
+
+			.footer-col img:hover {
+				transform: scale(1.05);
+				transition: all 0.3s ease-in-out;
+			}
+
+			#newsletter-form button:hover {
+				background-color: #138496;
+			}
+
+			.text-center {
+				text-align: center;
+			}
+			.text-info{
+				color: #000;
+			}
+
+			.my-4 {
+				margin-top: 1.5rem;
+				margin-bottom: 1.5rem;
+			}
+
+			.mb-4 {
+				margin-bottom: 1.5rem;
+			}
+
+			.pt-3 {
+				padding-top: 1rem;
+			}
+
+			.border-top {
+				border-top: 1px solid #ccc;
+			}
+
+			.fade-in-custom {
+				opacity: 0;
+				animation: fadeInCustom 1s ease forwards;
+			}
+
+			@keyframes fadeInCustom {
+				0% {
+					opacity: 0;
+					transform: translateY(20px);
+				}
+				100% {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+
 </style>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
     </head>
     <body>
-        <img src="./assets/WELCOME.png" id="logo">
-
-		<svg id="navExpandButton" style="width: 63.5px; height: 63.5px;" viewBox="0 0 63.5 63.5" xmlns="http://www.w3.org/2000/svg">
-			<path d="M 10.75, 15 L 52.75, 15 M 10.75, 31.75 L 52.75, 31.75 M 10.75, 48.5 L 52.75, 48.5" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-		</svg>
-
 		<nav id="navbar">
 			<img src="./assets/Innowave logo.png" id="logo">
 			<ul id="navLinks">
@@ -373,10 +463,10 @@ text-align: center;
 
 
 		<section style="position: relative; text-align: center; color: white; font-family: sans-serif;">
-  <div style="background: url('assets/output_trimmed_enhanced_reduced.gif') no-repeat center center / cover; height: 400px; display: flex; align-items: center; justify-content: center;">
-    <h1 style="color: #ffffff; font-size: min(15vw, 6rem); font-weight: 800; line-height: 1.1; margin: 0px; text-align: left;">OFFSTAGE EVENTS</h1>
-  </div>
-</section>
+  			<div style="background: url('assets/output_trimmed_enhanced_reduced.gif') no-repeat center center / cover; height: 400px; display: flex; align-items: center; justify-content: center;">
+    		<h1 style="color: #ffffff; font-size: min(15vw, 6rem); font-weight: 800; line-height: 1.1; margin: 0px; text-align: left;">ONSTAGE EVENTS</h1>
+ 			 </div>
+		</section>
 <section id="panel"  style="font-family: 'Inter', sans-serif;">
 	<section class="py-5 fade-in">
   <div class="container position-relative"><div class="text-center">
@@ -557,6 +647,88 @@ text-align: center;
   </div>
 
 </section>
+
+
+		<footer style="color: #000; background: url('./assets/blue-green-dark-background.jpg'); background-repeat: no-repeat; background-size: cover;" class="pt-5 pb-4">
+			<div class="footer-container">
+				<div class="footer-row">
+					<!-- College Logo -->
+					<div class="footer-col">
+						<img src="assets/christ Logo.png" alt="College Logo" class="img-fluid mb-2 animate__animated animate__fadeInLeft" style="max-width: 300px;" >
+					</div>
+
+					<!-- Quick Links -->
+					<div class="footer-col">
+						<h5 class="animate__animated animate__fadeInUp">Quick Links</h5>
+						<ul>
+							<li><a href="#logo-section">Home</a></li>
+							<li><a href="#about-innowave">About</a></li>
+							<li><a href="#speakers">Our Collaborators</a></li>
+							<li><a href="#Competitions-and-Events">Competitions & Events</a></li>
+							<li><a href="#Innofair">Innofair</a></li>
+							<li><a href="Off-stage.html">Off-stage Events</a></li>
+							<li><a href="On-stage.html">On-Stage Events</a></li>
+						</ul>
+					</div>
+
+					<!-- Contact Info -->
+					<div class="footer-col">
+						<h5 class="animate__animated animate__fadeInUp">Contact</h5>
+						<p>Email: <a href="mailto:fest@abc.edu">fest@abc.edu</a></p>
+						<p>Phone: +91 9876543210</p>
+						<a href="https://maps.app.goo.gl/7NXAhesxVLy8Qbe2A" target="_blank">View Map</a><br>
+					</div>
+
+					<!-- Social Media and Newsletter -->
+					<div class="footer-col">
+						<h5 class="animate__animated animate__fadeInUp">Follow Us</h5>
+						<a href="#"><i class="fab fa-instagram"></i></a>&nbsp;
+						<a href="#"><i class="fab fa-linkedin"></i></a>&nbsp;
+						<a href="#"><i class="fab fa-facebook"></i></a>&nbsp;
+						<a href="#"><i class="fab fa-youtube"></i></a>&nbsp;
+						<a href="#"><i class="fab fa-twitter"></i></a>
+					</div>
+				</div>
+
+				<!-- Fest Logo Centered -->
+				<div class="text-center my-4 animate__animated animate__zoomIn">
+					<a href="#logo-section"><img src="assets/Innowave logo (year detached).png" alt="Fest Logo" class="img-fluid logo5-hover" style="max-height: 80px;"></a>
+					<p class="fst-italic" style="color: #ffffff;">“tagline placeholder”</p>
+				</div>
+				<!-- Sponsors Carousel -->
+				<div class="text-center mb-4 fade-in-custom">
+					<h6 class="text-uppercase mb-3" style="color: #ffffff;">Our Sponsors</h6>
+					<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+						<a href="https://kreo-tech.com/" target="_blank">
+							<img class="sponsor-logo" src="assets/Sponsors Logo/Kreo.png" alt="Kreo" height="40" style="margin-top: 10px;">
+						</a>
+						<a href="https://falhari.com/" target="_blank">
+							<img class="sponsor-logo" src="assets/Sponsors Logo/falhari.png" alt="falhari" height="60">
+						</a>
+						<a href="https://in.bookmyshow.com/" target="_blank">
+							<img class="sponsor-logo" src="assets/Sponsors Logo/bookmyshow.png" alt="bookmyshow" height="60">
+						</a>
+						<a href="https://therootsofindia.com/" target="_blank">
+							<img class="sponsor-logo" src="assets/Sponsors Logo/TRIo.avif" alt="TRIo" height="60">
+						</a>
+						<a href="https://everything-gets-inked.ueniweb.com/" target="_blank">
+							<img class="sponsor-logo" src="assets/Sponsors Logo/E.avif" alt="E" height="60">
+						</a>
+					</div>
+				</div>
+				<!-- Credits -->
+				<div class="text-center pt-3 border-top animate__animated animate__fadeInUp" style="color: #ffffff;">
+					<small>
+						<a href="https://www.instagram.com/christ_university_bangalore?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" style="text-decoration: none; color: inherit;" target="_blank">Instagram</a> |
+						<a href="https://linkedin.com/school/christ-university-bangalore/" style="text-decoration: none; color: inherit;" target="_blank">LinkedIn</a>
+					</small>
+				</div>
+			</div>
+		</footer>
+
+
+
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const faders = document.querySelectorAll(".fade-in");
@@ -591,68 +763,6 @@ text-align: center;
       el.style.transform = 'scale(1)';
     });
   });
-            const logo = document.querySelector("#logo");
-			const navbar = document.querySelector("#navbar")
-			const navLinks = document.querySelector("#navLinks");
-			const navExpandButton = document.querySelector("#navExpandButton");
-			const logoSectionTexts = document.querySelector("#logo-section-texts");
-			const scrollDownMessage = document.querySelector("#scroll-down-message");
-			const pastSpeakersCardsDiv = document.querySelector("#pastSpeakersCardsDiv");
-
-			const navbarHeight = navbar.getBoundingClientRect().height;
-			const logoWidthByHeight = 2471 / 383;
-			const navLinksWidth = 594.9666748046875;
-			
-			const logoTargetWidth = 47 * logoWidthByHeight;
-			const logoTargetX = 10 + (logoTargetWidth / 2);
-			const logoTargetY = 8.25;
-			
-			const navbarTargetRight = navLinksWidth / 2;
-			
-			const logoSectionTextsTargetY = (8.25 + 47) + 40;
-
-			scrollDownMessage.onclick = () => {
-				const aboutSection = document.querySelector("#panel");
-				aboutSection.scrollIntoView({
-					behavior: "smooth"
-				});
-			};
-
-			const scrollAction = () => {
-				const scrollThreshold = window.innerHeight - navbarHeight;
-				const actualProgress = window.scrollY / scrollThreshold;
-				let progress = actualProgress;
-				if (progress >= 1) {
-					progress = 1;
-					navbar.style.opacity = 0.75;
-					logo.style.zIndex = 998;
-					navLinks.style.zIndex = 997;
-				} else {
-					navbar.style.opacity = 0;
-					logo.style.zIndex = 997;
-					navLinks.style.zIndex = 998;
-				}
-				if (actualProgress > 2) {
-					return;
-				}
-				const logoOrigWidth = Math.min(960, window.innerWidth - 20);
-				const logoOrigHeight = logoOrigWidth / logoWidthByHeight;
-				const logoOrigX = window.innerWidth / 2;
-				const logoOrigY = (window.innerHeight / 2) - logoOrigHeight;
-
-				logo.style.left = `${logoOrigX - ((logoOrigX - logoTargetX) * progress)}px`;
-				logo.style.top = `${logoOrigY - ((logoOrigY - logoTargetY) * progress)}px`;
-				logo.style.width = `${logoOrigWidth - ((logoOrigWidth - logoTargetWidth) * progress)}px`;
-
-				const navbarOrigRight = window.innerWidth / 2;
-
-				navLinks.style.right = `${navbarOrigRight - ((navbarOrigRight - navbarTargetRight) * progress)}px`;
-
-				const logoSectionTextsOrigY = (window.innerHeight / 2) + 40;
-
-				logoSectionTexts.style.top = `${logoSectionTextsOrigY - ((logoSectionTextsOrigY - logoSectionTextsTargetY) * progress)}px`;
-				logoSectionTexts.style.opacity = `${1 - (progress * 4)}`;
-			}
 
 			navExpandButton.onclick = () => {
 				navLinks.classList.toggle("visible");
