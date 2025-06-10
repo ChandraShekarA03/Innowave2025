@@ -53,25 +53,20 @@
 				top: 0px;
 				height: 63.5px;
 				width: 100vw;
-				background-color: #000000;
-				opacity: 0;
+				background-color: rgba(0, 0, 0, 0.75);
 				z-index: 996;
-				transition: opacity 0.3s;
-				overflow: visible; 
+				transition: background-color 0.3s;
 			}
 
 			#logo {
-				position: fixed;
-				z-index: 997;
-				transform: translateX(-50%);
-				width: 50vw;
-				left: 50vw;
+				height: 47px;
+				margin: 8.25px 0px 0px 10px;
 			}
 
 			#navLinks {
-				position: fixed;
-				transform: translateX(50%);
-				right: 50vw;
+				position: absolute;
+				top: 0px;
+				right: 0px;
 				width: fit-content;
 				margin-top: 19.75px;
 				margin-bottom: unset;
@@ -94,9 +89,11 @@
 			}
 			
 			.dropdown-menu {
-				position: absolute	;
+				display: none;
+				position: absolute;
 				background-color: rgba(0, 0, 0, 0.267);
-				box-shadow: 0 8px 16px rgba(0,0,0,0.1);				
+				box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+				min-width: 160px;
 				z-index: 1000;
 				right: 0;
 				left: auto; 
@@ -165,44 +162,6 @@
 				}
 			}
 
-			#logo-section-texts {
-				position: fixed;
-				width: fit-content;
-				text-align: center;
-				color: #ffffff;
-				left: 50vw;
-				transform: translateX(-50%);
-			}
-
-			#scroll-down-message {
-				position: absolute;
-				text-align: center;
-				left: 50%;
-				transform: translateX(-50%);
-				width: 100px;
-                cursor: pointer;
-                transition: transform 0.3s;
-			}
-
-			#scroll-down-message p {
-				margin-bottom: 0px;
-			}
-
-			#scroll-arrow {
-                width: 85px;
-                transition: width 0.3s;
-                animation: bounce 2s infinite;
-            }
-
-			#scroll-down-message:hover {
-                transform: translate(-50%, 5px);
-            }
-
-			#scroll-down-message:hover #scroll-arrow {
-                animation: none;
-                width: 90px;
-            }
-
 			#event-info {
 				max-width: 402px;
 			}
@@ -267,7 +226,7 @@ text-align: center;
     font-size: 3rem;
     font-weight: 800;
     line-height: 1.1;
-    color: #ffffff;
+    color: #0f5f75;
 	text-align: center;
   }
 
@@ -394,32 +353,35 @@ text-align: center;
 			<path d="M 10.75, 15 L 52.75, 15 M 10.75, 31.75 L 52.75, 31.75 M 10.75, 48.5 L 52.75, 48.5" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
 		</svg>
 
-		<ul id="navLinks">
-			<li><a href="index.html">Home</a></li>
-			<li><a href="#about-innowave">About</a></li>
-			<li><a href="#speakers">Our Collaborators</a></li>
-			<li><a href="#Competitions-and-Events">Competitions & Events</a></li>
-			<li><a href="#Innofair">Innofair</a></li>
-			<li class="dropdown">
-				<a href="#">Events</a>
-				<ul class="dropdown-menu">
-					<li><a href="On-stage.html">On Stage Events</a></li>
-					<li><a href="Off-stage.html">Off Stage Events</a></li>
-				</ul>
-			</li>		</ul>
+		<nav id="navbar">
+			<img src="./assets/Innowave logo.png" id="logo">
+			<ul id="navLinks">
+				<li><a href="#logo-section">Home</a></li>
+				<li><a href="#about-innowave">About</a></li>
+				<li><a href="#speakers">Our Collaborators</a></li>
+				<li><a href="#Competitions-and-Events">Competitions & Events</a></li>
+				<li><a href="#Innofair">Innofair</a></li>
+				<li class="dropdown">
+					<a href="#">Events</a>
+					<ul class="dropdown-menu">
+						<li><a href="On-stage.html">On Stage Events</a></li>
+						<li><a href="Off-stage.html">Off Stage Events</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
 
-		<nav id="navbar"></nav>
 
 		<section style="position: relative; text-align: center; color: white; font-family: sans-serif;">
   <div style="background: url('assets/output_trimmed_enhanced_reduced.gif') no-repeat center center / cover; height: 400px; display: flex; align-items: center; justify-content: center;">
     <h1 style="color: #ffffff; font-size: min(15vw, 6rem); font-weight: 800; line-height: 1.1; margin: 0px; text-align: left;">OFFSTAGE EVENTS</h1>
   </div>
 </section>
-<section id="panel"  style="background: radial-gradient(circle at right, #001f1f, #3b8d8d); font-family: 'Inter', sans-serif;">
+<section id="panel"  style="font-family: 'Inter', sans-serif;">
 	<section class="py-5 fade-in">
   <div class="container position-relative"><div class="text-center">
-  <h1 class="display-1 fw-bold text-white mb-0 mx-auto" 
-      style="border-left: 8px dotted white; padding-left: 10px; width: fit-content; line-height: 1.1; text-align: left;">
+  <h1 class="display-1 fw-bold mb-0 mx-auto" 
+      style="padding-left: 10px; width: fit-content; line-height: 1.1; text-align: left;">
     Panel<br>Discussion
     
     </h1></div>
