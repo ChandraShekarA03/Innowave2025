@@ -264,11 +264,11 @@ text-align: center;
 .card {
   position: relative;
   width: 100%;
-  height: 400px;
-  border-radius: 15px;
+  height: 300px;
+	border: #00000000;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  background-color: #fff;
+
+  background-color: #ffffff00;
 }
 
 .card-content {
@@ -437,6 +437,56 @@ text-align: center;
 				}
 			}
 
+			
+			.pastSpeakersCard {
+				text-align: center;
+				color: #2d7777;
+				transition: opacity 0.8s, transform 0.8s;
+			}
+
+			.pastSpeakersCard.hidden {
+				opacity: 0;
+				transform: translateY(30px);
+			}
+
+			.pastSpeakersCard > div {
+				width: fit-content;
+				margin: 0 auto;
+				transition: transform 0.8s;
+			}
+
+			.pastSpeakersCard > div:hover {
+				transform: translateY(-5px);
+			}
+
+			.pastSpeakersCard > div > img {
+				display: block;
+				height: 255px;
+				width: 255px;
+				margin: 0 auto 1rem;
+				border-radius: 0.375rem;
+				max-width: 100%;
+				transition: transform 0.3s;
+			}
+			
+			.pastSpeakersCard > div:hover > img {
+				transform: scale(1.05);
+			}
+
+			.pastSpeakersCard > div > p {
+				font-size: .875em;
+			}
+
+			.pastSpeakersCard > div > h4 {
+				font-weight: bold;
+			}
+
+			.pastSpeakersCard > div > span > a > i {
+				color: #ffffff;
+				font-size: 24px;
+			}
+
+
 
 </style>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -446,7 +496,7 @@ text-align: center;
 		<nav id="navbar">
 			<img src="./assets/Innowave logo.png" id="logo">
 			<ul id="navLinks">
-				<li><a href="#logo-section">Home</a></li>
+				<li><a href="index.html">Home</a></li>
 				<li><a href="#about-innowave">About</a></li>
 				<li><a href="#speakers">Our Collaborators</a></li>
 				<li><a href="#Competitions-and-Events">Competitions & Events</a></li>
@@ -508,72 +558,55 @@ text-align: center;
   </div>
 </section>
 
-<section class="py-5 fade-in">
- <div class="card-container">
-  <div class="card-wrapper">
-    <div class="card">
-      <div class="card-content">  <h3 class="card-name" style="text-align: center;">Deepika Jain</h3>
-        <img src="assets/deepika.png" alt="Deepika Jain">
-        <div class="card-info">
-          <h4>Community & Partnerships</h4>
-          <p>Blume</p>
-        <div class="card-icons">
-			<a href="https://linkedin.com/in/deepikadakuda" target="_blank" style="color: #1da1f2; margin-right: 15px">
-				<i class="fab fa-linkedin fa-lg" style="font-size: 28px;"></i>
-			</a>
-			<a href="https://x.com/DeepikaDakuda" target="_blank" style="color: #1da1f2; margin-right: 15px">
-<i class="fab fa-x-twitter" style="font-size: 28px;"></i>
-			</a>
-        </div>
-		</div>
-		 <div class="card-note">Hover to know more</div>
-      </div>
-    </div>
-  </div>
+<section id="speakers">
+			<section id="past-speakers" class="position-relative py-5 text-white">
+				<div class="container position-relative">
 
-  <div class="card-wrapper">
-    <div class="card">
-      <div class="card-content">  <h3 class="card-name" style="text-align: center;">Kiran Vuppala</h3>
-        <img src="assets/kiran.png" style="height: auto; margin-top: 70px;" alt="Kiran Vuppala">
-        <div class="card-info">
-          <h4>Head of Operations</h4>
-          <p>Mazumdar Shah Foundation</p>
-		  <div class="card-icons">
-			<a href="https://www.linkedin.com/in/kiranvuppala/" target="_blank" style="color: #1da1f2; margin-right: 15px">
-				<i class="fab fa-linkedin fa-lg" style="font-size: 28px;"></i>
-			</a>
-			<a href="https://x.com/kiranvuppala" target="_blank" style="color: #1da1f2; margin-right: 15px">
-<i class="fab fa-x-twitter" style="font-size: 28px;"></i>
-			</a>
-        </div>
-        </div>
-        <div class="card-note">Hover to know more</div>
-      </div>
-    </div>
-  </div>
+					<div id="pastSpeakersCardsDiv" class="row justify-content-center gx-4 gy-4">
+						<div class="pastSpeakersCard cardToFadeIn col-md-4 hidden">
+							<div>
+								<img src="./assets/onstage-speakers/deepika.png" alt="deepika">
+								<h4>Deepika J</h4>
+								<p>Community & Partnership</p>
+								<p>Blume</p>
+								<span>
+									<a href="#"><i class="fab fa-instagram me-2" style="color: #104f4c;"></i></a>
+									<a href="#"><i class="fab fa-linkedin" style="color: #104f4c;"></i></a>
+								</span>
+								<p>descriptive paragraph</p>
+							</div>
+						</div>
 
-  <div class="card-wrapper">
-    <div class="card">
-      <div class="card-content">  <h3 class="card-name" style="text-align: center;">Rohan Bafna</h3>
-        <img src="assets/rohit-bafna.jpg" style="height: auto; margin-top: 70px; margin-left: 5px	;" alt="Rohan Bafna">
-        <div class="card-info">
-          <h4>Founder and CEO</h4>
-          <p>888vc</p>
-		  <div class="card-icons">
-			<a href="https://ae.linkedin.com/in/rohit-bafna-65113a52" target="_blank" style="color: #1da1f2; margin-right: 15px">
-				<i class="fab fa-linkedin fa-lg" style="font-size: 28px;"></i>
-			</a>
-			<a href="https://x.com/rohitbfn91" target="_blank" style="color: #1da1f2; margin-right: 15px">
-<i class="fab fa-x-twitter" style="font-size: 28px;"></i>
-			</a>
-        </div>
-        </div>
-        <div class="card-note">Hover to know more</div>
-      </div>
-    </div>
-  </div>
-</div>
-</section></section>
+						<div class="pastSpeakersCard cardToFadeIn col-md-4 hidden">
+							<div>
+								<img src="./assets/onstage-speakers/Kiran-Vuppala.png" alt="Kiran">
+								<h4>Kiran Vuppala</h4>
+								<p>Head of Operations</p>
+								<p>Mazumdar Shah Foundation</p>
+								<span>
+									<a href="#"><i class="fab fa-instagram me-2" style="color: #104f4c;"></i></a>
+									<a href="#"><i class="fab fa-linkedin" style="color: #104f4c;"></i></a>
+								</span>
+								<p>descriptive paragraph</p>
+							</div>
+						</div>
+
+						<div class="pastSpeakersCard cardToFadeIn col-md-4 hidden">
+							<div>
+								<img src="./assets/onstage-speakers/rohit-bafna.png" alt="Rohit">
+								<h4>Rohit Bafna</h4>
+								<p>Founder and CEO</p>
+								<p>888vc</p>
+								<span>
+									<a href="#"><i class="fab fa-instagram me-2" style="color: #104f4c;"></i></a>
+									<a href="#"><i class="fab fa-linkedin" style="color: #104f4c;"></i></a>
+								</span>
+								<p>descriptive paragraph</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 <br><br>
     <h4 class="text-center mt-3" style="font-size:xx-large; text-align: center; color: 0f5f75;">The Rise of EV: Paving the way for a Sustainable Future</h4>
 
@@ -601,53 +634,41 @@ text-align: center;
     </div>
   </div>
 
-  
-<section class="py-5 fade-in">
- <div class="card-container">
-  <div class="card-wrapper">
-    <div class="card">
-      <div class="card-content">  <h3 class="card-name" style="text-align: center;">Madhumita Agarwal</h3>
-        <img src="assets/Madhumita.png" style="height: auto; margin-top: 25px;" alt="Madhumita Agarwal">
-        <div class="card-info">
-          <h4>Founder</h4>
-          <p>Oben</p>
-		  <div class="card-icons">
-			<a href="https://www.linkedin.com/in/madhumitaagrawal/" target="_blank" style="color: #1da1f2; margin-right: 15px">
-				<i class="fab fa-linkedin fa-lg" style="font-size: 28px;"></i>
-			</a>
-			<a href="https://x.com/madhumitagrawal?lang=en" target="_blank" style="color: #1da1f2; margin-right: 15px">
-<i class="fab fa-x-twitter" style="font-size: 28px;"></i>
-			</a>
-        </div>
-        </div>
-        <div class="card-note">Hover to know more</div>
-      </div>
-    </div>
-  </div>
+<section id="speakers">
+			<section id="past-speakers" class="position-relative py-5 text-white">
+				<div class="container position-relative">
 
-  <div class="card-wrapper">
-    <div class="card">
-      <div class="card-content">  <h3 class="card-name" style="text-align: center;">Sanjeev Kumar Singh</h3>
-        <img src="assets/sanjeev.png" style="height: auto; ;" alt="Sanjeev Kumar Singh">
-        <div class="card-info">
-          <h4>Chief Operating Officer</h4>
-          <p>Ather</p>
-		  <div class="card-icons">
-			<a href="https://www.linkedin.com/in/singhsanjeev3010/" target="_blank" style="color: 	#1da1f2; margin-right: 15px">
-				<i class="fab fa-linkedin fa-lg" style="font-size: 28px;"></i>
-			</a>
-			<a href="https://x.com/atherenergy" target="_blank" style="color: #1da1f2; margin-right: 15px">
-<i class="fab fa-x-twitter" style="font-size: 28px;"></i>
-			</a>
-        </div>
-        </div>
-        <div class="card-note">Hover to know more</div>
-      </div>
-    </div>
-  </div>
+					<div id="pastSpeakersCardsDiv" class="row justify-content-center gx-4 gy-4">
+						<div class="pastSpeakersCard cardToFadeIn col-md-4 hidden">
+							<div>
+								<img src="./assets/onstage-speakers/Madhumita.png" alt="Madhumita">
+								<h4>Madhumita Agarwal</h4>
+								<p>Founder</p>
+								<p>Oben</p>
+								<span>
+									<a href="#"><i class="fab fa-instagram me-2" style="color: #104f4c;"></i></a>
+									<a href="#"><i class="fab fa-linkedin" style="color: #104f4c;"></i></a>
+								</span>
+								<p>descriptive paragraph</p>
+							</div>
+						</div>
 
-</section>
-
+						<div class="pastSpeakersCard cardToFadeIn col-md-4 hidden">
+							<div>
+								<img src="./assets/onstage-speakers/sanjeev.png" alt="Kiran">
+								<h4>Sanjeev Kumar Singh</h4>
+								<p>Chief Operating Officer</p>
+								<p>aAther</p>
+								<span>
+									<a href="#"><i class="fab fa-instagram me-2" style="color: #104f4c;"></i></a>
+									<a href="#"><i class="fab fa-linkedin" style="color: #104f4c;"></i></a>
+								</span>
+								<p>descriptive paragraph</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
 		<footer style="color: #000; background: url('./assets/blue-green-dark-background.jpg'); background-repeat: no-repeat; background-size: cover;" class="pt-5 pb-4">
 			<div class="footer-container">
@@ -730,6 +751,25 @@ text-align: center;
 
 
 <script>
+
+const pastSpeakersCardsDiv = document.querySelector("#pastSpeakersCardsDiv");
+const cardsFadeIn = new IntersectionObserver(entries => {
+				const cardsDiv = entries[0];
+				if (!cardsDiv.isIntersecting) {
+					return;
+				}
+				cardsDiv.target.querySelectorAll(".cardToFadeIn").forEach((card, i) => {
+					setTimeout(() => {
+						card.classList.remove("hidden");
+					}, 200 * i);
+				});
+				cardsFadeIn.unobserve(cardsDiv.target);
+			}, { threshold: 0.1 });
+
+			cardsFadeIn.observe(document.querySelector("#pastSpeakersCardsDiv"));
+
+
+
   document.addEventListener("DOMContentLoaded", function () {
     const faders = document.querySelectorAll(".fade-in");
 
