@@ -486,7 +486,18 @@ text-align: center;
 				font-size: 24px;
 			}
 
+.hidden {
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 0.6s ease, transform 0.6s ease;
+}
 
+And make sure the .visible class is defined to reveal:
+
+.visible {
+opacity: 1;
+transform: translateY(0);
+}
 
 </style>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -634,11 +645,11 @@ text-align: center;
     </div>
   </div>
 
-<section id="speakers">
+<section id="speakers" style="z-index: 1001;">
 			<section id="past-speakers" class="position-relative py-5 text-white">
 				<div class="container position-relative">
 
-					<div id="pastSpeakersCardsDiv" class="row justify-content-center gx-4 gy-4">
+					<div id="pastSpeakersCardsDiv2" class="row justify-content-center gx-4 gy-4">
 						<div class="pastSpeakersCard cardToFadeIn col-md-4 hidden">
 							<div>
 								<img src="./assets/onstage-speakers/Madhumita.png" alt="Madhumita">
@@ -655,7 +666,7 @@ text-align: center;
 
 						<div class="pastSpeakersCard cardToFadeIn col-md-4 hidden">
 							<div>
-								<img src="./assets/onstage-speakers/sanjeev.png" alt="Kiran">
+								<img src="./assets/onstage-speakers/sanjeev.png" alt="sanjeev">
 								<h4>Sanjeev Kumar Singh</h4>
 								<p>Chief Operating Officer</p>
 								<p>aAther</p>
@@ -751,6 +762,22 @@ text-align: center;
 
 
 <script>
+
+	const pastSpeakersCardsDiv2 = document.querySelector("#pastSpeakersCardsDiv2");
+const cardsFadeIn2 = new IntersectionObserver(entries => {
+const cardsDiv = entries[0];
+if (!cardsDiv.isIntersecting) return;
+cardsDiv.target.querySelectorAll(".cardToFadeIn").forEach((card, i) => {
+setTimeout(() => {
+card.classList.remove("hidden");
+}, 200 * i);
+});
+cardsFadeIn2.unobserve(cardsDiv.target);
+}, { threshold: 0.1 });
+
+if (pastSpeakersCardsDiv2) {
+cardsFadeIn2.observe(pastSpeakersCardsDiv2);
+}
 
 const pastSpeakersCardsDiv = document.querySelector("#pastSpeakersCardsDiv");
 const cardsFadeIn = new IntersectionObserver(entries => {
