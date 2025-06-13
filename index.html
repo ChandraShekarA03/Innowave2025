@@ -346,7 +346,7 @@
                 animation: bounce 2s infinite;
             }
 
-			#scroll-down-message.hide > * {
+			#scroll-down-message.hide > span {
                 transform: translateY(-100%);
 				opacity: 0;
             }
@@ -361,18 +361,24 @@
 			}
 
 			#button_detail {
-				display: block;
 				position: absolute;
-				bottom: 0px;
+				bottom: 100px;
 				left: 50vw;
 				transform: translateX(-50%);
 				padding: 5px 20px;
-				text-decoration: none;
-				color: #ffffff;
 				border-radius: 12px;
 				background-color: #1e6c5d33;
 				transition: transform 0.3s ease, background-color 0.3s ease;
 			}
+
+			#button_detail.hide {
+                transform: translateX(-50%) translateY(-100%);
+				opacity: 0;
+            }
+
+			#button_detail > a {
+				text-decoration: none;
+				color: #ffffff;}
 
 			#button_detail:hover {
 				background-color: #1e6c5d55;
@@ -1252,7 +1258,9 @@
 					<span>CHRIST (DEEMED TO BE UNIVERSITY)</span>
 				</a>
 			</div>
-			<a href="task.pdf" id="button_detail" target="_blank">MORE DETAILS</a>
+			<span id="button_detail">
+				<a href="task.pdf" target="_blank">MORE DETAILS</a>
+			</span>
 			<div id="scroll-down-message">
 				<span>S</span>
 				<span style="transition-delay: 10ms;">C</span>
@@ -1266,9 +1274,11 @@
 				<span style="transition-delay: 80ms;">W</span>
 				<span style="transition-delay: 90ms;">N</span>
 				<br>
-				<svg viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg" style="transition-delay: 100ms;">
-					<path d="M 10, 10 L 45, 25 A 10 10, 0 0, 0 55, 25 L 90, 10" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-				</svg>
+				<span style="transition-delay: 100ms;">
+					<svg viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg" style="transition-delay: 100ms;">
+						<path d="M 10, 10 L 45, 25 A 10 10, 0 0, 0 55, 25 L 90, 10" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
+				</span>
 			</div>
 		</section>
 
@@ -2042,9 +2052,11 @@
 				if(section.intersectionRatio < 1) {
 					logoSectionTexts.classList.add("hide");
 					scrollDownMessage.classList.add("hide");
+					document.getElementById("button_detail").classList.add("hide");
 				} else {
 					logoSectionTexts.classList.remove("hide");
 					scrollDownMessage.classList.remove("hide");
+					document.getElementById("button_detail").classList.remove("hide");
 				}
 				const windowWidthHalf = window.innerWidth / 2;
 				const windowHeightHalf = window.innerHeight / 2;
